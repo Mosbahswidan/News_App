@@ -80,14 +80,19 @@ class LoginViewBody extends StatelessWidget {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
+              children: [
+                const Text(
                   "Remember me",
                   style: TextStyle(color: Color(0xff4E4B66)),
                 ),
-                Text(
-                  "Reset password",
-                  style: TextStyle(color: Color(0xff1877F2)),
+                InkWell(
+                  onTap: () {
+                    GoRouter.of(context).push(AppRouter.kResetPassword);
+                  },
+                  child: const Text(
+                    "Reset password",
+                    style: TextStyle(color: Color(0xff1877F2)),
+                  ),
                 ),
               ],
             ),
