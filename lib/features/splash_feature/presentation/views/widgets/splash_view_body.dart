@@ -15,6 +15,7 @@ class _SplashViewbodyState extends State<SplashViewbody> {
   void initState() {
     super.initState();
     navigateToHome();
+    //onoardingBranch here
   }
 
   @override
