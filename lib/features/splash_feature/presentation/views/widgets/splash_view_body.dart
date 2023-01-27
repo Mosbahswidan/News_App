@@ -10,11 +10,7 @@ class SplashViewbody extends StatefulWidget {
   State<SplashViewbody> createState() => _SplashViewbodyState();
 }
 
-class _SplashViewbodyState extends State<SplashViewbody>
-    with SingleTickerProviderStateMixin {
-  late AnimationController animationController;
-  late Animation<Offset> slidingAnimation;
-
+class _SplashViewbodyState extends State<SplashViewbody> {
   @override
   void initState() {
     super.initState();
@@ -24,8 +20,6 @@ class _SplashViewbodyState extends State<SplashViewbody>
   @override
   void dispose() {
     super.dispose();
-
-    animationController.dispose();
   }
 
   @override
