@@ -27,19 +27,22 @@ class OnBoardingView extends StatelessWidget {
                     dotColor: Colors.grey,
                     // dotHeight: 10,
                     // dotWidth: 10,
-                    spacing: 15),
+                    spacing: 8),
               ),
-              Container(
-                height: 50,
-                width: 70,
-                decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(10)),
-                child: const Center(
-                    child: Text(
-                  "Next",
-                  style: TextStyle(color: Colors.white),
-                )),
+              InkWell(
+                onTap: () {},
+                child: Container(
+                  height: 50,
+                  width: 70,
+                  decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: const Center(
+                      child: Text(
+                    "Next",
+                    style: TextStyle(color: Colors.white),
+                  )),
+                ),
               ),
             ],
           ),
