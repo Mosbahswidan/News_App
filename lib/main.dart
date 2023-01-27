@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:sizer/sizer.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -17,13 +18,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: AppRouter.router,
-      debugShowCheckedModeBanner: false,
-      title: 'NewsApp',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+    return Sizer(
+      builder: (context, orientation, deviceType) {
+        return MaterialApp.router(
+          routerConfig: AppRouter.router,
+          debugShowCheckedModeBanner: false,
+          title: 'NewsApp',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+        );
+      },
     );
   }
 }
