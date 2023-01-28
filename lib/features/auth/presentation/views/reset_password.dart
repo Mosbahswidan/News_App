@@ -13,10 +13,12 @@ class ResetPasswordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
+    var _formKey = GlobalKey<FormState>();
     return Scaffold(
       body: SingleChildScrollView(
           child: ResetPasswordBody(
         controller: emailController,
+        keyd: _formKey,
       )),
       bottomSheet: SizedBox(
         height: AppSize.size100,
@@ -33,9 +35,11 @@ class ResetPasswordView extends StatelessWidget {
                       child: CustomButton(
                         text: "Submit",
                         onPressed: () {
-                          ResetPasswordCubit.get(context).resetPassword(
-                              email: emailController.text.trim(),
-                              context: context);
+                          if (_formKey.currentState!.validate()) {
+                            ResetPasswordCubit.get(context).resetPassword(
+                                email: emailController.text.trim(),
+                                context: context);
+                          }
                         },
                       ),
                     ),

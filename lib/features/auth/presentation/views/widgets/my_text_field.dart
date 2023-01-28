@@ -7,16 +7,19 @@ class MyTextField extends StatelessWidget {
   final TextEditingController controller;
   final bool obsecure;
   final TextInputType? textInputType;
+  final FormFieldValidator? validator;
   const MyTextField(
       {super.key,
       required this.hintText,
       required this.controller,
       required this.obsecure,
-      this.textInputType = TextInputType.name});
+      this.textInputType = TextInputType.name,
+      this.validator});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: validator,
       obscureText: obsecure,
       controller: controller,
       keyboardType: textInputType,

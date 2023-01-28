@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:news_app/features/auth/data/repos/auth_repo.dart';
 
+import '../../../../../constants.dart';
+
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
@@ -14,6 +16,7 @@ class LoginCubit extends Cubit<LoginState> {
     FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
+      UID = value.user!.uid;
       emit(LoginSuccsess());
     }).catchError((e) {
       emit(LoginError());
