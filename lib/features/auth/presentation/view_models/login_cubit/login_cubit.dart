@@ -24,7 +24,7 @@ class LoginCubit extends Cubit<LoginState> {
         .then((value) {
       UID = value.user!.uid;
       emit(LoginSuccsess());
-      GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+      GoRouter.of(context).pushReplacement(AppRouter.kBottomNavBar);
     }).catchError((e) {
       emit(LoginError());
     });
