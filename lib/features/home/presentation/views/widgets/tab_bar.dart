@@ -26,7 +26,7 @@ class _TabBarPageState extends State<TabBarPage>
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 100.w,
       child: Column(
         children: [
@@ -63,35 +63,64 @@ class _TabBarPageState extends State<TabBarPage>
                         text: "Health",
                       ),
                     ]),
+                SizedBox(
+                  height: 300,
+                  // fit: FlexFit.loose,
+                  //height: 200,
+                  child: TabBarView(controller: tabController, children: [
+                    ListView(
+                      physics: const BouncingScrollPhysics(),
+                      //physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      children: [
+                        Column(
+                          children: const [
+                            Text("mosbah"),
+                            SizedBox(height: 30),
+                            Text("mosbah"),
+                            SizedBox(height: 30),
+                            Text("mosbah"),
+                            SizedBox(height: 30),
+                            Text("mosbah"),
+                            SizedBox(height: 30),
+                            Text("mosbah"),
+                            SizedBox(height: 30),
+                            Text("mosbah"),
+                            SizedBox(height: 30),
+                            Text("mosbah"),
+                            SizedBox(height: 30),
+                            Text("mosbah"),
+                            SizedBox(height: 30),
+                            Text("mosbah"),
+                            SizedBox(height: 30),
+                            Text("mosbah"),
+                            SizedBox(height: 30),
+                            Text("mosbah"),
+                            SizedBox(height: 30),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Container(
+                      height: 10,
+                      color: Colors.black,
+                    ),
+                    Container(
+                      height: 10,
+                      color: Colors.yellow,
+                    ),
+                    Container(
+                      height: 10,
+                      color: Colors.red,
+                    ),
+                    Container(
+                      height: 10,
+                      color: Colors.red,
+                    ),
+                  ]),
+                ),
               ],
             ),
-          ),
-          SizedBox(
-            height: 200,
-            // fit: FlexFit.loose,
-            //height: 200,
-            child: TabBarView(controller: tabController, children: [
-              Container(
-                height: 10,
-                color: Colors.red,
-              ),
-              Container(
-                height: 10,
-                color: Colors.black,
-              ),
-              Container(
-                height: 10,
-                color: Colors.yellow,
-              ),
-              Container(
-                height: 10,
-                color: Colors.red,
-              ),
-              Container(
-                height: 10,
-                color: Colors.red,
-              ),
-            ]),
           ),
         ],
       ),

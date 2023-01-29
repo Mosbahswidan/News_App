@@ -10,7 +10,7 @@ class HomeViwe extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: NeverScrollableScrollPhysics(),
         child: HomeViewBody(),
       ),
     );

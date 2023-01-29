@@ -7,6 +7,7 @@ import 'package:news_app/features/home/presentation/views/widgets/sarch_bar_widg
 import 'package:news_app/features/home/presentation/views/widgets/tab_bar.dart';
 import 'package:news_app/features/home/presentation/views/widgets/text_row_widget.dart';
 import 'package:news_app/features/home/presentation/views/widgets/trending_news_widget.dart';
+import 'package:sizer/sizer.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -50,7 +51,7 @@ class HomeViewBody extends StatelessWidget {
             height: AppSize.size20,
           ),
           const TextRow(bigText: "Latest", smallText: "See all"),
-          //TabBarPage(),
+          const TabBarPage(),
         ],
       ),
     ));
