@@ -7,6 +7,7 @@ import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/core/utils/functions.dart';
 import 'package:news_app/core/widgets/custom_snack_bar.dart';
 import 'package:news_app/features/auth/presentation/view_models/login_cubit/login_cubit.dart';
+import 'package:news_app/features/auth/presentation/views/widgets/button_2.dart';
 import 'package:news_app/features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:news_app/features/auth/presentation/views/widgets/my_text_field.dart';
 
@@ -120,7 +121,12 @@ class LoginViewBody extends StatelessWidget {
                 },
                 builder: (context, state) {
                   return state is LoginLoading
-                      ? const Center(child: CircularProgressIndicator())
+                      ? const Center(
+                          child: CustomIndecator(
+                          currentDotColor: Colors.blue,
+                          defaultDotColor: Colors.grey,
+                          numDots: 5,
+                        ))
                       : SizedBox(
                           width: double.infinity,
                           child: CustomButton(
