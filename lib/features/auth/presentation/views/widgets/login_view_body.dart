@@ -135,7 +135,8 @@ class LoginViewBody extends StatelessWidget {
                               if (_formKey.currentState!.validate()) {
                                 LoginCubit.get(context).signIn(
                                     email: emailController.text.trim(),
-                                    password: passwordController.text.trim());
+                                    password: passwordController.text.trim(),
+                                    context: context);
                               }
                             },
                           ),
