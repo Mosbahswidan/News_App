@@ -41,7 +41,7 @@ class _SplashViewbodyState extends State<SplashViewbody> {
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        GoRouter.of(context).pushReplacement(AppRouter.kOnBoarding);
+        GoRouter.of(context).pushReplacement(AppRouter.kBottomNavBar);
       },
     );
   }

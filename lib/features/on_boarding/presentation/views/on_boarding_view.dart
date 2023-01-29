@@ -4,7 +4,6 @@ import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/features/on_boarding/presentation/views/widgets/on_boarding_view_body.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import '../../../../core/utils/app_size.dart';
 import '../../data/slider_data.dart';
 

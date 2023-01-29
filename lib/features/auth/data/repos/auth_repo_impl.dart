@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 import 'package:news_app/features/auth/data/repos/auth_repo.dart';
 
 class AuthRepoImpl implements AuthRepo {
@@ -8,9 +8,9 @@ class AuthRepoImpl implements AuthRepo {
     FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
-      print("true");
+      debugPrint("true");
     }).catchError((e) {
-      print("error");
+      debugPrint("error");
     });
   }
 }

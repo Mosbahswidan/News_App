@@ -18,33 +18,29 @@ class LoginViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
-    var _formKey = GlobalKey<FormState>();
+    var formKey = GlobalKey<FormState>();
 
     return SafeArea(
       child: Form(
-        key: _formKey,
+        key: formKey,
         child: Padding(
-          padding: EdgeInsets.only(
-              left: AppSize.size20, right: AppSize.size20, top: AppSize.size40),
+          padding:
+              EdgeInsets.only(left: AppSize.size20, right: AppSize.size20, top: AppSize.size40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
                 "Hello",
-                style: TextStyle(
-                    color: Color(0xff050505),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 46),
+                style:
+                    TextStyle(color: Color(0xff050505), fontWeight: FontWeight.bold, fontSize: 46),
               ),
               SizedBox(
                 height: AppSize.size10,
               ),
               const Text(
                 "Again!",
-                style: TextStyle(
-                    color: Color(0xff1877F2),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 46),
+                style:
+                    TextStyle(color: Color(0xff1877F2), fontWeight: FontWeight.bold, fontSize: 46),
               ),
               SizedBox(
                 height: AppSize.size15,
@@ -132,7 +128,7 @@ class LoginViewBody extends StatelessWidget {
                           child: CustomButton(
                             text: "Login",
                             onPressed: () {
-                              if (_formKey.currentState!.validate()) {
+                              if (formKey.currentState!.validate()) {
                                 LoginCubit.get(context).signIn(
                                     email: emailController.text.trim(),
                                     password: passwordController.text.trim(),
@@ -150,14 +146,12 @@ class LoginViewBody extends StatelessWidget {
                 child: RichText(
                   text: TextSpan(
                       text: "Dont have an account? ",
-                      style: const TextStyle(
-                          color: Color(0xff667080), fontSize: 14),
+                      style: const TextStyle(color: Color(0xff667080), fontSize: 14),
                       children: [
                         TextSpan(
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                GoRouter.of(context)
-                                    .pushReplacement(AppRouter.kSignUpView);
+                                GoRouter.of(context).pushReplacement(AppRouter.kSignUpView);
                               },
                             text: "Sign up",
                             style: const TextStyle(
