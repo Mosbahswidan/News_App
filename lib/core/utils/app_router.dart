@@ -9,6 +9,7 @@ import 'package:news_app/features/auth/presentation/views/sign_up_view.dart';
 import 'package:news_app/features/bottom_navBar/view_model/bottom_nav_cubit.dart';
 import 'package:news_app/features/bottom_navBar/views/bottom_navbar_view.dart';
 import 'package:news_app/features/home/presentation/views/pages/home_view.dart';
+import 'package:news_app/features/home/presentation/views/pages/trending_view.dart';
 import 'package:news_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 import '../../features/splash_feature/presentation/views/splash_view.dart';
 
@@ -19,6 +20,7 @@ abstract class AppRouter {
   static const kSignUpView = "/signUpView";
   static const kResetPassword = "/resetPassword";
   static const kBottomNavBar = "/bottomNavBar";
+  static const kTrending = "/kTrendingView";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -55,11 +57,15 @@ abstract class AppRouter {
         builder: (context, state) => const HomeViwe(),
       ),
       GoRoute(
-        path: kBottomNavBar, 
+        path: kBottomNavBar,
         builder: (context, state) => BlocProvider(
           create: (context) => BottomNavCubit(),
           child: const BottomNavView(),
         ),
+      ),
+      GoRoute(
+        path: kTrending,
+        builder: (context, state) => const TrendingView(),
       ),
     ],
   );
