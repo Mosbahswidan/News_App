@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/core/utils/assets_data.dart';
 import 'package:news_app/features/home/presentation/views/widgets/sarch_bar_widget.dart';
@@ -39,7 +41,13 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(
             height: AppSize.size20,
           ),
-          const TextRow(bigText: "Trending", smallText: "See all"),
+          TextRow(
+            bigText: "Trending",
+            smallText: "See all",
+            onTap: () {
+              GoRouter.of(context).push(AppRouter.kTrending);
+            },
+          ),
           SizedBox(
             height: AppSize.size20,
           ),
