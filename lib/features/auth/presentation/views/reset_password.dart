@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/features/auth/presentation/view_models/reset_pass_cubit/reset_password_cubit.dart';
@@ -13,12 +11,12 @@ class ResetPasswordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
-    var _formKey = GlobalKey<FormState>();
+    var formKey = GlobalKey<FormState>();
     return Scaffold(
       body: SingleChildScrollView(
           child: ResetPasswordBody(
         controller: emailController,
-        keyd: _formKey,
+        keyd: formKey,
       )),
       bottomSheet: SizedBox(
         height: AppSize.size100,
@@ -35,7 +33,7 @@ class ResetPasswordView extends StatelessWidget {
                       child: CustomButton(
                         text: "Submit",
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
+                          if (formKey.currentState!.validate()) {
                             ResetPasswordCubit.get(context).resetPassword(
                                 email: emailController.text.trim(),
                                 context: context);

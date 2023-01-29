@@ -1,13 +1,9 @@
-import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:news_app/constants.dart';
-import 'package:news_app/core/widgets/custom_snack_bar.dart';
 import 'package:news_app/features/auth/data/models/user_models.dart';
-
 part 'signup_state.dart';
 
 class SignupCubit extends Cubit<SignupState> {
@@ -27,7 +23,7 @@ class SignupCubit extends Cubit<SignupState> {
           password: password,
           username: username,
           uId: value.user!.uid);
-         UID = value.user!.uid;
+         uID = value.user!.uid;
       emit(SignupSuccess());
     }).catchError((e) {
       emit(SignupError("email is already use by another account"));

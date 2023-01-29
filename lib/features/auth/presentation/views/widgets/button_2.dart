@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'dart:math' as Math;
 
 import 'package:flutter/material.dart';
@@ -19,13 +18,11 @@ class CustomIndecator extends StatefulWidget {
   final double size; //Width and height of the
   final double dotSize; //Diameter of each dot
   final int secondsPerRotation;
-  final Color
-      currentDotColor; //The color of the dot that "circles" around the indicator
+  final Color currentDotColor; //The color of the dot that "circles" around the indicator
   final Color defaultDotColor; //The color of the dots that aren't animated
 
   @override
-  State<CustomIndecator> createState() =>
-      _DottedCircularProgressIndicatorFbState();
+  State<CustomIndecator> createState() => _DottedCircularProgressIndicatorFbState();
 }
 
 class _DottedCircularProgressIndicatorFbState extends State<CustomIndecator>
@@ -36,31 +33,28 @@ class _DottedCircularProgressIndicatorFbState extends State<CustomIndecator>
   @override
   void initState() {
     super.initState();
-    animController = AnimationController(
-        duration: Duration(seconds: widget.secondsPerRotation), vsync: this)
-      ..repeat();
-    animation =
-        StepTween(begin: 0, end: widget.numDots + 1).animate(animController)
-          ..addListener(() {
-            setState(() {});
-          });
+    animController =
+        AnimationController(duration: Duration(seconds: widget.secondsPerRotation), vsync: this)
+          ..repeat();
+    animation = StepTween(begin: 0, end: widget.numDots + 1).animate(animController)
+      ..addListener(() {
+        setState(() {});
+      });
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     animController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: widget.size,
       height: widget.size,
       // decoration: BoxDecoration(color: Colors.red), //for debugging purposes
       child: CustomPaint(
-        child: Container(),
         painter: DottedCircularProgressIndicatorPainterFb(
             dotColor: widget.defaultDotColor,
             currentDotColor: widget.currentDotColor,
@@ -68,6 +62,7 @@ class _DottedCircularProgressIndicatorFbState extends State<CustomIndecator>
             numDots: widget.numDots,
             currentDotNum: animation.value,
             dotWidth: widget.dotSize),
+        child: Container(),
       ),
     );
   }
@@ -107,9 +102,7 @@ class DottedCircularProgressIndicatorPainterFb extends CustomPainter {
         dotPaint.color = dotColor;
       }
       canvas.drawCircle(
-          centerPoint - myCircle.calcDotOffsetFromCenter(i, radius),
-          dotWidth,
-          dotPaint);
+          centerPoint - myCircle.calcDotOffsetFromCenter(i, radius), dotWidth, dotPaint);
     }
   }
 

@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/features/on_boarding/data/models/slider_model.dart';
 
-import '../../../../../core/utils/assets_data.dart';
 
 class PageViewItem extends StatelessWidget {
   final SliderModel model;
