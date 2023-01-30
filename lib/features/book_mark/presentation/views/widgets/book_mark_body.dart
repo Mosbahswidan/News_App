@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/constants.dart';
 import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/features/book_mark/presentation/views/widgets/book_mark_item.dart';
 import 'package:news_app/features/home/presentation/views/widgets/sarch_bar_widget.dart';
@@ -34,11 +33,11 @@ class BookMarkViewBody extends StatelessWidget {
               textController: searchController,
             ),
             SizedBox(height: AppSize.size40),
-            BookMarkItem(),
-            BookMarkItem(),
-            BookMarkItem(),
-            BookMarkItem(),
-            BookMarkItem(),
+            const BookMarkItem(),
+            const BookMarkItem(),
+            const BookMarkItem(),
+            const BookMarkItem(),
+            const BookMarkItem(),
           ],
         ),
       ),

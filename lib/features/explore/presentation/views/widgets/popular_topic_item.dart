@@ -46,7 +46,7 @@ class PopularTopicItem extends StatelessWidget {
             ),
             Text(
               newsCountry ?? 'Gaza',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w400,
                 color: kSecondaryColor,
@@ -59,7 +59,7 @@ class PopularTopicItem extends StatelessWidget {
               newsTitle ?? 'Russian warship: Moskva sinks in Black Sea',
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
               ),
@@ -80,7 +80,7 @@ class PopularTopicItem extends StatelessWidget {
                 ),
                 Text(
                   newsAuthorName ?? 'BBC News',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
                     color: kSecondaryColor,
@@ -89,7 +89,7 @@ class PopularTopicItem extends StatelessWidget {
                 const SizedBox(
                   width: 20,
                 ),
-                Icon(
+                const Icon(
                   Icons.access_time_rounded,
                   color: kSecondaryColor,
                   size: 18,
@@ -98,7 +98,7 @@ class PopularTopicItem extends StatelessWidget {
                   width: 6,
                 ),
                 Expanded(
-                  child: Text(
+                  child: const Text(
                     '4h ago',
                     style: TextStyle(
                       fontSize: 14,
@@ -109,7 +109,7 @@ class PopularTopicItem extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: onPressed,
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.more_horiz,
                     color: kSecondaryColor,
                     size: 26,
