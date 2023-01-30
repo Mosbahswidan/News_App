@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/constants.dart';
+import 'package:news_app/features/author_profile/presentation/views/pages/author_profile_view.dart';
 import 'package:news_app/features/book_mark/presentation/views/book_mark_view.dart';
 import 'package:news_app/features/bottom_navBar/view_model/bottom_nav_state.dart';
 import 'package:news_app/features/explore/presentation/views/explore_view.dart';
@@ -17,7 +18,7 @@ class BottomNavCubit extends Cubit<BottomNavState> {
     const HomeViwe(),
     const ExploreView(),
     const BookMarkView(),
-    const HomeViwe(),
+    const AuthorprofileView(),
   ];
 
   List<PersistentBottomNavBarItem> items = [

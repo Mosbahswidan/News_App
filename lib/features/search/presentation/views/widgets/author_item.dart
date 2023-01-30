@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:news_app/core/utils/assets_data.dart';
 import 'package:news_app/features/home/presentation/views/widgets/small_text.dart';
 import 'package:news_app/features/search/data/models/author_model.dart';
