@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/constants.dart';
 import 'package:news_app/features/news_details/presentation/views/widgets/news_details_body.dart';
 import 'package:news_app/features/news_details/presentation/views/widgets/news_details_bottom.dart';
 
@@ -17,8 +18,8 @@ class NewsDetailsView extends StatelessWidget {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: Colors.black,
-            size: 30,
+            color: kSecondaryColor,
+            size: 25,
           ),
         ),
         actions: [
@@ -26,8 +27,8 @@ class NewsDetailsView extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(
               Icons.share,
-              color: Colors.black,
-              size: 30,
+              color: kSecondaryColor,
+              size: 25,
             ),
           ),
           const SizedBox(
@@ -37,8 +38,8 @@ class NewsDetailsView extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(
               Icons.more_vert,
-              color: Colors.black,
-              size: 30,
+              color: kSecondaryColor,
+              size: 25,
             ),
           ),
         ],

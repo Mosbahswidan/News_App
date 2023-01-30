@@ -25,7 +25,8 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'NewsApp',
           theme: ThemeData(
-              //primarySwatch: Colors.blue,
+              primarySwatch: Colors.blue,
+              scaffoldBackgroundColor: Colors.white,
               ),
         );
       },
