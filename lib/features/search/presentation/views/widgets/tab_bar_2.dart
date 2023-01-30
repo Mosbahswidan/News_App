@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/features/search/data/author_data.dart';
 import 'package:news_app/features/search/presentation/views/widgets/author_item.dart';
 

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:go_router/go_router.dart';
 import 'package:news_app/core/utils/assets_data.dart';
 import 'package:news_app/features/home/presentation/views/widgets/small_text.dart';
 import 'package:news_app/features/search/data/models/author_model.dart';
+
+import '../../../../../core/utils/app_router.dart';
 
 class AuthorItem extends StatelessWidget {
   final AuthorModel model;
@@ -19,9 +22,14 @@ class AuthorItem extends StatelessWidget {
         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CircleAvatar(
-            radius: 50,
-            child: Image.asset(AssetsData.news),
+          GestureDetector(
+            onTap: () {
+              GoRouter.of(context).push(AppRouter.kAuthorProfile);
+            },
+            child: CircleAvatar(
+              radius: 50,
+              child: Image.asset(AssetsData.news),
+            ),
           ),
           Expanded(
             flex: 20,
