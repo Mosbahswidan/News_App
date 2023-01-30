@@ -37,7 +37,14 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(
             height: AppSize.size20,
           ),
-          SearchWidget(textController: searchController, hintText: "Search"),
+          SearchWidget(
+            textController: searchController,
+            hintText: "Search",
+            tap: () {
+              GoRouter.of(context)
+                  .push(AppRouter.kSearch, extra: searchController);
+            },
+          ),
           SizedBox(
             height: AppSize.size20,
           ),
@@ -55,7 +62,13 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(
             height: AppSize.size20,
           ),
-          const TextRow(bigText: "Latest", smallText: "See all"),
+          TextRow(
+            bigText: "Latest",
+            smallText: "See all",
+            onTap: () {
+              GoRouter.of(context).push(AppRouter.kLatest);
+            },
+          ),
           const TabBarPage(),
         ],
       ),
