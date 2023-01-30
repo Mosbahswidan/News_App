@@ -12,6 +12,8 @@ class AddNewsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController newsTitleController = TextEditingController();
+    final TextEditingController newsController = TextEditingController();
+    print(AddNewsCubit.get(context).image);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Column(
@@ -57,31 +59,66 @@ class AddNewsBody extends StatelessWidget {
               hintStyle: TextStyle(fontSize: 20),
             ),
           ),
-          Expanded(
-            child: TextField(
-              controller: newsTitleController,
-              style: const TextStyle(fontSize: 20),
-              decoration: const InputDecoration(
-                  hintText: "Add News",
-                  hintStyle: TextStyle(
-                    fontSize: 16,
-                  ),
-                  border: InputBorder.none),
-            ),
+          BlocConsumer<AddNewsCubit, AddNewsState>(
+            listener: (context, state) {
+              // TODO: implement listener
+            },
+            builder: (context, state) {
+              return Expanded(
+                child: TextField(
+                  onChanged: (value) {
+                    AddNewsCubit.get(context).emitScreen();
+                  },
+                  controller: newsController,
+                  style: const TextStyle(fontSize: 20),
+                  decoration: const InputDecoration(
+                      hintText: "Add News",
+                      hintStyle: TextStyle(
+                        fontSize: 16,
+                      ),
+                      border: InputBorder.none),
+                ),
+              );
+            },
           ),
-          Container(
-            height: 70,
-            color: Colors.white,
-            child: Row(
-              children: [
-                const Spacer(),
-                SizedBox(
-                    height: 50,
-                    width: 100,
-                    child: ElevatedButton(
-                        onPressed: () {}, child: Text("Publish"))),
-              ],
-            ),
+          BlocConsumer<AddNewsCubit, AddNewsState>(
+            listener: (context, state) {
+              // TODO: implement listener
+            },
+            builder: (context, state) {
+              return Container(
+                height: 70,
+                color: Colors.white,
+                child: Row(
+                  children: [
+                    const Spacer(),
+                    newsController.text.isEmpty &&
+                            newsTitleController.text.isEmpty &&
+                            AddNewsCubit.get(context).image == null
+                        ? SizedBox(
+                            height: 50,
+                            width: 100,
+                            child: ElevatedButton(
+                              onPressed: null,
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(0xffEEF1F4)),
+                              child: const Text(
+                                "Publish",
+                                style: TextStyle(color: Color(0xff667080)),
+                              ),
+                            ))
+                        : SizedBox(
+                            height: 50,
+                            width: 100,
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  print(newsTitleController.text.isEmpty);
+                                },
+                                child: const Text("Publish"))),
+                  ],
+                ),
+              );
+            },
           ),
         ],
       ),
