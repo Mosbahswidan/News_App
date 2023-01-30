@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:news_app/features/add_news/presentation/view_models/add_nwes_cubit/add_news_cubit.dart';
+import 'package:news_app/features/add_news/presentation/views/pages/add_news.dart';
 import 'package:news_app/features/auth/presentation/view_models/login_cubit/login_cubit.dart';
 import 'package:news_app/features/auth/presentation/view_models/reset_pass_cubit/reset_password_cubit.dart';
 import 'package:news_app/features/auth/presentation/view_models/signup_cubit/signup_cubit.dart';
@@ -35,6 +37,7 @@ abstract class AppRouter {
   static const kAuthorProfile = "/userProfile";
   static const kSettings = "/settings";
   static const kEditProfile = "/editProfile";
+  static const kAddNews = "/addNews";
 
   static final router = GoRouter(
     routes: [
@@ -111,6 +114,13 @@ abstract class AppRouter {
         builder: (context, state) => BlocProvider(
           create: (context) => EditProfileCubit(),
           child: const EditProfileView(),
+        ),
+      ),
+      GoRoute(
+        path: kAddNews,
+        builder: (context, state) => BlocProvider(
+          create: (context) => AddNewsCubit(),
+          child: const AddNewsView(),
         ),
       ),
     ],

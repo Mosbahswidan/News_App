@@ -50,7 +50,9 @@ class UserprofileView extends StatelessWidget {
       ),
       body: const AuthorProfileBody(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          GoRouter.of(context).push(AppRouter.kAddNews);
+        },
         elevation: 0.3,
         child: const Icon(
           Icons.add,

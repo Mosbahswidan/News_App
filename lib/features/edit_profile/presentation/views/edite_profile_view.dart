@@ -15,13 +15,13 @@ class EditProfileView extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.close,
             color: Colors.black,
           ),
         ),
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Edit Profile',
           style: TextStyle(color: Colors.black),
         ),
@@ -30,7 +30,7 @@ class EditProfileView extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.check,
               color: Colors.black,
             ),
