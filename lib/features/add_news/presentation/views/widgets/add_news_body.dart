@@ -16,17 +16,20 @@ class AddNewsBody extends StatelessWidget {
     print(AddNewsCubit.get(context).image);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: Column(
-        children: [
-          DottedBorder(
-            color: Colors.black,
-            padding: const EdgeInsets.all(2),
-            strokeWidth: 1,
-            borderType: BorderType.RRect,
-            dashPattern: const [20, 3],
-            child: BlocBuilder<AddNewsCubit, AddNewsState>(
-              builder: (context, state) {
-                return InkWell(
+      child: BlocConsumer<AddNewsCubit, AddNewsState>(
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          return Column(
+            children: [
+              DottedBorder(
+                color: Colors.black,
+                padding: const EdgeInsets.all(2),
+                strokeWidth: 1,
+                borderType: BorderType.RRect,
+                dashPattern: const [20, 3],
+                child: InkWell(
                   onTap: AddNewsCubit.get(context).uploadImage,
                   child: Container(
                     height: 250,
@@ -44,27 +47,23 @@ class AddNewsBody extends StatelessWidget {
                             fit: BoxFit.cover,
                           ),
                   ),
-                );
-              },
-            ),
-          ),
-          SizedBox(
-            height: AppSize.size20,
-          ),
-          TextField(
-            controller: newsTitleController,
-            style: const TextStyle(fontSize: 20),
-            decoration: const InputDecoration(
-              hintText: "News Title",
-              hintStyle: TextStyle(fontSize: 20),
-            ),
-          ),
-          BlocConsumer<AddNewsCubit, AddNewsState>(
-            listener: (context, state) {
-              // TODO: implement listener
-            },
-            builder: (context, state) {
-              return Expanded(
+                ),
+              ),
+              SizedBox(
+                height: AppSize.size20,
+              ),
+              TextField(
+                onChanged: (value) {
+                  AddNewsCubit.get(context).emitScreen();
+                },
+                controller: newsTitleController,
+                style: const TextStyle(fontSize: 20),
+                decoration: const InputDecoration(
+                  hintText: "News Title",
+                  hintStyle: TextStyle(fontSize: 20),
+                ),
+              ),
+              Expanded(
                 child: TextField(
                   onChanged: (value) {
                     AddNewsCubit.get(context).emitScreen();
@@ -78,49 +77,42 @@ class AddNewsBody extends StatelessWidget {
                       ),
                       border: InputBorder.none),
                 ),
-              );
-            },
-          ),
-          BlocConsumer<AddNewsCubit, AddNewsState>(
-            listener: (context, state) {
-              // TODO: implement listener
-            },
-            builder: (context, state) {
-              return Container(
+              ),
+              Container(
                 height: 70,
                 color: Colors.white,
                 child: Row(
                   children: [
                     const Spacer(),
-                    newsController.text.isEmpty &&
-                            newsTitleController.text.isEmpty &&
-                            AddNewsCubit.get(context).image == null
+                    newsController.text.isNotEmpty &&
+                            newsTitleController.text.isNotEmpty &&
+                            AddNewsCubit.get(context).image != null
                         ? SizedBox(
-                            height: 50,
-                            width: 100,
-                            child: ElevatedButton(
-                              onPressed: null,
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: Color(0xffEEF1F4)),
-                              child: const Text(
-                                "Publish",
-                                style: TextStyle(color: Color(0xff667080)),
-                              ),
-                            ))
-                        : SizedBox(
                             height: 50,
                             width: 100,
                             child: ElevatedButton(
                                 onPressed: () {
                                   print(newsTitleController.text.isEmpty);
                                 },
-                                child: const Text("Publish"))),
+                                child: const Text("Publish")))
+                        : SizedBox(
+                            height: 50,
+                            width: 100,
+                            child: ElevatedButton(
+                              onPressed: null,
+                              style: ElevatedButton.styleFrom(
+                                  backgroundColor: const Color(0xffEEF1F4)),
+                              child: const Text(
+                                "Publish",
+                                style: TextStyle(color: Color(0xff667080)),
+                              ),
+                            )),
                   ],
                 ),
-              );
-            },
-          ),
-        ],
+              ),
+            ],
+          );
+        },
       ),
     );
   }
