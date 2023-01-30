@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/utils/app_size.dart';
+import 'package:news_app/features/explore/presentation/views/widgets/popular_topic_item.dart';
 import 'package:news_app/features/explore/presentation/views/widgets/topic_item.dart';
 import 'package:news_app/features/home/presentation/views/widgets/text_row_widget.dart';
 import 'package:sizer/sizer.dart';
@@ -62,6 +63,11 @@ class ExploreViewBody extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               ),
             ),
+            const SizedBox(
+              height: 15,
+            ),
+            PopularTopicItem(),
+            PopularTopicItem(),
           ],
         ),
       ),
