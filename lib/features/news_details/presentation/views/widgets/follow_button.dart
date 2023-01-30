@@ -16,8 +16,8 @@ class FollowButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: 90,
-        height: 45,
+        width: 80,
+        height: 40,
         decoration: BoxDecoration(
           borderRadius: BorderRadiusDirectional.circular(10),
           color: followed == false ? kPrimaryColor : Colors.transparent,
