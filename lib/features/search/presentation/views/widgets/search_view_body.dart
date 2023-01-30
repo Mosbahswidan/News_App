@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/features/home/presentation/views/widgets/sarch_bar_widget.dart';
-import 'package:news_app/features/search/presentation/views/widgets/search_tab_bar.dart';
 import 'package:news_app/features/search/presentation/views/widgets/tab_bar_2.dart';
 
 class SearchViewBody extends StatelessWidget {

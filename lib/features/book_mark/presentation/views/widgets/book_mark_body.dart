@@ -7,7 +7,7 @@ import 'package:sizer/sizer.dart';
 class BookMarkViewBody extends StatelessWidget {
   BookMarkViewBody({super.key});
 
-  TextEditingController searchController = TextEditingController();
+  final TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

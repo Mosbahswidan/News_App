@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:news_app/features/home/presentation/views/widgets/trending_news_widget.dart';
 
 import '../../../../../core/utils/app_size.dart';
@@ -44,8 +43,8 @@ class TrendingViewBody extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: 10,
                 itemBuilder: (context, index) => Container(
-                  margin: EdgeInsets.symmetric(vertical: 20),
-                  child: TrendingNewsItem(),
+                  margin: const EdgeInsets.symmetric(vertical: 20),
+                  child: const TrendingNewsItem(),
                 ),
               ),
             ],

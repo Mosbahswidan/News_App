@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:news_app/features/search/data/author_data.dart';
 import 'package:news_app/features/search/presentation/views/widgets/author_item.dart';
 
@@ -80,8 +79,7 @@ class TabBarAndTabViews extends StatefulWidget {
   _TabBarAndTabViewsState createState() => _TabBarAndTabViewsState();
 }
 
-class _TabBarAndTabViewsState extends State<TabBarAndTabViews>
-    with SingleTickerProviderStateMixin {
+class _TabBarAndTabViewsState extends State<TabBarAndTabViews> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -112,7 +110,7 @@ class _TabBarAndTabViewsState extends State<TabBarAndTabViews>
               ),
             ),
             child: Padding(
-              padding: EdgeInsets.all(6),
+              padding: const EdgeInsets.all(6),
               child: TabBar(
                   controller: _tabController,
                   // give the indicator a decoration (color and border radius)

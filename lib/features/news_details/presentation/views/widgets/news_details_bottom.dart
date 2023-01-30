@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/constants.dart';
 import 'package:news_app/core/utils/app_size.dart';
+import 'package:news_app/features/news_details/presentation/views/widgets/comments_view.dart';
 
 class NewsDetailsBottom extends StatelessWidget {
   const NewsDetailsBottom({super.key});
@@ -10,7 +11,7 @@ class NewsDetailsBottom extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 70,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         boxShadow: [
           BoxShadow(
@@ -26,42 +27,48 @@ class NewsDetailsBottom extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(
+            const Icon(
               Icons.favorite,
               color: Color(0xFFED2E7E),
               size: 26,
             ),
-            SizedBox(
+            const SizedBox(
               width: 4,
             ),
-            Text(
+            const Text(
               '24.5K',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             IconButton(
-              onPressed: () {},
-              icon: Icon(
+              onPressed: () {
+                Navigator.of(context, rootNavigator: true).push(
+                  MaterialPageRoute(
+                    builder: (context) => const CommentsView(),
+                  ),
+                );
+              },
+              icon: const Icon(
                 Icons.chat_outlined,
                 size: 24,
               ),
             ),
-            Text(
+            const Text(
               '1K',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
               ),
             ),
-            Spacer(),
+            const Spacer(),
             IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.bookmark,
                 size: 28,
                 color: kPrimaryColor,
