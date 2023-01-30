@@ -8,7 +8,7 @@ class BookMarkView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: BookMarkViewBody(),
       ),
     );

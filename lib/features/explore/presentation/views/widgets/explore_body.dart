@@ -66,8 +66,8 @@ class ExploreViewBody extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            PopularTopicItem(),
-            PopularTopicItem(),
+            const PopularTopicItem(),
+            const PopularTopicItem(),
           ],
         ),
       ),
