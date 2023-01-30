@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:go_router/go_router.dart';
+import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/app_size.dart';
-import 'package:news_app/features/author_profile/presentation/views/widgets/button_widget.dart';
 import 'package:news_app/features/home/presentation/views/widgets/latest_news_item.dart';
 import 'package:news_app/features/home/presentation/views/widgets/small_text.dart';
+import 'package:news_app/features/user_profile/presentation/views/widgets/button_widget.dart';
 import 'package:sizer/sizer.dart';
 
 class AuthorProfileBody extends StatelessWidget {
@@ -13,11 +13,14 @@ class AuthorProfileBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppSize.size20),
+      padding: EdgeInsets.symmetric(
+        horizontal: AppSize.size20,
+        vertical: AppSize.size10,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
+          SizedBox(
             height: 80,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,8 +39,7 @@ class AuthorProfileBody extends StatelessWidget {
                     Text(
                       "1.2M",
                       //textAlign: TextAlign.end,
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                     SmallText(smallText: "Followers"),
                   ],
@@ -47,8 +49,7 @@ class AuthorProfileBody extends StatelessWidget {
                   children: const [
                     Text(
                       "12.4K",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                     SmallText(smallText: "Following"),
                   ],
@@ -58,8 +59,7 @@ class AuthorProfileBody extends StatelessWidget {
                   children: const [
                     Text(
                       "326",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                     SmallText(smallText: "News"),
                   ],
@@ -85,17 +85,20 @@ class AuthorProfileBody extends StatelessWidget {
           ),
           Row(
             children: [
-              const Expanded(
+              Expanded(
                   child: SizedBox(
                 height: 50,
-                child: ProfileButton(text: "Following"),
+                child: ProfileButton(
+                  onPressed: () {
+                    GoRouter.of(context).push(AppRouter.kEditProfile);
+                  },
+                  text: "Edit Profile",
+                ),
               )),
               SizedBox(
                 width: 4.w,
               ),
-              const Expanded(
-                  child: SizedBox(
-                      height: 50, child: ProfileButton(text: "Website"))),
+              const Expanded(child: SizedBox(height: 50, child: ProfileButton(text: "Website"))),
             ],
           ),
           SizedBox(
@@ -103,8 +106,7 @@ class AuthorProfileBody extends StatelessWidget {
           ),
           const Text(
             "News",
-            style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
           ),
           Expanded(
             child: ListView.builder(

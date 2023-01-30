@@ -7,14 +7,19 @@ import 'package:news_app/features/auth/presentation/view_models/signup_cubit/sig
 import 'package:news_app/features/auth/presentation/views/login_view.dart';
 import 'package:news_app/features/auth/presentation/views/reset_password.dart';
 import 'package:news_app/features/auth/presentation/views/sign_up_view.dart';
-import 'package:news_app/features/author_profile/presentation/views/pages/author_profile_view.dart';
 import 'package:news_app/features/bottom_navBar/view_model/bottom_nav_cubit.dart';
 import 'package:news_app/features/bottom_navBar/views/bottom_navbar_view.dart';
+import 'package:news_app/features/edit_profile/presentation/view_model/edit_profile_cubit.dart';
+import 'package:news_app/features/edit_profile/presentation/views/edite_profile_view.dart';
 import 'package:news_app/features/home/presentation/views/pages/home_view.dart';
 import 'package:news_app/features/home/presentation/views/pages/latest_view.dart';
 import 'package:news_app/features/home/presentation/views/pages/trending_view.dart';
 import 'package:news_app/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:news_app/features/search/presentation/views/pages/search_view.dart';
+import 'package:news_app/features/settings/presentation/view_model/settings_cubit.dart';
+import 'package:news_app/features/settings/presentation/views/settings_view.dart';
+import 'package:news_app/features/user_profile/presentation/view_model/user_profile_cubit.dart';
+import 'package:news_app/features/user_profile/presentation/views/pages/user_profile_view.dart';
 import '../../features/splash_feature/presentation/views/splash_view.dart';
 
 abstract class AppRouter {
@@ -27,7 +32,10 @@ abstract class AppRouter {
   static const kTrending = "/kTrendingView";
   static const kLatest = "/kLatest";
   static const kSearch = "/ksearch";
-  static const kAuthorProfile = "/authorProfile";
+  static const kAuthorProfile = "/userProfile";
+  static const kSettings = "/settings";
+  static const kEditProfile = "/editProfile";
+
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -86,7 +94,24 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kAuthorProfile,
-        builder: (context, state) => const AuthorprofileView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => UserProfileCubit(),
+          child: const UserprofileView(),
+        ),
+      ),
+      GoRoute(
+        path: kSettings,
+        builder: (context, state) => BlocProvider(
+          create: (context) => SettingsCubit(),
+          child: const SettingsView(),
+        ),
+      ),
+      GoRoute(
+        path: kEditProfile,
+        builder: (context, state) => BlocProvider(
+          create: (context) => EditProfileCubit(),
+          child: const EditProfileView(),
+        ),
       ),
     ],
   );
