@@ -5,6 +5,7 @@ class SearchWidget extends StatelessWidget {
   final TextEditingController textController;
   final String hintText;
   final GestureTapCallback? tap;
+  //
   const SearchWidget(
       {required this.textController,
       required this.hintText,
