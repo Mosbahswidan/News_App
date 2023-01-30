@@ -4,8 +4,12 @@ import 'package:news_app/core/utils/app_size.dart';
 class SearchWidget extends StatelessWidget {
   final TextEditingController textController;
   final String hintText;
+  final GestureTapCallback? tap;
   const SearchWidget(
-      {required this.textController, required this.hintText, Key? key})
+      {required this.textController,
+      required this.hintText,
+      Key? key,
+      this.tap})
       : super(key: key);
 
   @override
@@ -24,9 +28,12 @@ class SearchWidget extends StatelessWidget {
           //Do something wi
         },
         decoration: InputDecoration(
-          prefixIcon: Icon(
-            Icons.search,
-            color: Colors.grey[500]!,
+          prefixIcon: InkWell(
+            onTap: tap,
+            child: Icon(
+              Icons.search,
+              color: Colors.grey[500]!,
+            ),
           ),
           //filled: true,
           // fillColor: Colors.white,
