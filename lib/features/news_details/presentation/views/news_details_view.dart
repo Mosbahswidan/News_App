@@ -48,7 +48,7 @@ class NewsDetailsView extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: NewsDetailsViewBody(),
       ),
-      bottomNavigationBar: NewsDetailsBottom(),
+      bottomNavigationBar: const NewsDetailsBottom(),
     );
   }
 }

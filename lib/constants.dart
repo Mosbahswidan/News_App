@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/features/search/data/models/author_model.dart';
 
 //const kPrimaryColor = Color(0xFF100B20);
 const kPrimaryColor = Color(0xFF1877F2);

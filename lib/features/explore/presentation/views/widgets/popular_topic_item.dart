@@ -97,8 +97,8 @@ class PopularTopicItem extends StatelessWidget {
                 const SizedBox(
                   width: 6,
                 ),
-                Expanded(
-                  child: const Text(
+                const Expanded(
+                  child: Text(
                     '4h ago',
                     style: TextStyle(
                       fontSize: 14,

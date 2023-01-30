@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/features/home/presentation/views/widgets/latest_view_body.dart';
 
-import '../widgets/app_bar.dart';
-import '../widgets/latest_news_item.dart';
 
 class LatestView extends StatelessWidget {
   const LatestView({super.key});
