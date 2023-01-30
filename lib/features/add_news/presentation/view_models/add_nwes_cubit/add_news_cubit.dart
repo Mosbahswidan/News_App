@@ -20,4 +20,8 @@ class AddNewsCubit extends Cubit<AddNewsState> {
       emit(AddNewsPickImageSuccess());
     } else {}
   }
+
+  void emitScreen() {
+    emit(AddNewsEmit());
+  }
 }
