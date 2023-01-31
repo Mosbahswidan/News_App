@@ -23,7 +23,6 @@ List<TabPair> TabPairs = [
       text: 'News',
     ),
     view: SearchResultList(),
-
   ),
   TabPair(
     tab: const Tab(

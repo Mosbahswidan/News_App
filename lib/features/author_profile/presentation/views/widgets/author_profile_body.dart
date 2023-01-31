@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/app_size.dart';
+import 'package:news_app/features/author_profile/presentation/view_model/cubit/author_profile_cubit.dart';
 import 'package:news_app/features/home/presentation/views/widgets/latest_news_item.dart';
 import 'package:news_app/features/home/presentation/views/widgets/small_text.dart';
+import 'package:news_app/features/search/data/models/author_model.dart';
 import 'package:news_app/features/user_profile/presentation/views/widgets/button_widget.dart';
 import 'package:sizer/sizer.dart';
 
-class UserProfileBody extends StatelessWidget {
-  const UserProfileBody({super.key});
+class AuthorProfileBody extends StatelessWidget {
+  const AuthorProfileBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -92,10 +95,8 @@ class UserProfileBody extends StatelessWidget {
                   child: SizedBox(
                 height: 50,
                 child: ProfileButton(
-                  onPressed: () {
-                    GoRouter.of(context).push(AppRouter.kEditProfile);
-                  },
-                  text: "Edit Profile",
+                  onPressed: () {},
+                  text: "Following",
                 ),
               )),
               SizedBox(
@@ -114,15 +115,24 @@ class UserProfileBody extends StatelessWidget {
             style: TextStyle(
                 color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
           ),
-          // Expanded(
-          //   child: ListView.builder(
-          //     physics: const BouncingScrollPhysics(),
-          //     itemCount: 10,
-          //     itemBuilder: (context, index) {
-          //       return const LatestNewsItem();
-          //     },
-          //   ),
-          // ),
+          BlocBuilder<AuthorProfileCubit, AuthorProfileState>(
+            builder: (context, state) {
+              if (state is AuthorProfileGetNewsSuccess) {
+                return Expanded(
+                  child: ListView.builder(
+                    itemCount: 10,
+                    itemBuilder: (context, index) {
+                      return LatestNewsItem(newsModel: state.authorNews[index]);
+                    },
+                  ),
+                );
+              } else {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          ),
         ],
       ),
     );
