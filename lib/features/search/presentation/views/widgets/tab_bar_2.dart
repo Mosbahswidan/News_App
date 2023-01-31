@@ -20,7 +20,7 @@ List<TabPair> TabPairs = [
       shrinkWrap: true,
       itemCount: 9,
       itemBuilder: (context, index) {
-        return const LatestNewsItem();
+        return Container();
       },
     ),
   ),
@@ -79,7 +79,8 @@ class TabBarAndTabViews extends StatefulWidget {
   _TabBarAndTabViewsState createState() => _TabBarAndTabViewsState();
 }
 
-class _TabBarAndTabViewsState extends State<TabBarAndTabViews> with SingleTickerProviderStateMixin {
+class _TabBarAndTabViewsState extends State<TabBarAndTabViews>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
