@@ -25,21 +25,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Sizer(
       builder: (context, orientation, deviceType) {
-        return MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) =>
-                  HomeCubit(getIt.get<HomeRepoImpl>())..fetchTendingsNews(),
-            ),
-          ],
-          child: MaterialApp.router(
-            routerConfig: AppRouter.router,
-            debugShowCheckedModeBanner: false,
-            title: 'NewsApp',
-            theme: ThemeData(
-              //primarySwatch: Colors.blue,
-              scaffoldBackgroundColor: Colors.white,
-            ),
+        return MaterialApp.router(
+          routerConfig: AppRouter.router,
+          debugShowCheckedModeBanner: false,
+          title: 'NewsApp',
+          theme: ThemeData(
+            //primarySwatch: Colors.blue,
+            scaffoldBackgroundColor: Colors.white,
           ),
         );
       },

@@ -23,6 +23,7 @@ List<TabPair> TabPairs = [
       text: 'News',
     ),
     view: SearchResultList(),
+
   ),
   TabPair(
     tab: const Tab(
@@ -82,7 +83,8 @@ class TabBarAndTabViews extends StatefulWidget {
   _TabBarAndTabViewsState createState() => _TabBarAndTabViewsState();
 }
 
-class _TabBarAndTabViewsState extends State<TabBarAndTabViews> with SingleTickerProviderStateMixin {
+class _TabBarAndTabViewsState extends State<TabBarAndTabViews>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override

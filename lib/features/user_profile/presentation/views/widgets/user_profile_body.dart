@@ -39,7 +39,8 @@ class AuthorProfileBody extends StatelessWidget {
                     Text(
                       "1.2M",
                       //textAlign: TextAlign.end,
-                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                     SmallText(smallText: "Followers"),
                   ],
@@ -49,7 +50,8 @@ class AuthorProfileBody extends StatelessWidget {
                   children: const [
                     Text(
                       "12.4K",
-                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                     SmallText(smallText: "Following"),
                   ],
@@ -59,7 +61,8 @@ class AuthorProfileBody extends StatelessWidget {
                   children: const [
                     Text(
                       "326",
-                      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
                     ),
                     SmallText(smallText: "News"),
                   ],
@@ -98,7 +101,9 @@ class AuthorProfileBody extends StatelessWidget {
               SizedBox(
                 width: 4.w,
               ),
-              const Expanded(child: SizedBox(height: 50, child: ProfileButton(text: "Website"))),
+              const Expanded(
+                  child: SizedBox(
+                      height: 50, child: ProfileButton(text: "Website"))),
             ],
           ),
           SizedBox(
@@ -106,17 +111,18 @@ class AuthorProfileBody extends StatelessWidget {
           ),
           const Text(
             "News",
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
+            style: TextStyle(
+                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
           ),
-          Expanded(
-            child: ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return const LatestNewsItem();
-              },
-            ),
-          ),
+          // Expanded(
+          //   child: ListView.builder(
+          //     physics: const BouncingScrollPhysics(),
+          //     itemCount: 10,
+          //     itemBuilder: (context, index) {
+          //       return const LatestNewsItem();
+          //     },
+          //   ),
+          // ),
         ],
       ),
     );

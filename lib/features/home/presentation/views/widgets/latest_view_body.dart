@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/features/home/presentation/views/widgets/all_list.dart';
+import 'package:news_app/features/home/presentation/views/widgets/business_list.dart';
+import 'package:news_app/features/home/presentation/views/widgets/health_list.dart';
+import 'package:news_app/features/home/presentation/views/widgets/politics_list.dart';
+import 'package:news_app/features/home/presentation/views/widgets/sports_list.dart';
 
 import 'latest_news_item.dart';
 
@@ -7,47 +12,12 @@ class LatestViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TabBarView(children: [
-      ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        shrinkWrap: true,
-        itemCount: 3,
-        itemBuilder: (context, index) {
-          return const LatestNewsItem();
-        },
-      ),
-      ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        shrinkWrap: true,
-        itemCount: 3,
-        itemBuilder: (context, index) {
-          return const LatestNewsItem();
-        },
-      ),
-      ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        shrinkWrap: true,
-        itemCount: 3,
-        itemBuilder: (context, index) {
-          return const LatestNewsItem();
-        },
-      ),
-      ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        shrinkWrap: true,
-        itemCount: 3,
-        itemBuilder: (context, index) {
-          return const LatestNewsItem();
-        },
-      ),
-      ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        shrinkWrap: true,
-        itemCount: 3,
-        itemBuilder: (context, index) {
-          return const LatestNewsItem();
-        },
-      ),
+    return const TabBarView(children: [
+      AllList(),
+      SportsList(),
+      PoliticsList(),
+      BusinessList(),
+      HealthList(),
     ]);
   }
 }

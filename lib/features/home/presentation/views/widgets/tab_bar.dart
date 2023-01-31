@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
+import 'package:news_app/features/home/presentation/views/widgets/all_list.dart';
+import 'package:news_app/features/home/presentation/views/widgets/business_list.dart';
+import 'package:news_app/features/home/presentation/views/widgets/health_list.dart';
 import 'package:news_app/features/home/presentation/views/widgets/latest_news_item.dart';
+import 'package:news_app/features/home/presentation/views/widgets/politics_list.dart';
+import 'package:news_app/features/home/presentation/views/widgets/sports_list.dart';
 
 import 'package:sizer/sizer.dart';
 
@@ -67,47 +74,12 @@ class _TabBarPageState extends State<TabBarPage>
               height: 30.h,
               // fit: FlexFit.loose,
               //height: 200,
-              child: TabBarView(controller: tabController, children: [
-                ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return const LatestNewsItem();
-                  },
-                ),
-                ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return const LatestNewsItem();
-                  },
-                ),
-                ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return const LatestNewsItem();
-                  },
-                ),
-                ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return const LatestNewsItem();
-                  },
-                ),
-                ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: 3,
-                  itemBuilder: (context, index) {
-                    return const LatestNewsItem();
-                  },
-                ),
+              child: TabBarView(controller: tabController, children: const [
+                AllList(),
+                SportsList(),
+                PoliticsList(),
+                BusinessList(),
+                HealthList(),
               ]),
             ),
           ],
