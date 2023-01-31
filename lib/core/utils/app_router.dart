@@ -1,4 +1,7 @@
 import 'package:news_app/core/utils/export.dart';
+import 'package:news_app/features/author_profile/data/repos/author_profile_impl.dart';
+import 'package:news_app/features/author_profile/presentation/view_model/cubit/author_profile_cubit.dart';
+import 'package:news_app/features/author_profile/presentation/views/pages/author_profile_view.dart';
 
 abstract class AppRouter {
   static const kOnBoarding = "/onBoarding";

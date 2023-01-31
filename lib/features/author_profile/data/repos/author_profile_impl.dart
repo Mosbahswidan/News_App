@@ -3,7 +3,6 @@ import 'package:news_app/core/errors/failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:news_app/core/utils/api_services.dart';
 import 'package:news_app/features/author_profile/data/repos/author_profile_repo.dart';
-import 'package:news_app/features/home/data/models/news_model.dart';
 
 import '../../../search/data/models/search_model.dart';
 

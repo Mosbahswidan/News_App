@@ -1,6 +1,5 @@
-part of 'author_profile_cubit.dart';
+import 'package:news_app/features/search/data/models/search_model.dart';
 
-@immutable
 abstract class AuthorProfileState {}
 
 class AuthorProfileInitial extends AuthorProfileState {}

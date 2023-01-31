@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/features/author_profile/presentation/view_model/cubit/author_profile_cubit.dart';
+import 'package:news_app/features/author_profile/presentation/view_model/cubit/author_profile_state.dart';
 import 'package:news_app/features/home/presentation/views/widgets/latest_news_item.dart';
 import 'package:news_app/features/home/presentation/views/widgets/small_text.dart';
-import 'package:news_app/features/search/data/models/author_model.dart';
 import 'package:news_app/features/user_profile/presentation/views/widgets/button_widget.dart';
 import 'package:sizer/sizer.dart';
 
