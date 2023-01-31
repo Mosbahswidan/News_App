@@ -18,6 +18,7 @@ class SmallText extends StatelessWidget {
         fontSize: 15,
         fontWeight: fontWeight,
       ),
+      // maxLines: 1,
     );
   }
 }

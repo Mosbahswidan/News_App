@@ -34,4 +34,129 @@ class HomeRepoImpl implements HomeRepo {
       return left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<NewsModel>>> fetchAll() async {
+    try {
+      var data = await apiServices.get(
+          endPoint:
+              "/top-headlines?apiKey=cd02c34afa26497ca935ba0c2cdc72b3&q=all");
+
+      List<NewsModel> allNews = [];
+      for (var item in data['articles']) {
+        try {
+          allNews.add(NewsModel.fromJson(item));
+        } catch (e) {
+          allNews.add(NewsModel.fromJson(item));
+        }
+      }
+      return right(allNews);
+    } catch (e) {
+      if (e is DioError) {
+        return left(ServerFailure.fromDioError(e));
+      }
+
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<NewsModel>>> fetchSports() async {
+    try {
+      var data = await apiServices.get(
+          endPoint:
+              "/top-headlines?apiKey=cd02c34afa26497ca935ba0c2cdc72b3&country=us&category=sports");
+
+      List<NewsModel> sportsNews = [];
+      for (var item in data['articles']) {
+        try {
+          sportsNews.add(NewsModel.fromJson(item));
+        } catch (e) {
+          sportsNews.add(NewsModel.fromJson(item));
+        }
+      }
+      return right(sportsNews);
+    } catch (e) {
+      if (e is DioError) {
+        return left(ServerFailure.fromDioError(e));
+      }
+
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<NewsModel>>> fetchPolitics() async {
+    try {
+      var data = await apiServices.get(
+          endPoint:
+              "/top-headlines?apiKey=cd02c34afa26497ca935ba0c2cdc72b3&country=us&category=general");
+
+      List<NewsModel> politicsNews = [];
+      for (var item in data['articles']) {
+        try {
+          politicsNews.add(NewsModel.fromJson(item));
+        } catch (e) {
+          politicsNews.add(NewsModel.fromJson(item));
+        }
+      }
+      return right(politicsNews);
+    } catch (e) {
+      if (e is DioError) {
+        return left(ServerFailure.fromDioError(e));
+      }
+
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<NewsModel>>> fetchBussiness() async {
+    try {
+      var data = await apiServices.get(
+          endPoint:
+              "/top-headlines?apiKey=cd02c34afa26497ca935ba0c2cdc72b3&country=us&category=business");
+
+      List<NewsModel> businessNews = [];
+      for (var item in data['articles']) {
+        try {
+          businessNews.add(NewsModel.fromJson(item));
+        } catch (e) {
+          businessNews.add(NewsModel.fromJson(item));
+        }
+      }
+      return right(businessNews);
+    } catch (e) {
+      if (e is DioError) {
+        return left(ServerFailure.fromDioError(e));
+      }
+
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<NewsModel>>> fetchHealth() async {
+    try {
+      var data = await apiServices.get(
+          endPoint:
+              "/top-headlines?apiKey=cd02c34afa26497ca935ba0c2cdc72b3&country=us&category=health");
+
+      List<NewsModel> healthNews = [];
+      for (var item in data['articles']) {
+        try {
+          healthNews.add(NewsModel.fromJson(item));
+        } catch (e) {
+          healthNews.add(NewsModel.fromJson(item));
+        }
+      }
+      return right(healthNews);
+    } catch (e) {
+      if (e is DioError) {
+        return left(ServerFailure.fromDioError(e));
+      }
+
+      return left(ServerFailure(e.toString()));
+    }
+  }
 }
