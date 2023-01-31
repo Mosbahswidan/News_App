@@ -10,11 +10,11 @@ class ExploreCubit extends Cubit<ExploreState> {
 
   static ExploreCubit get(context) => BlocProvider.of(context);
 
-  SearchModel? popularModel;
+  NewsModel? popularModel;
   void getPopular() {
     emit(ExploreGetPopularLoading());
     Dio().get('https://newsapi.org/v2/everything?q=popular&apiKey=$apiKey').then((value) {
-      popularModel = SearchModel.fromJson(value.data);
+      popularModel = NewsModel.fromJson(value.data);
       debugPrint(popularModel!.status);
       emit(ExploreGetPopularSuccess());
     }).catchError((error) {

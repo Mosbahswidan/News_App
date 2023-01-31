@@ -23,13 +23,7 @@ class BookMarkItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.of(context, rootNavigator: true).push(
-          MaterialPageRoute(
-            builder: (context) => const NewsDetailsView(),
-          ),
-        );
-      },
+      onTap: () {},
       child: SizedBox(
         height: 130,
         width: double.infinity,

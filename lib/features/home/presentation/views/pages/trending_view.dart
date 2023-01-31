@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/features/home/presentation/views/widgets/app_bar.dart';
+import 'package:news_app/features/home/presentation/views/widgets/trending_view_body.dart';
 
-import '../widgets/trending_view_body.dart';
 
 class TrendingView extends StatelessWidget {
   const TrendingView({super.key});

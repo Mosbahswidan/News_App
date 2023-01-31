@@ -1,6 +1,5 @@
-part of 'home_cubit.dart';
+import 'package:news_app/features/search/data/models/search_model.dart';
 
-@immutable
 abstract class HomeState {}
 
 class HomeInitial extends HomeState {}
@@ -8,7 +7,7 @@ class HomeInitial extends HomeState {}
 class HomeGetTrendingLoading extends HomeState {}
 
 class HomeGetTrendingSuccsess extends HomeState {
-  final List<NewsModel> trendings;
+  final List<News> trendings;
 
   HomeGetTrendingSuccsess(this.trendings);
 }
@@ -22,7 +21,7 @@ class HomeGetTrendingError extends HomeState {
 class HomeGetAllLoading extends HomeState {}
 
 class HomeGetAllSuccsess extends HomeState {
-  final List<NewsModel> allNews;
+  final List<News> allNews;
 
   HomeGetAllSuccsess(this.allNews);
 }
@@ -36,7 +35,7 @@ class HomeGetAllError extends HomeState {
 class HomeGetSportsLoading extends HomeState {}
 
 class HomeGetSportsSuccsess extends HomeState {
-  final List<NewsModel> sportsNews;
+  final List<News> sportsNews;
 
   HomeGetSportsSuccsess(this.sportsNews);
 }
@@ -51,7 +50,7 @@ class HomeGetSportsError extends HomeState {
 class HomeGetPoliticLoading extends HomeState {}
 
 class HomeGetPoliticSuccess extends HomeState {
-  final List<NewsModel> politicsNews;
+  final List<News> politicsNews;
 
   HomeGetPoliticSuccess(this.politicsNews);
 }
@@ -66,7 +65,7 @@ class HomeGetPoliticError extends HomeState {
 class HomeGetBusinessLoading extends HomeState {}
 
 class HomeGetBusinessSuccess extends HomeState {
-  final List<NewsModel> businessNews;
+  final List<News> businessNews;
 
   HomeGetBusinessSuccess(this.businessNews);
 }
@@ -81,7 +80,7 @@ class HomeGetBusinessError extends HomeState {
 class HomeGetHealthLoading extends HomeState {}
 
 class HomeGetHealthSuccess extends HomeState {
-  final List<NewsModel> healthNews;
+  final List<News> healthNews;
 
   HomeGetHealthSuccess(this.healthNews);
 }

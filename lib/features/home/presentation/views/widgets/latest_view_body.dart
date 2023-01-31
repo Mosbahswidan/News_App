@@ -5,8 +5,6 @@ import 'package:news_app/features/home/presentation/views/widgets/health_list.da
 import 'package:news_app/features/home/presentation/views/widgets/politics_list.dart';
 import 'package:news_app/features/home/presentation/views/widgets/sports_list.dart';
 
-import 'latest_news_item.dart';
-
 class LatestViewBody extends StatelessWidget {
   const LatestViewBody({super.key});
 

@@ -21,7 +21,9 @@ import 'package:news_app/features/home/presentation/view_models/home_cubit/home_
 import 'package:news_app/features/home/presentation/views/pages/home_view.dart';
 import 'package:news_app/features/home/presentation/views/pages/latest_view.dart';
 import 'package:news_app/features/home/presentation/views/pages/trending_view.dart';
+import 'package:news_app/features/news_details/presentation/views/news_details_view.dart';
 import 'package:news_app/features/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:news_app/features/search/data/models/search_model.dart';
 import 'package:news_app/features/search/data/models/author_model.dart';
 import 'package:news_app/features/search/presentation/view_model/search_cubit.dart';
 import 'package:news_app/features/search/presentation/views/pages/search_view.dart';
@@ -45,7 +47,9 @@ abstract class AppRouter {
   static const kSettings = "/settings";
   static const kEditProfile = "/editProfile";
   static const kAddNews = "/addNews";
+  static const kNewsDetails = "/newsDetails";
   static const kAuthorProfile2 = "/authorProfile22";
+
 
   static final router = GoRouter(
     routes: [
@@ -92,8 +96,7 @@ abstract class AppRouter {
       GoRoute(
         path: kTrending,
         builder: (context, state) => BlocProvider(
-          create: (context) =>
-              HomeCubit(getIt.get<HomeRepoImpl>())..fetchTendingsNews(),
+          create: (context) => HomeCubit(getIt.get<HomeRepoImpl>())..fetchTendingsNews(),
           child: const TrendingView(),
         ),
       ),
@@ -137,6 +140,10 @@ abstract class AppRouter {
         ),
       ),
       GoRoute(
+        path: kNewsDetails,
+        builder: (context, state) => NewsDetailsView(model: state.extra as News?),
+      ),
+
         path: kAuthorProfile2,
         builder: (context, state) => BlocProvider(
           create: (context) =>

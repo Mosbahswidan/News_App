@@ -1,21 +1,21 @@
-class SearchModel {
+class NewsModel {
   String? status;
   int? totalResults;
-  List<Articles>? articles;
+  List<News>? articles;
 
-  SearchModel({
+  NewsModel({
     this.status,
     this.totalResults,
     this.articles,
   });
 
-  SearchModel.fromJson(Map<String, dynamic> json) {
+  NewsModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     totalResults = json['totalResults'];
     if (json['articles'] != null) {
       articles = [];
       json['articles'].forEach((v) {
-        articles!.add(Articles.fromJson(v));
+        articles!.add(News.fromJson(v));
       });
     }
   }
@@ -31,7 +31,7 @@ class SearchModel {
   }
 }
 
-class Articles {
+class News {
   Source? source;
   String? author;
   String? title;
@@ -41,7 +41,7 @@ class Articles {
   String? publishedAt;
   String? content;
 
-  Articles({
+  News({
     this.source,
     this.author,
     this.title,
@@ -52,7 +52,7 @@ class Articles {
     this.content,
   });
 
-  Articles.fromJson(Map<String, dynamic> json) {
+  News.fromJson(Map<String, dynamic> json) {
     source = json['source'] != null ? Source.fromJson(json['source']) : null;
     author = json['author'];
     title = json['title'];

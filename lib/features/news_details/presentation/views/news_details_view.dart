@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:news_app/constants.dart';
 import 'package:news_app/features/news_details/presentation/views/widgets/news_details_body.dart';
 import 'package:news_app/features/news_details/presentation/views/widgets/news_details_bottom.dart';
+import 'package:news_app/features/search/data/models/search_model.dart';
 
 class NewsDetailsView extends StatelessWidget {
-  const NewsDetailsView({super.key});
+  final News? model;
+  const NewsDetailsView({
+    super.key,
+    required this.model,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +51,7 @@ class NewsDetailsView extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
-        child: NewsDetailsViewBody(),
+        child: NewsDetailsViewBody(model: model),
       ),
       bottomNavigationBar: const NewsDetailsBottom(),
     );

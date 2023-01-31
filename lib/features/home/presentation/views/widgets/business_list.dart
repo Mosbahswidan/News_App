@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/core/utils/service_locator.dart';
 import 'package:news_app/features/home/data/repos/home_repo_impl.dart';
-
+import 'package:news_app/features/home/presentation/view_models/home_cubit/home_state.dart';
 import '../../view_models/home_cubit/home_cubit.dart';
 import 'latest_news_item.dart';
 
