@@ -1,4 +1,37 @@
-class NewsModel {
+class SearchModel {
+  String? status;
+  int? totalResults;
+  List<Articles>? articles;
+
+  SearchModel({
+    this.status,
+    this.totalResults,
+    this.articles,
+  });
+
+  SearchModel.fromJson(Map<String, dynamic> json) {
+    status = json['status'];
+    totalResults = json['totalResults'];
+    if (json['articles'] != null) {
+      articles = [];
+      json['articles'].forEach((v) {
+        articles!.add(Articles.fromJson(v));
+      });
+    }
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = {};
+    data['status'] = status;
+    data['totalResults'] = totalResults;
+    if (articles != null) {
+      data['articles'] = articles!.map((v) => v.toJson()).toList();
+    }
+    return data;
+  }
+}
+
+class Articles {
   Source? source;
   String? author;
   String? title;
@@ -8,7 +41,7 @@ class NewsModel {
   String? publishedAt;
   String? content;
 
-  NewsModel({
+  Articles({
     this.source,
     this.author,
     this.title,
@@ -19,7 +52,7 @@ class NewsModel {
     this.content,
   });
 
-  NewsModel.fromJson(Map<String, dynamic> json) {
+  Articles.fromJson(Map<String, dynamic> json) {
     source = json['source'] != null ? Source.fromJson(json['source']) : null;
     author = json['author'];
     title = json['title'];
@@ -50,7 +83,10 @@ class Source {
   String? id;
   String? name;
 
-  Source({this.id, this.name});
+  Source({
+    this.id,
+    this.name,
+  });
 
   Source.fromJson(Map<String, dynamic> json) {
     id = json['id'];

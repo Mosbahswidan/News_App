@@ -36,8 +36,7 @@ List<AuthorModel> authors = [
   AuthorModel.fromJson({
     "id": "medical-news-today",
     "name": "Medical News Today",
-    "description":
-        "Medical news and health news headlines posted throughout the day, every day.",
+    "description": "Medical news and health news headlines posted throughout the day, every day.",
     "url": "http://www.medicalnewstoday.com",
     "category": "health",
   }),

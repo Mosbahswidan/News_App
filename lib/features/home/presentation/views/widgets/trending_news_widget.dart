@@ -7,6 +7,7 @@ import 'package:sizer/sizer.dart';
 
 class TrendingNewsItem extends StatelessWidget {
   final NewsModel newsModel;
+
   const TrendingNewsItem({super.key, required this.newsModel});
 
   @override
@@ -18,7 +19,7 @@ class TrendingNewsItem extends StatelessWidget {
           width: double.infinity,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(8.0),
-            child: newsModel.urlToImage == null
+            child: newsModel.urlToImage == null || newsModel.urlToImage == ''
                 ? Image.asset(
                     AssetsData.onBoarding1,
                     height: 21.154.h,
