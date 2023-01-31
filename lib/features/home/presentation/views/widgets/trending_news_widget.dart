@@ -27,6 +27,13 @@ class TrendingNewsItem extends StatelessWidget {
                   )
                 : Image.network(
                     newsModel.urlToImage!,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Image.network(
+                        "https://img.freepik.com/free-photo/brunette-blogger-posing-photo_23-2148192222.jpg?w=740&t=st=1675010200~exp=1675010800~hmac=0918efacf22aecc9dc7a4c3f54fbfc3526773d2aef6543aa6e168e4ef4628537",
+                        height: 21.154.h,
+                        fit: BoxFit.cover,
+                      );
+                    },
                     height: 21.154.h,
                     fit: BoxFit.cover,
                   ),

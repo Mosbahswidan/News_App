@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:news_app/core/utils/service_locator.dart';
 import 'package:news_app/features/add_news/presentation/view_models/add_nwes_cubit/add_news_cubit.dart';
 import 'package:news_app/features/add_news/presentation/views/pages/add_news.dart';
 import 'package:news_app/features/auth/presentation/view_models/login_cubit/login_cubit.dart';
@@ -13,6 +14,8 @@ import 'package:news_app/features/bottom_navBar/view_model/bottom_nav_cubit.dart
 import 'package:news_app/features/bottom_navBar/views/bottom_navbar_view.dart';
 import 'package:news_app/features/edit_profile/presentation/view_model/edit_profile_cubit.dart';
 import 'package:news_app/features/edit_profile/presentation/views/edite_profile_view.dart';
+import 'package:news_app/features/home/data/repos/home_repo_impl.dart';
+import 'package:news_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:news_app/features/home/presentation/views/pages/home_view.dart';
 import 'package:news_app/features/home/presentation/views/pages/latest_view.dart';
 import 'package:news_app/features/home/presentation/views/pages/trending_view.dart';
@@ -84,7 +87,11 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kTrending,
-        builder: (context, state) => const TrendingView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) =>
+              HomeCubit(getIt.get<HomeRepoImpl>())..fetchTendingsNews(),
+          child: const TrendingView(),
+        ),
       ),
       GoRoute(
         path: kLatest,
