@@ -17,7 +17,7 @@ class TabPair {
   });
 }
 
-List<TabPair> TabPairs = [
+List<TabPair> tabPairs = [
   TabPair(
     tab: const Tab(
       text: 'All',
@@ -54,6 +54,7 @@ class TabBarAndTabViewsLatest extends StatefulWidget {
   const TabBarAndTabViewsLatest({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _TabBarAndTabViewsState createState() => _TabBarAndTabViewsState();
 }
 
@@ -64,7 +65,7 @@ class _TabBarAndTabViewsState extends State<TabBarAndTabViewsLatest>
   @override
   void initState() {
     _tabController = TabController(
-      length: TabPairs.length,
+      length: tabPairs.length,
       vsync: this,
     );
     super.initState();
@@ -101,14 +102,14 @@ class _TabBarAndTabViewsState extends State<TabBarAndTabViewsLatest>
                 indicatorSize: TabBarIndicatorSize.label,
                 labelColor: Colors.black,
                 unselectedLabelColor: Colors.black,
-                tabs: TabPairs.map((tabPair) => tabPair.tab).toList(),
+                tabs: tabPairs.map((tabPair) => tabPair.tab).toList(),
               ),
             ),
           ),
           Expanded(
             child: TabBarView(
                 controller: _tabController,
-                children: TabPairs.map(
+                children: tabPairs.map(
                   (tabPair) => tabPair.view,
                 ).toList()),
           ),

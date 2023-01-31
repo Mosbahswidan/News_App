@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/features/search/data/author_data.dart';
-import 'package:news_app/features/search/presentation/view_model/search_cubit.dart';
 import 'package:news_app/features/search/presentation/views/widgets/author_item.dart';
-import 'package:news_app/features/search/presentation/views/widgets/search_item.dart';
 import 'package:news_app/features/search/presentation/views/widgets/search_result_list.dart';
 
 class TabPair {
@@ -17,12 +15,13 @@ class TabPair {
   });
 }
 
-List<TabPair> TabPairs = [
+List<TabPair> tabPairs = [
   TabPair(
     tab: const Tab(
       text: 'News',
     ),
-    view: SearchResultList(),
+    view: const SearchResultList(),
+
   ),
   TabPair(
     tab: const Tab(
@@ -79,6 +78,7 @@ class TabBarAndTabViews extends StatefulWidget {
   const TabBarAndTabViews({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _TabBarAndTabViewsState createState() => _TabBarAndTabViewsState();
 }
 
@@ -89,7 +89,7 @@ class _TabBarAndTabViewsState extends State<TabBarAndTabViews>
   @override
   void initState() {
     _tabController = TabController(
-      length: TabPairs.length,
+      length: tabPairs.length,
       vsync: this,
     );
     super.initState();
@@ -124,14 +124,14 @@ class _TabBarAndTabViewsState extends State<TabBarAndTabViews>
                 indicatorSize: TabBarIndicatorSize.label,
                 labelColor: Colors.black,
                 unselectedLabelColor: Colors.black,
-                tabs: TabPairs.map((tabPair) => tabPair.tab).toList(),
+                tabs: tabPairs.map((tabPair) => tabPair.tab).toList(),
               ),
             ),
           ),
           Expanded(
             child: TabBarView(
                 controller: _tabController,
-                children: TabPairs.map(
+                children: tabPairs.map(
                   (tabPair) => tabPair.view,
                 ).toList()),
           ),

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/features/author_profile/presentation/views/widgets/author_profile_body.dart';
-import 'package:news_app/features/search/data/models/author_model.dart';
 
 class AuthorProfileView extends StatelessWidget {
   const AuthorProfileView({super.key});
@@ -45,7 +43,7 @@ class AuthorProfileView extends StatelessWidget {
           ),
         ],
       ),
-      body: AuthorProfileBody(),
+      body: const AuthorProfileBody(),
     );
   }
 }

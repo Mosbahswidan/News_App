@@ -14,7 +14,7 @@ class SearchResultList extends StatelessWidget {
       builder: (context, state) {
         SearchCubit cubit = SearchCubit.get(context);
         return cubit.searchModel == null
-            ? SizedBox()
+            ? const SizedBox()
             : ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,

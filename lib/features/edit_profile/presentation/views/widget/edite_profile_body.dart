@@ -24,7 +24,7 @@ class EditProfileBody extends StatelessWidget {
                 width: 120,
                 child: Stack(
                   children: [
-                    CircleAvatar(
+                    const CircleAvatar(
                       radius: 60,
                       backgroundColor: Colors.transparent,
                       backgroundImage: NetworkImage(
@@ -37,7 +37,7 @@ class EditProfileBody extends StatelessWidget {
                       ),
                       child: GestureDetector(
                         onTap: () {},
-                        child: Align(
+                        child: const Align(
                           alignment: Alignment.bottomRight,
                           child: CircleAvatar(
                             radius: 18,
@@ -54,7 +54,7 @@ class EditProfileBody extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             MyTextField(
@@ -63,7 +63,7 @@ class EditProfileBody extends StatelessWidget {
               obsecure: false,
               textInputType: TextInputType.name,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             MyTextField(
@@ -72,7 +72,7 @@ class EditProfileBody extends StatelessWidget {
               obsecure: false,
               textInputType: TextInputType.name,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             MyTextField(
@@ -81,7 +81,7 @@ class EditProfileBody extends StatelessWidget {
               obsecure: false,
               textInputType: TextInputType.emailAddress,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             MyTextField(
@@ -90,7 +90,7 @@ class EditProfileBody extends StatelessWidget {
               obsecure: false,
               textInputType: TextInputType.phone,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             MyTextField(
@@ -99,7 +99,7 @@ class EditProfileBody extends StatelessWidget {
               obsecure: false,
               textInputType: TextInputType.text,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             MyTextField(
@@ -108,7 +108,7 @@ class EditProfileBody extends StatelessWidget {
               obsecure: false,
               textInputType: TextInputType.url,
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
           ],

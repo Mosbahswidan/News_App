@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:news_app/core/utils/app_router.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:news_app/core/utils/service_locator.dart';
-import 'package:sizer/sizer.dart';
+import 'package:news_app/core/utils/export.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -17,7 +13,6 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return Sizer(
@@ -28,6 +23,7 @@ class MyApp extends StatelessWidget {
           title: 'NewsApp',
           theme: ThemeData(
             //primarySwatch: Colors.blue,
+            primaryColor: kPrimaryColor,
             scaffoldBackgroundColor: Colors.white,
           ),
         );

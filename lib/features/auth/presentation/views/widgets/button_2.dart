@@ -1,8 +1,6 @@
 import 'dart:math' as Math;
-
 import 'package:flutter/material.dart';
 
-//A cicular loading indicator made up of colored dots. The current dot circles around the dot clockwise.
 class CustomIndecator extends StatefulWidget {
   const CustomIndecator({
     Key? key,

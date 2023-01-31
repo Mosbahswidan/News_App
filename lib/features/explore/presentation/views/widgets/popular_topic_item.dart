@@ -42,9 +42,9 @@ class PopularTopicItem extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Text(
+              const Text(
                 'Global',
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w400,
                   color: kSecondaryColor,
@@ -68,7 +68,7 @@ class PopularTopicItem extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 14,
                     backgroundImage: AssetImage(
                       'assets/images/news.png',
@@ -99,7 +99,7 @@ class PopularTopicItem extends StatelessWidget {
                   Expanded(
                     child: Text(
                       '${timeAgo(model!.publishedAt!)}h ago',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w400,
                         color: kSecondaryColor,
