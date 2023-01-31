@@ -9,7 +9,11 @@ import '../../../../../core/utils/app_router.dart';
 class AuthorItem extends StatelessWidget {
   final AuthorModel model;
   final bool following;
-  const AuthorItem({super.key, required this.model, required this.following});
+  const AuthorItem({
+    super.key,
+    required this.model,
+    required this.following,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +26,10 @@ class AuthorItem extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              GoRouter.of(context).push(AppRouter.kAuthorProfile);
+              GoRouter.of(context).push(
+                AppRouter.kAuthorProfile2,
+                extra: model.id,
+              );
             },
             child: CircleAvatar(
               radius: 50,

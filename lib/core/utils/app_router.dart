@@ -9,6 +9,9 @@ import 'package:news_app/features/auth/presentation/view_models/signup_cubit/sig
 import 'package:news_app/features/auth/presentation/views/login_view.dart';
 import 'package:news_app/features/auth/presentation/views/reset_password.dart';
 import 'package:news_app/features/auth/presentation/views/sign_up_view.dart';
+import 'package:news_app/features/author_profile/data/repos/author_profile_impl.dart';
+import 'package:news_app/features/author_profile/presentation/view_model/cubit/author_profile_cubit.dart';
+import 'package:news_app/features/author_profile/presentation/views/pages/author_profile_view.dart';
 import 'package:news_app/features/bottom_navBar/view_model/bottom_nav_cubit.dart';
 import 'package:news_app/features/bottom_navBar/views/bottom_navbar_view.dart';
 import 'package:news_app/features/edit_profile/presentation/view_model/edit_profile_cubit.dart';
@@ -19,6 +22,7 @@ import 'package:news_app/features/home/presentation/views/pages/home_view.dart';
 import 'package:news_app/features/home/presentation/views/pages/latest_view.dart';
 import 'package:news_app/features/home/presentation/views/pages/trending_view.dart';
 import 'package:news_app/features/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:news_app/features/search/data/models/author_model.dart';
 import 'package:news_app/features/search/presentation/view_model/search_cubit.dart';
 import 'package:news_app/features/search/presentation/views/pages/search_view.dart';
 import 'package:news_app/features/settings/presentation/view_model/settings_cubit.dart';
@@ -41,6 +45,7 @@ abstract class AppRouter {
   static const kSettings = "/settings";
   static const kEditProfile = "/editProfile";
   static const kAddNews = "/addNews";
+  static const kAuthorProfile2 = "/authorProfile22";
 
   static final router = GoRouter(
     routes: [
@@ -131,6 +136,15 @@ abstract class AppRouter {
           child: const AddNewsView(),
         ),
       ),
+      GoRoute(
+        path: kAuthorProfile2,
+        builder: (context, state) => BlocProvider(
+          create: (context) =>
+              AuthorProfileCubit(getIt.get<AuthorProfileImpl>())
+                ..fetchAuthorNews(sourceId: state.extra as String),
+          child: const AuthorProfileView(),
+        ),
+      )
     ],
   );
 }
