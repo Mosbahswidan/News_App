@@ -4,6 +4,8 @@ import 'package:meta/meta.dart';
 import 'package:news_app/features/author_profile/data/repos/author_profile_repo.dart';
 import 'package:news_app/features/home/data/models/news_model.dart';
 
+import '../../../../search/data/models/search_model.dart';
+
 part 'author_profile_state.dart';
 
 class AuthorProfileCubit extends Cubit<AuthorProfileState> {

@@ -8,7 +8,7 @@ class AuthorProfileInitial extends AuthorProfileState {}
 class AuthorProfileGetNewsLoading extends AuthorProfileState {}
 
 class AuthorProfileGetNewsSuccess extends AuthorProfileState {
-  final List<NewsModel> authorNews;
+  final List<News> authorNews;
 
   AuthorProfileGetNewsSuccess(this.authorNews);
 }
