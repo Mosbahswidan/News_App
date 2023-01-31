@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/constants.dart';
+import 'package:news_app/features/search/data/models/search_model.dart';
 
 class PopularTopicItem extends StatelessWidget {
-  final String? newsImage;
-  final String? newsCountry;
-  final String? newsTitle;
-  final String? newsAuthorImage;
-  final String? newsAuthorName;
   final Function()? onPressed;
+  final Articles? model;
 
   const PopularTopicItem({
     super.key,
-    this.newsImage,
-    this.newsCountry,
-    this.newsTitle,
-    this.newsAuthorImage,
-    this.newsAuthorName,
     this.onPressed,
+    this.model,
   });
 
   @override
@@ -25,7 +18,7 @@ class PopularTopicItem extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: SizedBox(
         width: double.infinity,
-        height: 320,
+        height: 330,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -36,8 +29,9 @@ class PopularTopicItem extends StatelessWidget {
                 width: double.infinity,
                 fit: BoxFit.cover,
                 image: NetworkImage(
-                  newsImage ??
-                      'https://img.freepik.com/free-photo/brunette-blogger-posing-photo_23-2148192222.jpg?w=740&t=st=1675010200~exp=1675010800~hmac=0918efacf22aecc9dc7a4c3f54fbfc3526773d2aef6543aa6e168e4ef4628537',
+                  model!.urlToImage == null || model!.urlToImage!.isEmpty
+                      ? 'https://img.freepik.com/free-photo/brunette-blogger-posing-photo_23-2148192222.jpg?w=740&t=st=1675010200~exp=1675010800~hmac=0918efacf22aecc9dc7a4c3f54fbfc3526773d2aef6543aa6e168e4ef4628537'
+                      : model!.urlToImage!,
                 ),
               ),
             ),
@@ -45,7 +39,7 @@ class PopularTopicItem extends StatelessWidget {
               height: 10,
             ),
             Text(
-              newsCountry ?? 'Gaza',
+              'Global',
               style: const TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w400,
@@ -56,8 +50,8 @@ class PopularTopicItem extends StatelessWidget {
               height: 10,
             ),
             Text(
-              newsTitle ?? 'Russian warship: Moskva sinks in Black Sea',
-              maxLines: 1,
+              model!.title ?? 'Russian warship: Moskva sinks in Black Sea',
+              maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(
                 fontSize: 16,
@@ -71,15 +65,16 @@ class PopularTopicItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CircleAvatar(
-                  radius: 16,
-                  backgroundImage: NetworkImage(newsAuthorImage ??
-                      'https://img.freepik.com/free-photo/brunette-blogger-posing-photo_23-2148192222.jpg?w=740&t=st=1675010200~exp=1675010800~hmac=0918efacf22aecc9dc7a4c3f54fbfc3526773d2aef6543aa6e168e4ef4628537'),
+                  radius: 14,
+                  backgroundImage: AssetImage(
+                    'assets/images/news.png',
+                  ),
                 ),
                 const SizedBox(
                   width: 8,
                 ),
                 Text(
-                  newsAuthorName ?? 'BBC News',
+                  model!.source!.name ?? 'BBC News',
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
@@ -97,9 +92,9 @@ class PopularTopicItem extends StatelessWidget {
                 const SizedBox(
                   width: 6,
                 ),
-                const Expanded(
+                Expanded(
                   child: Text(
-                    '4h ago',
+                    '${timeAgo(model!.publishedAt!)}h ago',
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
