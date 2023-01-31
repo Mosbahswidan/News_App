@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:news_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:news_app/features/home/presentation/views/widgets/trending_news_widget.dart';
 
 import '../../../../../core/utils/app_size.dart';
@@ -38,14 +40,25 @@ class TrendingViewBody extends StatelessWidget {
               SizedBox(
                 height: AppSize.size20,
               ),
-              ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: 10,
-                itemBuilder: (context, index) => Container(
-                  margin: const EdgeInsets.symmetric(vertical: 20),
-                  child: const TrendingNewsItem(),
-                ),
+              BlocBuilder<HomeCubit, HomeState>(
+                builder: (context, state) {
+                  if (state is HomeGetTrendingSuccsess) {
+                    return ListView.builder(
+                      physics: const BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: 100,
+                      itemBuilder: (context, index) => Container(
+                        margin: const EdgeInsets.symmetric(vertical: 20),
+                        child:
+                            TrendingNewsItem(newsModel: state.trendings[index]),
+                      ),
+                    );
+                  } else {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                },
               ),
             ],
           ),

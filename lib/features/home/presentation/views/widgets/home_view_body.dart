@@ -58,7 +58,7 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(
             height: AppSize.size20,
           ),
-          const TrendingNewsItem(),
+          //const TrendingNewsItem(),
           SizedBox(
             height: AppSize.size20,
           ),

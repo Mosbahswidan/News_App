@@ -1,21 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/core/utils/assets_data.dart';
+import 'package:news_app/features/home/data/models/news_model.dart';
 import 'package:news_app/features/home/presentation/views/widgets/small_text.dart';
+import 'package:sizer/sizer.dart';
 
 class TrendingNewsItem extends StatelessWidget {
-  const TrendingNewsItem({super.key});
+  final NewsModel newsModel;
+  const TrendingNewsItem({super.key, required this.newsModel});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(8.0),
-          child: Image.asset(
-            AssetsData.trending,
-            height: 180.0,
+        SizedBox(
+          width: double.infinity,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8.0),
+            child: newsModel.urlToImage == null
+                ? Image.asset(
+                    AssetsData.onBoarding1,
+                    height: 21.154.h,
+                    fit: BoxFit.cover,
+                  )
+                : Image.network(
+                    newsModel.urlToImage!,
+                    height: 21.154.h,
+                    fit: BoxFit.cover,
+                  ),
           ),
         ),
         SizedBox(
@@ -25,9 +38,9 @@ class TrendingNewsItem extends StatelessWidget {
         SizedBox(
           height: AppSize.size10,
         ),
-        const Text(
-          "Russian warship: Moskva sinks in Black Sea",
-          style: TextStyle(
+        Text(
+          newsModel.title!,
+          style: const TextStyle(
             fontSize: 16,
             color: Colors.black,
           ),
@@ -36,12 +49,12 @@ class TrendingNewsItem extends StatelessWidget {
           height: 5,
         ),
         Row(
-          children: const [
+          children: [
             SmallText(
-              smallText: "BBC News",
+              smallText: newsModel.source!.name!,
               fontWeight: FontWeight.bold,
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
             SmallText(smallText: "4h ago"),
