@@ -105,7 +105,7 @@ class GlobalTextField extends StatelessWidget {
           ),
           prefixIconColor: prefixIconColor,
           floatingLabelStyle: floatingLabelStyle ??
-              TextStyle(
+              const TextStyle(
                 color: kPrimaryColor,
               ),
           labelText: labelText,
@@ -123,7 +123,7 @@ class GlobalTextField extends StatelessWidget {
           focusedBorder: focusedBorder ??
               OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(
+                borderSide: const BorderSide(
                   color: kPrimaryColor,
                 ),
               ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/features/edit_profile/presentation/views/widget/edite_profile_body.dart';
-import 'package:news_app/features/settings/presentation/views/widget/settings_body.dart';
 
 class EditProfileView extends StatelessWidget {
   const EditProfileView({super.key});

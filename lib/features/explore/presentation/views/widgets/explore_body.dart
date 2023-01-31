@@ -76,10 +76,10 @@ class ExploreViewBody extends StatelessWidget {
                     height: 15,
                   ),
                   cubit.popularModel == null
-                      ? SizedBox()
+                      ? const SizedBox()
                       : ListView.separated(
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (context, index) =>
                               PopularTopicItem(model: cubit.popularModel!.articles![index]),
                           separatorBuilder: (context, index) => const SizedBox(height: 12),

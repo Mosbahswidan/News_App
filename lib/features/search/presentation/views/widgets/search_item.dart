@@ -51,9 +51,9 @@ class SearchItem extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Gaza',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w400,
                         color: kSecondaryColor,
@@ -81,7 +81,7 @@ class SearchItem extends StatelessWidget {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          CircleAvatar(
+                          const CircleAvatar(
                             radius: 11,
                             backgroundImage: AssetImage('assets/images/news.png'),
                           ),
@@ -114,7 +114,7 @@ class SearchItem extends StatelessWidget {
                                   ),
                                   Text(
                                     '${timeAgo(model!.publishedAt!)}h ago',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 12,
                                       fontWeight: FontWeight.w400,
                                       color: kSecondaryColor,
@@ -127,7 +127,7 @@ class SearchItem extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                   ],

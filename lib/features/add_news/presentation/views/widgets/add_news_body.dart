@@ -1,10 +1,9 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/features/add_news/presentation/view_models/add_nwes_cubit/add_news_cubit.dart';
+import 'package:news_app/features/add_news/presentation/view_models/add_nwes_cubit/add_news_state.dart';
 
 class AddNewsBody extends StatelessWidget {
   const AddNewsBody({super.key});
@@ -13,13 +12,11 @@ class AddNewsBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController newsTitleController = TextEditingController();
     final TextEditingController newsController = TextEditingController();
-    print(AddNewsCubit.get(context).image);
+    debugPrint(AddNewsCubit.get(context).image.toString());
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: BlocConsumer<AddNewsCubit, AddNewsState>(
-        listener: (context, state) {
-          // TODO: implement listener
-        },
+        listener: (context, state) {},
         builder: (context, state) {
           return Column(
             children: [
@@ -92,7 +89,7 @@ class AddNewsBody extends StatelessWidget {
                             width: 100,
                             child: ElevatedButton(
                                 onPressed: () {
-                                  print(newsTitleController.text.isEmpty);
+                                  debugPrint(newsTitleController.text.isEmpty.toString());
                                 },
                                 child: const Text("Publish")))
                         : SizedBox(

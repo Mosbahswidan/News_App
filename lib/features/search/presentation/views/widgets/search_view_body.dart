@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/core/utils/app_size.dart';
-import 'package:news_app/features/home/presentation/views/widgets/sarch_bar_widget.dart';
 import 'package:news_app/features/search/presentation/view_model/search_cubit.dart';
 import 'package:news_app/features/search/presentation/view_model/search_state.dart';
 import 'package:news_app/features/search/presentation/views/widgets/primary_searchtextfield.dart';
@@ -33,7 +32,7 @@ class SearchViewBody extends StatelessWidget {
                   keyboardType: TextInputType.text,
                   obscureText: false,
                   cursorHeight: 25,
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                   prefixIcon: Icons.search,
                   hintText: 'Search',
                   onChanged: (val) {
@@ -48,7 +47,7 @@ class SearchViewBody extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                if (state is SearchLoading) LinearProgressIndicator(),
+                if (state is SearchLoading) const LinearProgressIndicator(),
                 const SizedBox(
                   height: 20,
                 ),

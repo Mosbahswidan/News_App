@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/constants.dart';
-import 'package:news_app/features/news_details/presentation/views/news_details_view.dart';
 
 class BookMarkItem extends StatelessWidget {
   final String? newsImage;

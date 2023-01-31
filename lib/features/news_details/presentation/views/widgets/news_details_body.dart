@@ -26,7 +26,7 @@ class NewsDetailsViewBody extends StatelessWidget {
         children: [
           Row(
             children: [
-              CircleAvatar(
+              const CircleAvatar(
                 backgroundColor: Colors.transparent,
                 backgroundImage: AssetImage('assets/images/news.png'),
                 radius: 32,
@@ -40,17 +40,17 @@ class NewsDetailsViewBody extends StatelessWidget {
                   children: [
                     Text(
                       model!.source!.name ?? 'BBC News',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     Text(
                       '${timeAgo(model!.publishedAt!)}h ago',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
                         color: kSecondaryColor,
@@ -91,7 +91,7 @@ class NewsDetailsViewBody extends StatelessWidget {
                 'Ukraine\'s President Zelensky to BBC: Blood money being paid for Russian oil',
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.w400,
             ),
@@ -104,7 +104,7 @@ class NewsDetailsViewBody extends StatelessWidget {
                 "Ukrainian President Volodymyr Zelensky has accused European countries that continue to buy Russian oil of 'earning their money in other people's blood. \n\nIn an interview with the BBC, President Zelensky singled out Germany and Hungary, accusing them of blocking efforts to embargo energy sales, from which Russia stands to make up to £250bn (\$326bn) this year.There has been a growing frustration among Ukraine's leadership with Berlin, which has backed some sanctions against Russia but so far resisted calls to back tougher action on oil sales.",
             maxLines: 10,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w400,
             ),

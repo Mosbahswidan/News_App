@@ -8,13 +8,10 @@ import 'package:news_app/core/utils/service_locator.dart';
 import 'package:news_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:news_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:news_app/features/home/presentation/view_models/home_cubit/home_state.dart';
-import 'package:news_app/features/home/presentation/views/widgets/latest_view_body.dart';
 import 'package:news_app/features/home/presentation/views/widgets/sarch_bar_widget.dart';
-import 'package:news_app/features/home/presentation/views/widgets/tab_bar.dart';
 import 'package:news_app/features/home/presentation/views/widgets/tab_bar_latest.dart';
 import 'package:news_app/features/home/presentation/views/widgets/text_row_widget.dart';
 import 'package:news_app/features/home/presentation/views/widgets/trending_news_widget.dart';
-import 'package:news_app/features/search/presentation/views/widgets/tab_bar_2.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -93,7 +90,7 @@ class HomeViewBody extends StatelessWidget {
                 GoRouter.of(context).push(AppRouter.kLatest);
               },
             ),
-            Expanded(child: TabBarAndTabViewsLatest()),
+            const Expanded(child: TabBarAndTabViewsLatest()),
           ],
         ),
       )),
