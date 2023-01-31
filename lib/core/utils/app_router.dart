@@ -50,7 +50,6 @@ abstract class AppRouter {
   static const kNewsDetails = "/newsDetails";
   static const kAuthorProfile2 = "/authorProfile22";
 
-
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -96,7 +95,8 @@ abstract class AppRouter {
       GoRoute(
         path: kTrending,
         builder: (context, state) => BlocProvider(
-          create: (context) => HomeCubit(getIt.get<HomeRepoImpl>())..fetchTendingsNews(),
+          create: (context) =>
+              HomeCubit(getIt.get<HomeRepoImpl>())..fetchTendingsNews(),
           child: const TrendingView(),
         ),
       ),
@@ -141,9 +141,10 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kNewsDetails,
-        builder: (context, state) => NewsDetailsView(model: state.extra as News?),
+        builder: (context, state) =>
+            NewsDetailsView(model: state.extra as News?),
       ),
-
+      GoRoute(
         path: kAuthorProfile2,
         builder: (context, state) => BlocProvider(
           create: (context) =>
