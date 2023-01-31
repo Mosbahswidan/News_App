@@ -17,6 +17,7 @@ import 'package:news_app/features/home/presentation/views/pages/home_view.dart';
 import 'package:news_app/features/home/presentation/views/pages/latest_view.dart';
 import 'package:news_app/features/home/presentation/views/pages/trending_view.dart';
 import 'package:news_app/features/on_boarding/presentation/views/on_boarding_view.dart';
+import 'package:news_app/features/search/presentation/view_model/search_cubit.dart';
 import 'package:news_app/features/search/presentation/views/pages/search_view.dart';
 import 'package:news_app/features/settings/presentation/view_model/settings_cubit.dart';
 import 'package:news_app/features/settings/presentation/views/settings_view.dart';
@@ -91,8 +92,9 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kSearch,
-        builder: (context, state) => SearchView(
-          controller: state.extra as TextEditingController,
+        builder: (context, state) => BlocProvider(
+          create: (context) => SearchCubit(),
+          child: const SearchView(),
         ),
       ),
       GoRoute(

@@ -13,3 +13,11 @@ var uID = '';
 //   "url": "https://abcnews.go.com",
 //   "category": "general",
 // });
+
+String timeAgo(String timeAgo) {
+  DateTime timeAgo2 = DateTime.parse(timeAgo);
+  DateTime timeNow = DateTime.now();
+
+  Duration difference = timeNow.difference(timeAgo2);
+  return difference.inDays.toString();
+}

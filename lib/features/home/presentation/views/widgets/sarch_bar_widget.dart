@@ -5,22 +5,24 @@ class SearchWidget extends StatelessWidget {
   final TextEditingController textController;
   final String hintText;
   final GestureTapCallback? tap;
-  const SearchWidget(
-      {required this.textController,
-      required this.hintText,
-      Key? key,
-      this.tap})
-      : super(key: key);
+  
+  const SearchWidget({
+    required this.textController,
+    required this.hintText,
+    Key? key,
+    this.tap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
-            offset: const Offset(12, 26),
-            blurRadius: 50,
-            spreadRadius: 0,
-            color: Colors.grey.withOpacity(.1)),
+          offset: const Offset(12, 26),
+          blurRadius: 50,
+          spreadRadius: 0,
+          color: Colors.grey.withOpacity(.1),
+        ),
       ]),
       child: TextField(
         controller: textController,
@@ -39,8 +41,8 @@ class SearchWidget extends StatelessWidget {
           // fillColor: Colors.white,
           hintText: hintText,
           hintStyle: const TextStyle(fontWeight: FontWeight.w300),
-          contentPadding: EdgeInsets.symmetric(
-              vertical: AppSize.size20, horizontal: AppSize.size20),
+          contentPadding:
+              EdgeInsets.symmetric(vertical: AppSize.size20, horizontal: AppSize.size20),
           border: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10.0)),
           ),
