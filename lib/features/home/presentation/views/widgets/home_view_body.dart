@@ -7,6 +7,7 @@ import 'package:news_app/core/utils/assets_data.dart';
 import 'package:news_app/core/utils/service_locator.dart';
 import 'package:news_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:news_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
+import 'package:news_app/features/home/presentation/view_models/home_cubit/home_state.dart';
 import 'package:news_app/features/home/presentation/views/widgets/latest_view_body.dart';
 import 'package:news_app/features/home/presentation/views/widgets/sarch_bar_widget.dart';
 import 'package:news_app/features/home/presentation/views/widgets/tab_bar.dart';
@@ -23,8 +24,7 @@ class HomeViewBody extends StatelessWidget {
     TextEditingController searchController = TextEditingController();
 
     return BlocProvider(
-      create: (context) =>
-          HomeCubit(getIt.get<HomeRepoImpl>())..fetchTendingsNews(),
+      create: (context) => HomeCubit(getIt.get<HomeRepoImpl>())..fetchTendingsNews(),
       child: SafeArea(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSize.size15),
@@ -40,8 +40,11 @@ class HomeViewBody extends StatelessWidget {
                   height: 80,
                 ),
                 IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.notifications_on_outlined))
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.notifications_on_outlined,
+                  ),
+                )
               ],
             ),
             SizedBox(
@@ -51,8 +54,7 @@ class HomeViewBody extends StatelessWidget {
               textController: searchController,
               hintText: "Search",
               tap: () {
-                GoRouter.of(context)
-                    .push(AppRouter.kSearch, extra: searchController);
+                GoRouter.of(context).push(AppRouter.kSearch, extra: searchController);
               },
             ),
             SizedBox(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
+import 'package:news_app/features/home/presentation/view_models/home_cubit/home_state.dart';
 import 'package:news_app/features/home/presentation/views/widgets/trending_news_widget.dart';
-
 import '../../../../../core/utils/app_size.dart';
 
 class TrendingViewBody extends StatelessWidget {
@@ -46,11 +46,10 @@ class TrendingViewBody extends StatelessWidget {
                     return ListView.builder(
                       physics: const BouncingScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: 100,
+                      itemCount: state.trendings.length,
                       itemBuilder: (context, index) => Container(
                         margin: const EdgeInsets.symmetric(vertical: 20),
-                        child:
-                            TrendingNewsItem(newsModel: state.trendings[index]),
+                        child: TrendingNewsItem(newsModel: state.trendings[index]),
                       ),
                     );
                   } else {

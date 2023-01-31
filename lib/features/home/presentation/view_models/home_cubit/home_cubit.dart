@@ -1,16 +1,12 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
-import 'package:news_app/features/home/data/models/news_model.dart';
-
+import 'package:news_app/features/home/presentation/view_models/home_cubit/home_state.dart';
 import '../../../data/repos/homr_repo.dart';
-
-part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this.homeRepo) : super(HomeInitial());
   static HomeCubit get(context) => BlocProvider.of(context);
   final HomeRepo homeRepo;
+
   Future<void> fetchTendingsNews() async {
     emit(HomeGetTrendingLoading());
     var result = await homeRepo.fetchTrending();

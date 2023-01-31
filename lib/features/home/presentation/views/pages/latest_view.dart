@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/features/home/presentation/views/widgets/latest_view_body.dart';
 
-
 class LatestView extends StatelessWidget {
   const LatestView({super.key});
 

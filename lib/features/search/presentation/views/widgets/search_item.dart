@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:news_app/constants.dart';
-import 'package:news_app/features/news_details/presentation/views/news_details_view.dart';
+import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/features/search/data/models/search_model.dart';
 
 class SearchItem extends StatelessWidget {
-  final Articles? model;
+  final News? model;
   final String? newsCountry;
   final String? newsAuthorImage;
   final Function()? onPressed;
@@ -21,11 +22,7 @@ class SearchItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context, rootNavigator: true).push(
-          MaterialPageRoute(
-            builder: (context) => const NewsDetailsView(),
-          ),
-        );
+        GoRouter.of(context).push(AppRouter.kNewsDetails, extra: model);
       },
       child: SizedBox(
         height: 130,

@@ -4,11 +4,6 @@ import 'package:news_app/features/home/presentation/views/widgets/business_list.
 import 'package:news_app/features/home/presentation/views/widgets/health_list.dart';
 import 'package:news_app/features/home/presentation/views/widgets/politics_list.dart';
 import 'package:news_app/features/home/presentation/views/widgets/sports_list.dart';
-import 'package:news_app/features/search/data/author_data.dart';
-import 'package:news_app/features/search/presentation/view_model/search_cubit.dart';
-import 'package:news_app/features/search/presentation/views/widgets/author_item.dart';
-import 'package:news_app/features/search/presentation/views/widgets/search_item.dart';
-import 'package:news_app/features/search/presentation/views/widgets/search_result_list.dart';
 
 class TabPair {
   final Tab tab;

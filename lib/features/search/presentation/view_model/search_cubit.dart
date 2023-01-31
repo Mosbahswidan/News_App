@@ -12,13 +12,13 @@ class SearchCubit extends Cubit<SearchState> {
 
   TextEditingController searchController = TextEditingController();
 
-  SearchModel? searchModel;
+  NewsModel? searchModel;
   void searchNews({
     String? searchName,
   }) {
     emit(SearchLoading());
     Dio().get('https://newsapi.org/v2/everything?q=$searchName&apiKey=$apiKey').then((value) {
-      searchModel = SearchModel.fromJson(value.data);
+      searchModel = NewsModel.fromJson(value.data);
       debugPrint(searchModel!.status);
       emit(SearchSuccess());
     }).catchError((error) {

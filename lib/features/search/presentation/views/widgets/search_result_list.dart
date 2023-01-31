@@ -14,13 +14,14 @@ class SearchResultList extends StatelessWidget {
       builder: (context, state) {
         SearchCubit cubit = SearchCubit.get(context);
         return cubit.searchModel == null
-            ? const SizedBox()
+            ? SizedBox()
             : ListView.separated(
                 physics: const BouncingScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: cubit.searchModel!.articles!.length,
-                itemBuilder: (context, index) =>
-                    SearchItem(model: cubit.searchModel!.articles![index]),
+                itemBuilder: (context, index) => SearchItem(
+                  model: cubit.searchModel?.articles![index],
+                ),
                 separatorBuilder: (context, index) => const SizedBox(height: 5),
               );
       },
