@@ -19,6 +19,7 @@ class UserNewsItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         //GoRouter.of(context).push(AppRouter.kNewsDetails, extra: newsModel);
+        GoRouter.of(context).push(AppRouter.kNewsDetailsUser, extra: newsModel);
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),

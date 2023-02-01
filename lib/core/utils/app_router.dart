@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:news_app/core/utils/export.dart';
+import 'package:news_app/features/add_news/data/models/post_model.dart';
 import 'package:news_app/features/author_profile/data/repos/author_profile_impl.dart';
 import 'package:news_app/features/author_profile/presentation/view_model/cubit/author_profile_cubit.dart';
 import 'package:news_app/features/author_profile/presentation/views/pages/author_profile_view.dart';
+
+import '../../features/news_details_user/presentation/views/news_details_view.dart';
 
 abstract class AppRouter {
   static const kOnBoarding = "/onBoarding";
@@ -19,6 +24,7 @@ abstract class AppRouter {
   static const kAddNews = "/addNews";
   static const kNewsDetails = "/newsDetails";
   static const kAuthorProfile2 = "/authorProfile22";
+  static const kNewsDetailsUser = "/nwesDetaisUser";
 
   static final router = GoRouter(
     routes: [
@@ -29,6 +35,11 @@ abstract class AppRouter {
       GoRoute(
         path: kOnBoarding,
         builder: (context, state) => const OnBoardingView(),
+      ),
+      GoRoute(
+        path: kNewsDetailsUser,
+        builder: (context, state) =>
+            NewsDetailsViewUser(model: state.extra as PostModel),
       ),
       GoRoute(
         path: kLoginView,
