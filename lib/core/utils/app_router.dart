@@ -105,7 +105,7 @@ abstract class AppRouter {
       GoRoute(
         path: kAddNews,
         builder: (context, state) => BlocProvider(
-          create: (context) => AddNewsCubit(),
+          create: (context) => AddNewsCubit()..getUserData(),
           child: const AddNewsView(),
         ),
       ),

@@ -89,7 +89,9 @@ class AddNewsBody extends StatelessWidget {
                             width: 100,
                             child: ElevatedButton(
                                 onPressed: () {
-                                  debugPrint(newsTitleController.text.isEmpty.toString());
+                                  AddNewsCubit.get(context).uploadPostPost(
+                                      title: newsTitleController.text,
+                                      content: newsController.text);
                                 },
                                 child: const Text("Publish")))
                         : SizedBox(
@@ -107,6 +109,16 @@ class AddNewsBody extends StatelessWidget {
                   ],
                 ),
               ),
+              if (state is SocialCreatePostLoading)
+                Row(
+                  children: const [
+                    Spacer(),
+                    SizedBox(
+                      width: 100,
+                      child: LinearProgressIndicator(),
+                    ),
+                  ],
+                )
             ],
           );
         },
