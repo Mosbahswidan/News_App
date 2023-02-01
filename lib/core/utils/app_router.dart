@@ -83,10 +83,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kAuthorProfile,
-        builder: (context, state) => BlocProvider(
-          create: (context) => UserProfileCubit(),
-          child: const UserprofileView(),
-        ),
+        builder: (context, state) => const UserprofileView(),
       ),
       GoRoute(
         path: kSettings,

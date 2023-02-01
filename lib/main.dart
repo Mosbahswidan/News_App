@@ -1,4 +1,5 @@
 import 'package:news_app/core/utils/export.dart';
+import 'bloc_obsever.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -7,7 +8,12 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  BlocOverrides.runZoned(
+    () {
+      runApp(const MyApp());
+    },
+    blocObserver: Observer(),
+  );
 }
 
 class MyApp extends StatelessWidget {
