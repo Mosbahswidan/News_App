@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:news_app/core/utils/export.dart';
 import 'package:news_app/features/add_news/data/models/post_model.dart';
+import 'package:news_app/features/auth/data/models/user_models.dart';
 import 'package:news_app/features/author_profile/data/repos/author_profile_impl.dart';
 import 'package:news_app/features/author_profile/presentation/view_model/cubit/author_profile_cubit.dart';
 import 'package:news_app/features/author_profile/presentation/views/pages/author_profile_view.dart';
@@ -38,8 +39,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kNewsDetailsUser,
-        builder: (context, state) =>
-            NewsDetailsViewUser(model: state.extra as PostModel),
+        builder: (context, state) => NewsDetailsViewUser(model: state.extra as PostModel),
       ),
       GoRoute(
         path: kLoginView,
@@ -76,8 +76,7 @@ abstract class AppRouter {
       GoRoute(
         path: kTrending,
         builder: (context, state) => BlocProvider(
-          create: (context) =>
-              HomeCubit(getIt.get<HomeRepoImpl>())..fetchTendingsNews(),
+          create: (context) => HomeCubit(getIt.get<HomeRepoImpl>())..fetchTendingsNews(),
           child: const TrendingView(),
         ),
       ),
@@ -107,7 +106,7 @@ abstract class AppRouter {
         path: kEditProfile,
         builder: (context, state) => BlocProvider(
           create: (context) => EditProfileCubit(),
-          child: const EditProfileView(),
+          child: EditProfileView(userModel: state.extra as UserModel),
         ),
       ),
       GoRoute(
@@ -119,15 +118,13 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kNewsDetails,
-        builder: (context, state) =>
-            NewsDetailsView(model: state.extra as News?),
+        builder: (context, state) => NewsDetailsView(model: state.extra as News?),
       ),
       GoRoute(
         path: kAuthorProfile2,
         builder: (context, state) => BlocProvider(
-          create: (context) =>
-              AuthorProfileCubit(getIt.get<AuthorProfileImpl>())
-                ..fetchAuthorNews(sourceId: state.extra as String),
+          create: (context) => AuthorProfileCubit(getIt.get<AuthorProfileImpl>())
+            ..fetchAuthorNews(sourceId: state.extra as String),
           child: const AuthorProfileView(),
         ),
       )

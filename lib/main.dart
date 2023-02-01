@@ -21,19 +21,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Sizer(
-      builder: (context, orientation, deviceType) {
-        return MaterialApp.router(
-          routerConfig: AppRouter.router,
-          debugShowCheckedModeBanner: false,
-          title: 'NewsApp',
-          theme: ThemeData(
-            //primarySwatch: Colors.blue,
-            primaryColor: kPrimaryColor,
-            scaffoldBackgroundColor: Colors.white,
-          ),
-        );
-      },
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => EditProfileCubit()),
+      ],
+      child: Sizer(
+        builder: (context, orientation, deviceType) {
+          return MaterialApp.router(
+            routerConfig: AppRouter.router,
+            debugShowCheckedModeBanner: false,
+            title: 'NewsApp',
+            theme: ThemeData(
+              //primarySwatch: Colors.blue,
+              primaryColor: kPrimaryColor,
+              scaffoldBackgroundColor: Colors.white,
+            ),
+          );
+        },
+      ),
     );
   }
 }

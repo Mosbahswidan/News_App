@@ -5,7 +5,7 @@ class MyTextField extends StatelessWidget {
   final TextEditingController controller;
   final bool obsecure;
   final TextInputType? textInputType;
-  final FormFieldValidator? validator;
+  final String? Function(String?)? validator;
   
   const MyTextField({
     super.key,

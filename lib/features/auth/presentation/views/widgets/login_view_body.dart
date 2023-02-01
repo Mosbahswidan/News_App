@@ -82,7 +82,7 @@ class LoginViewBody extends StatelessWidget {
                 controller: passwordController,
                 obsecure: true,
                 validator: (value) {
-                  return validatePassword(value);
+                  return null;
                 },
               ),
               SizedBox(
