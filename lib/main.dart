@@ -1,4 +1,5 @@
 import 'package:news_app/core/utils/export.dart';
+import 'package:news_app/features/book_mark/presentation/view_model/book_mark_cubit.dart';
 import 'bloc_obsever.dart';
 import 'firebase_options.dart';
 
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => EditProfileCubit()),
+        BlocProvider(create: (context) => BookMarkCubit()),
       ],
       child: Sizer(
         builder: (context, orientation, deviceType) {

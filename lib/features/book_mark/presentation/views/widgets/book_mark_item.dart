@@ -1,28 +1,21 @@
-import 'package:flutter/material.dart';
-import 'package:news_app/constants.dart';
+import 'package:news_app/core/utils/export.dart';
 
 class BookMarkItem extends StatelessWidget {
-  final String? newsImage;
-  final String? newsCountry;
-  final String? newsTitle;
-  final String? newsAuthorImage;
-  final String? newsAuthorName;
   final Function()? onPressed;
+  final News? model;
 
   const BookMarkItem({
     super.key,
-    this.newsImage,
-    this.newsCountry,
-    this.newsTitle,
-    this.newsAuthorImage,
-    this.newsAuthorName,
     this.onPressed,
+    this.model,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        GoRouter.of(context).push(AppRouter.kNewsDetails, extra: model);
+      },
       child: SizedBox(
         height: 130,
         width: double.infinity,
@@ -37,7 +30,7 @@ class BookMarkItem extends StatelessWidget {
                   width: 100,
                   fit: BoxFit.cover,
                   image: NetworkImage(
-                    newsImage ??
+                    model!.urlToImage ??
                         'https://img.freepik.com/free-photo/brunette-blogger-posing-photo_23-2148192222.jpg?w=740&t=st=1675010200~exp=1675010800~hmac=0918efacf22aecc9dc7a4c3f54fbfc3526773d2aef6543aa6e168e4ef4628537',
                   ),
                 ),
@@ -51,7 +44,7 @@ class BookMarkItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      newsCountry ?? 'Gaza',
+                      'Global',
                       style: const TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w400,
@@ -64,7 +57,7 @@ class BookMarkItem extends StatelessWidget {
                     SizedBox(
                       width: 230,
                       child: Text(
-                        newsTitle ??
+                        model!.title ??
                             'Ukraine\'s President Zelensky to BBC: Blood money being paid...',
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
@@ -81,40 +74,46 @@ class BookMarkItem extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           CircleAvatar(
-                            radius: 12,
-                            backgroundImage: NetworkImage(newsAuthorImage ??
-                                'https://img.freepik.com/free-photo/brunette-blogger-posing-photo_23-2148192222.jpg?w=740&t=st=1675010200~exp=1675010800~hmac=0918efacf22aecc9dc7a4c3f54fbfc3526773d2aef6543aa6e168e4ef4628537'),
-                          ),
+                              radius: 12, backgroundImage: AssetImage('assets/images/news.png')),
                           const SizedBox(
                             width: 8,
                           ),
-                          Text(
-                            newsAuthorName ?? 'BBC News',
-                            style: const TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                              color: kSecondaryColor,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          const Icon(
-                            Icons.access_time_rounded,
-                            color: kSecondaryColor,
-                            size: 18,
-                          ),
-                          const SizedBox(
-                            width: 6,
-                          ),
-                          const Expanded(
-                            child: Text(
-                              '4h ago',
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: kSecondaryColor,
-                              ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  model!.source!.name ?? 'BBC News',
+                                  style: const TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w600,
+                                    color: kSecondaryColor,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.access_time_rounded,
+                                      color: kSecondaryColor,
+                                      size: 18,
+                                    ),
+                                    const SizedBox(
+                                      width: 6,
+                                    ),
+                                    Text(
+                                      '${timeAgo(model!.publishedAt!)}h ago',
+                                      style: const TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                        color: kSecondaryColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                           IconButton(

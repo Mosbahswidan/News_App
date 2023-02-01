@@ -53,7 +53,7 @@ class NewsDetailsView extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: NewsDetailsViewBody(model: model),
       ),
-      bottomNavigationBar: const NewsDetailsBottom(),
+      bottomNavigationBar: NewsDetailsBottom(model: model),
     );
   }
 }

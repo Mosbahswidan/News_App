@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/core/utils/app_size.dart';
+import 'package:news_app/features/book_mark/presentation/view_model/book_mark_cubit.dart';
 import 'package:news_app/features/book_mark/presentation/views/widgets/book_mark_item.dart';
 import 'package:news_app/features/home/presentation/views/widgets/sarch_bar_widget.dart';
 import 'package:sizer/sizer.dart';
@@ -33,11 +34,18 @@ class BookMarkViewBody extends StatelessWidget {
               textController: searchController,
             ),
             SizedBox(height: AppSize.size40),
-            const BookMarkItem(),
-            const BookMarkItem(),
-            const BookMarkItem(),
-            const BookMarkItem(),
-            const BookMarkItem(),
+            StreamBuilder(
+              stream: BookMarkCubit.get(context).getBookMark(),
+              builder: (context, snapshot) => snapshot.data == null
+                  ? CircularProgressIndicator()
+                  : ListView.separated(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) => BookMarkItem(model: snapshot.data![index]),
+                      separatorBuilder: (context, index) => SizedBox(height: 12),
+                      itemCount: snapshot.data!.length,
+                    ),
+            ),
           ],
         ),
       ),
