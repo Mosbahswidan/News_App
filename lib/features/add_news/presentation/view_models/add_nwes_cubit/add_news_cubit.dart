@@ -32,29 +32,23 @@ class AddNewsCubit extends Cubit<AddNewsState> {
   UserModel? socialUserModel;
 
   Stream<UserModel> getUserData() {
-    emit(SocialGetUserLoading());
-
     return services.documentsStream(
         path: 'users/$uID/',
         builder: (data, documentId) => socialUserModel = UserModel.fromJson(data!));
-    // await FirebaseFirestore.instance.collection('users').doc(uID).get().then((value) {
-    //   emit(SocialGetUserSuccsess());
-    // }).catchError((error) {
-    //   print(error);
-    //   emit(SocialGetUserError(error.toString()));
-    // });
   }
 
   void createPost({
     required String title,
     required String content,
+    required String userName,
+    required String userImage,
     String? postimage,
   }) {
     emit(SocialCreatePostLoading());
     PostModel model = PostModel(
-      name: socialUserModel!.fullName,
+      name: userName,
       uId: uID,
-      image: socialUserModel!.image,
+      image: userImage,
       title: title,
       content: content,
       postImage: postimage ?? '',
@@ -69,6 +63,8 @@ class AddNewsCubit extends Cubit<AddNewsState> {
   void uploadPostPost({
     required String title,
     required String content,
+    required String userName,
+    required String userImage,
   }) {
     emit(SocialCreatePostLoading());
     firebase_storage.FirebaseStorage.instance
@@ -81,13 +77,18 @@ class AddNewsCubit extends Cubit<AddNewsState> {
           title: title,
           content: content,
           postimage: value,
+          userName: userName,
+          userImage: userImage,
         );
-      }).catchError((error) {
-        emit(SocialCreatePostError());
+        emit(SocialCreatePostSucces());
       });
-    }).catchError((error) {
-      emit(SocialCreatePostError());
+      // .catchError((error) {
+      //   emit(SocialCreatePostError());
+      // });
     });
+    // .catchError((error) {
+    //   emit(SocialCreatePostError());
+    // });
   }
 
   List<PostModel> posts = [];

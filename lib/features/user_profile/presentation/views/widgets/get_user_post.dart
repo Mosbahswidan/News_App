@@ -15,6 +15,7 @@ class GetUserPostList extends StatelessWidget {
           return Expanded(
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
+              
               itemCount: AddNewsCubit.get(context).posts.length,
               itemBuilder: (context, index) {
                 return UserNewsItem(newsModel: AddNewsCubit.get(context).posts[index]);
