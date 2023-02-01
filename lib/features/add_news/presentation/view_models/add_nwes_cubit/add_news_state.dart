@@ -21,3 +21,13 @@ class SocialCreatePostLoading extends AddNewsState {}
 class SocialCreatePostSucces extends AddNewsState {}
 
 class SocialCreatePostError extends AddNewsState {}
+
+class SocialGetPostsLoading extends AddNewsState {}
+
+class SocialGetPostsError extends AddNewsState {
+  final String errorMessage;
+
+  SocialGetPostsError(this.errorMessage);
+}
+
+class SocialGetPostsSuccsess extends AddNewsState {}

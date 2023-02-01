@@ -27,9 +27,7 @@ export 'package:news_app/features/search/presentation/views/pages/search_view.da
 export 'package:news_app/features/settings/presentation/view_model/settings_cubit.dart';
 export 'package:news_app/features/settings/presentation/views/settings_view.dart';
 export 'package:news_app/features/splash_feature/presentation/views/splash_view.dart';
-export 'package:news_app/features/user_profile/presentation/view_model/user_profile_cubit.dart';
 export 'package:news_app/features/user_profile/presentation/views/pages/user_profile_view.dart';
-
 
 // service locator
 export 'package:dio/dio.dart';
@@ -42,10 +40,3 @@ export 'package:news_app/core/utils/app_router.dart';
 export 'package:firebase_core/firebase_core.dart';
 export 'package:sizer/sizer.dart';
 export 'package:news_app/constants.dart';
-
-
-
-
-
-
-

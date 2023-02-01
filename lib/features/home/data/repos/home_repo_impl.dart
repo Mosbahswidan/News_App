@@ -15,7 +15,7 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiServices.get(
           endPoint:
-              "/everything?q=trending&apiKey=cd02c34afa26497ca935ba0c2cdc72b3");
+              "/everything?q=trending&apiKey=693382b600a64013b48387fcc9a93211");
 
       List<News> news = [];
       for (var item in data['articles']) {
@@ -40,7 +40,7 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiServices.get(
           endPoint:
-              "/top-headlines?apiKey=cd02c34afa26497ca935ba0c2cdc72b3&q=all");
+              "/top-headlines?apiKey=693382b600a64013b48387fcc9a93211&q=all");
 
       List<News> allNews = [];
       for (var item in data['articles']) {
@@ -65,7 +65,7 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiServices.get(
           endPoint:
-              "/top-headlines?apiKey=cd02c34afa26497ca935ba0c2cdc72b3&country=us&category=sports");
+              "/top-headlines?apiKey=693382b600a64013b48387fcc9a93211&country=us&category=sports");
 
       List<News> sportsNews = [];
       for (var item in data['articles']) {
@@ -90,7 +90,7 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiServices.get(
           endPoint:
-              "/top-headlines?apiKey=cd02c34afa26497ca935ba0c2cdc72b3&country=us&category=general");
+              "/top-headlines?apiKey=693382b600a64013b48387fcc9a93211&country=us&category=general");
 
       List<News> politicsNews = [];
       for (var item in data['articles']) {
@@ -115,7 +115,7 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiServices.get(
           endPoint:
-              "/top-headlines?apiKey=cd02c34afa26497ca935ba0c2cdc72b3&country=us&category=business");
+              "/top-headlines?apiKey=693382b600a64013b48387fcc9a93211&country=us&category=business");
 
       List<News> businessNews = [];
       for (var item in data['articles']) {
@@ -140,7 +140,7 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiServices.get(
           endPoint:
-              "/top-headlines?apiKey=cd02c34afa26497ca935ba0c2cdc72b3&country=us&category=health");
+              "/top-headlines?apiKey=693382b600a64013b48387fcc9a93211&country=us&category=health");
 
       List<News> healthNews = [];
       for (var item in data['articles']) {
