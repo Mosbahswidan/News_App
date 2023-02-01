@@ -87,13 +87,20 @@ class AddNewsBody extends StatelessWidget {
                         ? SizedBox(
                             height: 50,
                             width: 100,
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  AddNewsCubit.get(context).uploadPostPost(
+                            child: StreamBuilder(
+                              stream: AddNewsCubit.get(context).getUserData(),
+                              builder: (context, snapshot) => ElevatedButton(
+                                  onPressed: () {
+                                    AddNewsCubit.get(context).uploadPostPost(
                                       title: newsTitleController.text,
-                                      content: newsController.text);
-                                },
-                                child: const Text("Publish")))
+                                      content: newsController.text,
+                                      userName: snapshot.data!.fullName!,
+                                      userImage: snapshot.data!.image!,
+
+                                    );
+                                  },
+                                  child: const Text("Publish")),
+                            ))
                         : SizedBox(
                             height: 50,
                             width: 100,
