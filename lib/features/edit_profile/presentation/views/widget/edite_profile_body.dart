@@ -1,119 +1,116 @@
-import 'package:flutter/material.dart';
 import 'package:news_app/core/utils/app_size.dart';
-import 'package:news_app/features/auth/presentation/views/widgets/my_text_field.dart';
+import 'package:news_app/core/utils/export.dart';
+import 'package:news_app/features/auth/data/models/user_models.dart';
+import 'package:news_app/features/auth/presentation/views/widgets/sign_up_text_field.dart';
+import 'package:news_app/features/edit_profile/presentation/view_model/edit_profile_state.dart';
 
 class EditProfileBody extends StatelessWidget {
-  EditProfileBody({super.key});
+  final UserModel? model;
 
-  final TextEditingController cont = TextEditingController();
+  const EditProfileBody({
+    super.key,
+    required this.model,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: const BouncingScrollPhysics(),
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: AppSize.size20,
-          vertical: AppSize.size20,
-        ),
-        child: Column(
-          children: [
-            Center(
-              child: SizedBox(
-                height: 125,
-                width: 120,
-                child: Stack(
-                  children: [
-                    const CircleAvatar(
-                      radius: 60,
-                      backgroundColor: Colors.transparent,
-                      backgroundImage: NetworkImage(
-                          'https://img.freepik.com/free-photo/no-problem-concept-bearded-man-makes-okay-gesture-has-everything-control-all-fine-gesture-wears-spectacles-jumper-poses-against-pink-wall-says-i-got-this-guarantees-something_273609-42817.jpg?w=740&t=st=1675087563~exp=1675088163~hmac=8d2ab0f6797bc3c6b9568c101ef8a56f7b4ab707fad6b35faeaa788bc14e0eea'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        right: 4.0,
-                        bottom: 2.0,
+    return BlocConsumer<EditProfileCubit, EditProfileState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        EditProfileCubit cubit = EditProfileCubit.get(context);
+        cubit.emailController.text = model!.email!;
+        cubit.bioController.text = model!.bio!;
+        cubit.fullNameController.text = model!.fullName!;
+        cubit.phoneController.text = model!.phone!;
+        cubit.webSiteController.text = model!.webSite!;
+        return SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSize.size20,
+              vertical: AppSize.size20,
+            ),
+            child: model == null
+                ? const CircularProgressIndicator()
+                : Column(
+                    children: [
+                      SizedBox(
+                        height: 5,
                       ),
-                      child: GestureDetector(
-                        onTap: () {},
-                        child: const Align(
-                          alignment: Alignment.bottomRight,
-                          child: CircleAvatar(
-                            radius: 18,
-                            child: Center(
-                              child: Icon(
-                                Icons.camera_alt_outlined,
+                      if (state is EditProfileLoading) LinearProgressIndicator(),
+                      Center(
+                        child: SizedBox(
+                          height: 125,
+                          width: 120,
+                          child: Stack(
+                            children: [
+                              CircleAvatar(
+                                radius: 60,
+                                backgroundColor: Colors.transparent,
+                                backgroundImage: NetworkImage(model!.image!),
                               ),
-                            ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  right: 4.0,
+                                  bottom: 2.0,
+                                ),
+                                child: GestureDetector(
+                                  onTap: () {},
+                                  child: const Align(
+                                    alignment: Alignment.bottomRight,
+                                    child: CircleAvatar(
+                                      radius: 18,
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.camera_alt_outlined,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            MyTextField(
-              controller: cont,
-              hintText: 'Enter username',
-              obsecure: false,
-              textInputType: TextInputType.name,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            MyTextField(
-              controller: cont,
-              hintText: 'Enter full name',
-              obsecure: false,
-              textInputType: TextInputType.name,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            MyTextField(
-              controller: cont,
-              hintText: 'Enter email address',
-              obsecure: false,
-              textInputType: TextInputType.emailAddress,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            MyTextField(
-              controller: cont,
-              hintText: 'Enter phone number',
-              obsecure: false,
-              textInputType: TextInputType.phone,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            MyTextField(
-              controller: cont,
-              hintText: 'Enter bio',
-              obsecure: false,
-              textInputType: TextInputType.text,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            MyTextField(
-              controller: cont,
-              hintText: 'Enter website',
-              obsecure: false,
-              textInputType: TextInputType.url,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-          ],
-        ),
-      ),
+                      const SizedBox(
+                        height: 45,
+                      ),
+                      SignUpTextField(
+                        fieldTitle: 'Full Name',
+                        controller: cubit.fullNameController,
+                        textInputType: TextInputType.name,
+                        hintText: 'Enter full name',
+                      ),
+                      SignUpTextField(
+                        fieldTitle: 'Emial Address',
+                        controller: cubit.emailController,
+                        textInputType: TextInputType.emailAddress,
+                        hintText: 'Enter emial address',
+                      ),
+                      SignUpTextField(
+                        fieldTitle: 'phone',
+                        controller: cubit.phoneController,
+                        textInputType: TextInputType.phone,
+                        hintText: 'Enter phone',
+                      ),
+                      SignUpTextField(
+                        fieldTitle: 'Bio',
+                        controller: cubit.bioController,
+                        textInputType: TextInputType.text,
+                        hintText: 'Enter bio',
+                      ),
+                      SignUpTextField(
+                        fieldTitle: 'WebSite',
+                        controller: cubit.webSiteController,
+                        textInputType: TextInputType.url,
+                        hintText: 'Enter web site',
+                      ),
+                    ],
+                  ),
+          ),
+        );
+      },
     );
   }
 }
