@@ -31,15 +31,18 @@ class AddNewsCubit extends Cubit<AddNewsState> {
 
   UserModel? socialUserModel;
 
-  Future<void> getUserData() async {
+  Stream<UserModel> getUserData() {
     emit(SocialGetUserLoading());
-    await FirebaseFirestore.instance.collection('users').doc(uID).get().then((value) {
-      socialUserModel = UserModel.fromJson(value.data()!);
-      emit(SocialGetUserSuccsess());
-    }).catchError((error) {
-      print(error);
-      emit(SocialGetUserError(error.toString()));
-    });
+
+    return services.documentsStream(
+        path: 'users/$uID/',
+        builder: (data, documentId) => socialUserModel = UserModel.fromJson(data!));
+    // await FirebaseFirestore.instance.collection('users').doc(uID).get().then((value) {
+    //   emit(SocialGetUserSuccsess());
+    // }).catchError((error) {
+    //   print(error);
+    //   emit(SocialGetUserError(error.toString()));
+    // });
   }
 
   void createPost({

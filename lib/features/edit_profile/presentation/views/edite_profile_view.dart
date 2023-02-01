@@ -51,7 +51,6 @@ class EditProfileView extends StatelessWidget {
                   )
                       .then((value) {
                     Navigator.pop(context);
-                    AddNewsCubit.get(context).getUserData();
                   });
                 },
                 icon: const Icon(
