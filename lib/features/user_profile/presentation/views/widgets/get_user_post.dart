@@ -14,7 +14,7 @@ class GetUserPostList extends StatelessWidget {
     return BlocBuilder<AddNewsCubit, AddNewsState>(
       builder: (context, state) {
         // print(state);
-        if (state is SocialGetPostsSuccsess) {
+        if (AddNewsCubit.get(context).posts.isNotEmpty) {
           return Expanded(
             child: ListView.builder(
               physics: const BouncingScrollPhysics(),
@@ -26,9 +26,7 @@ class GetUserPostList extends StatelessWidget {
             ),
           );
         } else {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
+          return const Center(child: CircularProgressIndicator());
         }
       },
     );

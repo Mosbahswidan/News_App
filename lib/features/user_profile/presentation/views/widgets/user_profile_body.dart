@@ -26,7 +26,10 @@ class UserProfileBody extends StatelessWidget {
               children: [
                 BlocBuilder<AddNewsCubit, AddNewsState>(
                   builder: (context, state) {
+                    //AddNewsCubit.get(context).getPosts();
                     if (AddNewsCubit.get(context).socialUserModel != null) {
+                      //  AddNewsCubit.get(context).getPosts();
+                      print(true);
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
