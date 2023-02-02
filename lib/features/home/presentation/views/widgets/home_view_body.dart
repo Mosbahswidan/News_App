@@ -21,76 +21,71 @@ class HomeViewBody extends StatelessWidget {
     TextEditingController searchController = TextEditingController();
 
     return BlocProvider(
-      create: (context) => HomeCubit(getIt.get<HomeRepoImpl>())..fetchTendingsNews(),
+      create: (context) =>
+          HomeCubit(getIt.get<HomeRepoImpl>())..fetchTendingsNews(),
       child: SafeArea(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: AppSize.size15),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Image.asset(
-                  AssetsData.logo,
-                  height: 80,
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.notifications_on_outlined,
+        child: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          slivers: [
+            SliverToBoxAdapter(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: AppSize.size20,
                   ),
-                )
-              ],
+                  TextRow(
+                    bigText: "Trending",
+                    smallText: "See all",
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.kTrending);
+                    },
+                  ),
+                  SizedBox(
+                    height: AppSize.size20,
+                  ),
+                  BlocBuilder<HomeCubit, HomeState>(
+                    builder: (context, state) {
+                      if (state is HomeGetTrendingSuccsess) {
+                        return TrendingNewsItem(
+                          newsModel: state.trendings[3],
+                        );
+                      } else {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                    },
+                  ),
+                  SizedBox(
+                    height: AppSize.size20,
+                  ),
+                  TextRow(
+                    bigText: "Latest",
+                    smallText: "See all",
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.kLatest);
+                    },
+                  ),
+                  //const Expanded(child: TabBarAndTabViewsLatest()),
+                ],
+              ),
             ),
-            SizedBox(
-              height: AppSize.size20,
+            SliverFillRemaining(
+              // child: ListView.builder(
+              //     itemCount: 20,
+              //     itemBuilder: (context, index) {
+              //       return Container(
+              //         height: 20,
+              //         padding: EdgeInsets.all(10),
+              //         color: Colors.amber,
+              //       );
+              //     }),
+              child: TabBarAndTabViewsLatest(),
             ),
-            SearchWidget(
-              textController: searchController,
-              hintText: "Search",
-              tap: () {
-                GoRouter.of(context).push(AppRouter.kSearch, extra: searchController);
-              },
-            ),
-            SizedBox(
-              height: AppSize.size20,
-            ),
-            TextRow(
-              bigText: "Trending",
-              smallText: "See all",
-              onTap: () {
-                GoRouter.of(context).push(AppRouter.kTrending);
-              },
-            ),
-            SizedBox(
-              height: AppSize.size20,
-            ),
-            BlocBuilder<HomeCubit, HomeState>(
-              builder: (context, state) {
-                if (state is HomeGetTrendingSuccsess) {
-                  return TrendingNewsItem(
-                    newsModel: state.trendings[3],
-                  );
-                } else {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
-              },
-            ),
-            SizedBox(
-              height: AppSize.size20,
-            ),
-            TextRow(
-              bigText: "Latest",
-              smallText: "See all",
-              onTap: () {
-                GoRouter.of(context).push(AppRouter.kLatest);
-              },
-            ),
-            const Expanded(child: TabBarAndTabViewsLatest()),
           ],
         ),
       )),
