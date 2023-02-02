@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/core/utils/export.dart';
 
 class BookMarkItem extends StatelessWidget {
@@ -20,14 +21,14 @@ class BookMarkItem extends StatelessWidget {
         height: 130,
         width: double.infinity,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: EdgeInsets.symmetric(horizontal: 8.0.w),
           child: Row(
             children: [
               ClipRRect(
-                borderRadius: BorderRadiusDirectional.circular(10),
+                borderRadius: BorderRadiusDirectional.circular(10.r),
                 child: Image(
-                  height: 110,
-                  width: 100,
+                  height: 110.h,
+                  width: 100.w,
                   fit: BoxFit.cover,
                   image: NetworkImage(
                     model!.urlToImage ??
@@ -35,11 +36,11 @@ class BookMarkItem extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                width: 12,
+              SizedBox(
+                width: 10.w,
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 18.0),
+                padding: EdgeInsets.only(top: 18.0.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -48,36 +49,36 @@ class BookMarkItem extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium
-                          ?.copyWith(fontWeight: FontWeight.w400, fontSize: 13),
-                    ),
-                    const SizedBox(
-                      height: 6,
+                          ?.copyWith(fontWeight: FontWeight.w400, fontSize: 13.sp),
                     ),
                     SizedBox(
-                      width: 230,
+                      height: 6.h,
+                    ),
+                    SizedBox(
+                      width: 230.w,
                       child: Text(
                         model!.title ??
                             'Ukraine\'s President Zelensky to BBC: Blood money being paid...',
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontSize: 16,
+                        style: TextStyle(
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
                     ),
                     const Spacer(),
                     SizedBox(
-                      width: 230,
+                      width: 220.w,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           CircleAvatar(
-                              radius: 12,
-                              backgroundImage:
-                                  AssetImage('assets/images/news.png')),
-                          const SizedBox(
-                            width: 8,
+                            radius: 12.r,
+                            backgroundImage: const AssetImage('assets/images/news.png'),
+                          ),
+                          SizedBox(
+                            width: 8.w,
                           ),
                           Expanded(
                             child: Column(
@@ -85,34 +86,30 @@ class BookMarkItem extends StatelessWidget {
                               children: [
                                 Text(
                                   model!.source!.name ?? 'BBC News',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium
-                                      ?.copyWith(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 12),
+                                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 12.sp,
+                                      ),
                                 ),
-                                const SizedBox(
-                                  width: 10,
+                                SizedBox(
+                                  width: 8.w,
                                 ),
                                 Row(
                                   children: [
-                                    const Icon(
+                                    Icon(
                                       Icons.access_time_rounded,
                                       // color: kSecondaryColor,
-                                      size: 18,
+                                      size: 16.sp,
                                     ),
-                                    const SizedBox(
-                                      width: 6,
+                                    SizedBox(
+                                      width: 6.w,
                                     ),
                                     Text(
                                       '${timeAgo(model!.publishedAt!)}h ago',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium
-                                          ?.copyWith(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 12),
+                                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 12.sp,
+                                          ),
                                     ),
                                   ],
                                 ),
@@ -122,10 +119,10 @@ class BookMarkItem extends StatelessWidget {
                           IconButton(
                             onPressed: onPressed,
                             padding: EdgeInsets.zero,
-                            icon: const Icon(
+                            icon: Icon(
                               Icons.more_horiz,
                               color: kSecondaryColor,
-                              size: 22,
+                              size: 18.sp,
                             ),
                           ),
                         ],

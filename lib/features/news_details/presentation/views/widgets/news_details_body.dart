@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/constants.dart';
-import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/features/home/presentation/views/widgets/small_text.dart';
 import 'package:news_app/features/news_details/presentation/views/widgets/follow_button.dart';
 import 'package:news_app/features/search/data/models/search_model.dart';
@@ -18,9 +17,9 @@ class NewsDetailsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: AppSize.size15,
-        vertical: AppSize.size20,
+      padding: const EdgeInsets.symmetric(
+        horizontal: 15,
+        vertical: 20,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,7 +61,7 @@ class NewsDetailsViewBody extends StatelessWidget {
               const FollowButton(),
             ],
           ),
-          SizedBox(height: AppSize.size20),
+          const SizedBox(height: 20),
           ClipRRect(
             borderRadius: BorderRadiusDirectional.circular(10),
             child: Image(

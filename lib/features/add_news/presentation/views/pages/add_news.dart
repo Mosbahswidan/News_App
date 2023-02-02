@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/features/add_news/presentation/views/widgets/add_news_body.dart';
 
-import '../../../../../core/utils/app_size.dart';
 
 class AddNewsView extends StatelessWidget {
   const AddNewsView({super.key});
@@ -14,7 +14,7 @@ class AddNewsView extends StatelessWidget {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,
         leading: Padding(
-          padding: EdgeInsets.only(left: AppSize.size20),
+          padding: EdgeInsets.only(left: 20.w),
           child: InkWell(
             onTap: () {
               GoRouter.of(context).pop();
@@ -32,7 +32,7 @@ class AddNewsView extends StatelessWidget {
         ),
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: AppSize.size20),
+            padding: EdgeInsets.only(right: 20.w),
             child: IconButton(
               onPressed: () {},
               icon: const Icon(

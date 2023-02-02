@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/core/utils/app_router.dart';
-import 'package:news_app/core/utils/app_size.dart';
-import 'package:news_app/core/utils/assets_data.dart';
 import 'package:news_app/core/utils/service_locator.dart';
 import 'package:news_app/features/home/data/repos/home_repo_impl.dart';
 import 'package:news_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:news_app/features/home/presentation/view_models/home_cubit/home_state.dart';
-import 'package:news_app/features/home/presentation/views/widgets/sarch_bar_widget.dart';
 import 'package:news_app/features/home/presentation/views/widgets/tab_bar_latest.dart';
 import 'package:news_app/features/home/presentation/views/widgets/text_row_widget.dart';
 import 'package:news_app/features/home/presentation/views/widgets/trending_news_widget.dart';
@@ -18,14 +16,12 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController searchController = TextEditingController();
 
     return BlocProvider(
-      create: (context) =>
-          HomeCubit(getIt.get<HomeRepoImpl>())..fetchTendingsNews(),
+      create: (context) => HomeCubit(getIt.get<HomeRepoImpl>())..fetchTendingsNews(),
       child: SafeArea(
           child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppSize.size15),
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: CustomScrollView(
           physics: const BouncingScrollPhysics(),
           slivers: [
@@ -35,7 +31,7 @@ class HomeViewBody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: AppSize.size20,
+                    height: 20.h,
                   ),
                   TextRow(
                     bigText: "Trending",
@@ -45,7 +41,7 @@ class HomeViewBody extends StatelessWidget {
                     },
                   ),
                   SizedBox(
-                    height: AppSize.size20,
+                    height: 20.h,
                   ),
                   BlocBuilder<HomeCubit, HomeState>(
                     builder: (context, state) {
@@ -61,7 +57,7 @@ class HomeViewBody extends StatelessWidget {
                     },
                   ),
                   SizedBox(
-                    height: AppSize.size20,
+                    height: 20.h,
                   ),
                   TextRow(
                     bigText: "Latest",

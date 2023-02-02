@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/utils/app_size.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/features/book_mark/presentation/view_model/book_mark_cubit.dart';
 import 'package:news_app/features/book_mark/presentation/views/widgets/book_mark_item.dart';
 import 'package:news_app/features/home/presentation/views/widgets/sarch_bar_widget.dart';
-import 'package:sizer/sizer.dart';
 
 class BookMarkViewBody extends StatelessWidget {
   BookMarkViewBody({super.key});
@@ -15,8 +14,8 @@ class BookMarkViewBody extends StatelessWidget {
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: AppSize.size15,
-          vertical: AppSize.size40,
+          horizontal: 15.w,
+          vertical: 40.h,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,21 +27,21 @@ class BookMarkViewBody extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            SizedBox(height: AppSize.size40),
+            SizedBox(height: 40.h),
             SearchWidget(
               hintText: 'Search',
               textController: searchController,
             ),
-            SizedBox(height: AppSize.size40),
+            SizedBox(height: 40.h),
             StreamBuilder(
               stream: BookMarkCubit.get(context).getBookMark(),
               builder: (context, snapshot) => snapshot.data == null
-                  ? CircularProgressIndicator()
+                  ? const CircularProgressIndicator()
                   : ListView.separated(
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) => BookMarkItem(model: snapshot.data![index]),
-                      separatorBuilder: (context, index) => SizedBox(height: 12),
+                      separatorBuilder: (context, index) => SizedBox(height: 12.h),
                       itemCount: snapshot.data!.length,
                     ),
             ),

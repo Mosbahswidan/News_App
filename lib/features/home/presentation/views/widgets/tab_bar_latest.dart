@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/features/home/presentation/views/widgets/all_list.dart';
 import 'package:news_app/features/home/presentation/views/widgets/business_list.dart';
 import 'package:news_app/features/home/presentation/views/widgets/health_list.dart';
@@ -85,7 +86,7 @@ class _TabBarAndTabViewsState extends State<TabBarAndTabViewsLatest>
         children: [
           // give the tab bar a height [can change height to preferred height]
           Container(
-            height: 45,
+            height: 45.h,
             decoration: BoxDecoration(
               //color: Colors.white,
               borderRadius: BorderRadius.circular(

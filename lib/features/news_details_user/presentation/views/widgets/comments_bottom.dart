@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/constants.dart';
-import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/features/auth/presentation/views/widgets/my_text_field.dart';
 
 class CommentsBottom extends StatelessWidget {
@@ -23,7 +23,7 @@ class CommentsBottom extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppSize.size15),
+        padding: EdgeInsets.symmetric(horizontal:15.w),
         child: Row(
           children: [
             SizedBox(

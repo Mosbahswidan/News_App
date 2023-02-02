@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/features/add_news/data/models/post_model.dart';
 import 'package:news_app/features/home/presentation/views/widgets/small_text.dart';
-import 'package:news_app/features/search/data/models/search_model.dart';
 import '../../../../../core/utils/assets_data.dart';
 
 class UserNewsItem extends StatelessWidget {

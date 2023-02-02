@@ -1,6 +1,5 @@
-import 'package:news_app/core/utils/app_size.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/core/utils/export.dart';
-import 'package:news_app/core/widgets/custom_snack_bar.dart';
 import 'package:news_app/features/book_mark/presentation/view_model/book_mark_cubit.dart';
 import 'package:news_app/features/book_mark/presentation/view_model/book_mark_state.dart';
 import 'package:news_app/features/news_details/presentation/views/widgets/comments_view.dart';
@@ -34,7 +33,7 @@ class NewsDetailsBottom extends StatelessWidget {
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: AppSize.size15,
+              horizontal: 15.w,
             ),
             child: Row(
               children: [

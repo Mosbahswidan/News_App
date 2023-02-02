@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:news_app/constants.dart';
 import 'package:news_app/features/auth/presentation/views/widgets/my_text_field.dart';
 
 class SignUpTextField extends StatelessWidget {

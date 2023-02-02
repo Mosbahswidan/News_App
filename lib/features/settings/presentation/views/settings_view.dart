@@ -24,7 +24,7 @@ class SettingsView extends StatelessWidget {
           //   style: TextStyle(color: Colors.black),
         ),
       ),
-      body: const SettingsViewBody(),
+      body:  const SettingsViewBody(),
     );
   }
 }

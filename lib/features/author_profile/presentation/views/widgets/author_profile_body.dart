@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/core/utils/app_size.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/features/author_profile/presentation/view_model/cubit/author_profile_cubit.dart';
 import 'package:news_app/features/author_profile/presentation/view_model/cubit/author_profile_state.dart';
 import 'package:news_app/features/home/presentation/views/widgets/latest_news_item.dart';
 import 'package:news_app/features/home/presentation/views/widgets/small_text.dart';
 import 'package:news_app/features/user_profile/presentation/views/widgets/button_widget.dart';
-import 'package:sizer/sizer.dart';
 
 class AuthorProfileBody extends StatelessWidget {
   const AuthorProfileBody({super.key});
@@ -15,14 +14,14 @@ class AuthorProfileBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: AppSize.size20,
-        vertical: AppSize.size10,
+        horizontal: 20.w,
+        vertical: 10.h,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            height: 80,
+            height: 80.h,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,26 +68,26 @@ class AuthorProfileBody extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: AppSize.size15,
+            height: 15.h,
           ),
           Text(
             "BBC News",
             style: Theme.of(context).textTheme.bodySmall,
           ),
           SizedBox(
-            height: AppSize.size10,
+            height: 10.h,
           ),
           const SmallText(
               smallText:
                   "is an operational business division of the British Broadcasting Corporation responsible for the gathering and broadcasting of news and current affairs."),
           SizedBox(
-            height: AppSize.size20,
+            height: 20.h,
           ),
           Row(
             children: [
               Expanded(
                   child: SizedBox(
-                height: 50,
+                height: 50.h,
                 child: ProfileButton(
                   onPressed: () {},
                   text: "Following",
@@ -97,13 +96,16 @@ class AuthorProfileBody extends StatelessWidget {
               SizedBox(
                 width: 4.w,
               ),
-              const Expanded(
-                  child: SizedBox(
-                      height: 50, child: ProfileButton(text: "Website"))),
+              Expanded(
+                child: SizedBox(
+                  height: 50.h,
+                  child: const ProfileButton(text: "Website"),
+                ),
+              ),
             ],
           ),
           SizedBox(
-            height: AppSize.size20,
+            height: 20.h,
           ),
           Text(
             "News",

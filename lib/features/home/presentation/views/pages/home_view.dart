@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/core/utils/export.dart';
 import 'package:news_app/features/home/presentation/views/widgets/home_view_body.dart';
 
@@ -13,28 +13,27 @@ class HomeViwe extends StatelessWidget {
     TextEditingController searchController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
-        leadingWidth: 120,
-        toolbarHeight: 100,
+        leadingWidth: 120.w,
+        toolbarHeight: 100.h,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         leading: Image.asset(
           AssetsData.logo,
-          height: 100,
+          height: 100.h,
         ),
         bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(30),
+            preferredSize: Size.fromHeight(30.h),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
               child: SearchWidget(
                 textController: searchController,
                 hintText: "Search",
                 tap: () {
-                  GoRouter.of(context)
-                      .push(AppRouter.kSearch, extra: searchController);
+                  GoRouter.of(context).push(AppRouter.kSearch, extra: searchController);
                 },
               ),
             )),
       ),
-      body: HomeViewBody(),
+      body: const HomeViewBody(),
     );
   }
 }

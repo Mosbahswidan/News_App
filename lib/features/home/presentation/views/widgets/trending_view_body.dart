@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:news_app/features/home/presentation/view_models/home_cubit/home_state.dart';
 import 'package:news_app/features/home/presentation/views/widgets/trending_news_widget.dart';
-import '../../../../../core/utils/app_size.dart';
 
 class TrendingViewBody extends StatelessWidget {
   const TrendingViewBody({super.key});
@@ -12,7 +12,11 @@ class TrendingViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.only(right: 5, left: 20, top: 20),
+        padding: EdgeInsets.only(
+          right: 5.w,
+          left: 20.w,
+          top: 20.h,
+        ),
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
@@ -38,7 +42,7 @@ class TrendingViewBody extends StatelessWidget {
               //   ],
               // ),
               SizedBox(
-                height: AppSize.size20,
+                height: 20.h,
               ),
               BlocBuilder<HomeCubit, HomeState>(
                 builder: (context, state) {
@@ -48,7 +52,7 @@ class TrendingViewBody extends StatelessWidget {
                       shrinkWrap: true,
                       itemCount: state.trendings.length,
                       itemBuilder: (context, index) => Container(
-                        margin: const EdgeInsets.symmetric(vertical: 20),
+                        margin: EdgeInsets.symmetric(vertical: 20.h),
                         child: TrendingNewsItem(newsModel: state.trendings[index]),
                       ),
                     );

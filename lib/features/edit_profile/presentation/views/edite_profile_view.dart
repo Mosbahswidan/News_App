@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:news_app/core/utils/export.dart';
 import 'package:news_app/features/auth/data/models/user_models.dart';
 import 'package:news_app/features/edit_profile/presentation/view_model/edit_profile_state.dart';

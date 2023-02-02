@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/core/utils/app_size.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/features/search/presentation/view_model/search_cubit.dart';
 import 'package:news_app/features/search/presentation/view_model/search_state.dart';
 import 'package:news_app/features/search/presentation/views/widgets/primary_searchtextfield.dart';
@@ -22,8 +22,8 @@ class SearchViewBody extends StatelessWidget {
         return SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: AppSize.size20,
-              vertical: 20,
+              horizontal: 20.w,
+              vertical: 20.h,
             ),
             child: Column(
               children: [
@@ -44,13 +44,11 @@ class SearchViewBody extends StatelessWidget {
                     SearchCubit.get(context).searchNews(searchName: controller.text);
                   },
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: 10.h,
                 ),
                 if (state is SearchLoading) const LinearProgressIndicator(),
-                const SizedBox(
-                  height: 20,
-                ),
+                SizedBox(height: 20.h),
                 const Expanded(
                   child: TabBarAndTabViews(),
                 ),

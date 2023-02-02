@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileButton extends StatelessWidget {
   final String text;
@@ -16,12 +17,12 @@ class ProfileButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.r),
         ),
       ),
       child: Text(
         text,
-        style: const TextStyle(fontSize: 16),
+        style: TextStyle(fontSize: 16.sp),
       ),
     );
   }

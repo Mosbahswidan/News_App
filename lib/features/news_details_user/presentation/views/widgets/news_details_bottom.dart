@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/constants.dart';
-import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/features/news_details/presentation/views/widgets/comments_view.dart';
 
 class NewsDetailsBottomUser extends StatelessWidget {
@@ -10,7 +10,7 @@ class NewsDetailsBottomUser extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 70,
+      height: 70.h,
       decoration: const BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -23,27 +23,27 @@ class NewsDetailsBottomUser extends StatelessWidget {
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: AppSize.size15,
+          horizontal: 15.w,
         ),
         child: Row(
           children: [
-            const Icon(
+            Icon(
               Icons.favorite,
-              color: Color(0xFFED2E7E),
-              size: 26,
+              color: const Color(0xFFED2E7E),
+              size: 26.sp,
             ),
-            const SizedBox(
-              width: 4,
+            SizedBox(
+              width: 4.w,
             ),
-            const Text(
+            Text(
               '24.5K',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w400,
               ),
             ),
-            const SizedBox(
-              width: 10,
+            SizedBox(
+              width: 10.w,
             ),
             IconButton(
               onPressed: () {
@@ -53,24 +53,24 @@ class NewsDetailsBottomUser extends StatelessWidget {
                   ),
                 );
               },
-              icon: const Icon(
+              icon: Icon(
                 Icons.chat_outlined,
-                size: 24,
+                size: 24.sp,
               ),
             ),
-            const Text(
+            Text(
               '1K',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w400,
               ),
             ),
             const Spacer(),
             IconButton(
               onPressed: () {},
-              icon: const Icon(
+              icon: Icon(
                 Icons.bookmark,
-                size: 28,
+                size: 28.sp,
                 color: kPrimaryColor,
               ),
             ),

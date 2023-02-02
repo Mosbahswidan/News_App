@@ -29,10 +29,10 @@ class MyTextField extends StatelessWidget {
         hintText: hintText,
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.r),
-            borderSide: BorderSide(width: 1.0.w, color: Color(0xff4E4B66))),
+            borderSide: BorderSide(width: 1.0.w, color: const Color(0xff4E4B66))),
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8.r),
-            borderSide: BorderSide(width: 1.0.w, color: Color(0xff4E4B66))),
+            borderSide: BorderSide(width: 1.0.w, color: const Color(0xff4E4B66))),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.r),
         ),

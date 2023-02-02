@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(377, 813),
+      designSize: const Size(390, 813),
       minTextAdapt: true,
       splitScreenMode: true,
       useInheritedMediaQuery: true,
@@ -40,13 +40,12 @@ class MyApp extends StatelessWidget {
             routerConfig: AppRouter.router,
             debugShowCheckedModeBanner: false,
             title: 'NewsApp',
-
             theme: lightThemeData(),
             darkTheme: darkThemeData(),
             themeMode: ThemeMode.light,
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

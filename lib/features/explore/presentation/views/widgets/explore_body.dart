@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:news_app/core/utils/app_size.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/features/explore/presentation/view_model/explore_cubit.dart';
 import 'package:news_app/features/explore/presentation/view_model/explore_state.dart';
 import 'package:news_app/features/explore/presentation/views/widgets/popular_topic_item.dart';
 import 'package:news_app/features/explore/presentation/views/widgets/topic_item.dart';
 import 'package:news_app/features/home/presentation/views/widgets/text_row_widget.dart';
-import 'package:sizer/sizer.dart';
 
 class ExploreViewBody extends StatelessWidget {
   const ExploreViewBody({super.key});
@@ -21,9 +20,9 @@ class ExploreViewBody extends StatelessWidget {
           ExploreCubit cubit = ExploreCubit.get(context);
           return SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: AppSize.size15,
-                vertical: AppSize.size40,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 15,
+                vertical: 40,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,9 +34,9 @@ class ExploreViewBody extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  SizedBox(height: AppSize.size40),
+                  const SizedBox(height: 40),
                   const TextRow(bigText: "Topic", smallText: "See all"),
-                  SizedBox(height: AppSize.size20),
+                  const SizedBox(height: 20),
                   TopicItem(
                     topicName: 'Health',
                     topicDescription: 'Get energizing workout moves, healthy recipes...',

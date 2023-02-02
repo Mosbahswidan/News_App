@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/core/utils/app_router.dart';
-import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/core/utils/functions.dart';
 import 'package:news_app/core/widgets/custom_snack_bar.dart';
 import 'package:news_app/features/auth/presentation/view_models/login_cubit/login_cubit.dart';

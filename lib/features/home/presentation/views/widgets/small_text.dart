@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SmallText extends StatelessWidget {
   final String smallText;
@@ -16,7 +17,7 @@ class SmallText extends StatelessWidget {
       style: Theme.of(context)
           .textTheme
           .bodyMedium
-          ?.copyWith(fontWeight: fontWeight, fontSize: 15),
+          ?.copyWith(fontWeight: fontWeight, fontSize: 15.sp),
       // maxLines: 1,
     );
   }

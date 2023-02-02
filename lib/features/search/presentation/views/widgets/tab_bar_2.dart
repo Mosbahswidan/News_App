@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/features/search/data/author_data.dart';
 import 'package:news_app/features/search/presentation/views/widgets/author_item.dart';
 import 'package:news_app/features/search/presentation/views/widgets/search_result_list.dart';
@@ -26,18 +27,6 @@ List<TabPair> tabPairs = [
     tab: const Tab(
       text: 'Author',
     ),
-    // view: ListView.builder(
-    //   physics: const BouncingScrollPhysics(),
-    //   shrinkWrap: true,
-    //   itemCount: authors.length,
-    //   itemBuilder: (context, index) {
-    //     return Container(
-    //         margin: const EdgeInsets.only(top: 15),
-    //         child: AuthorItem(
-    //           model: authors[index],
-    //         ));
-    //   },
-    // ),
     view: ListView(
       children: [
         AuthorItem(
@@ -81,8 +70,7 @@ class TabBarAndTabViews extends StatefulWidget {
   _TabBarAndTabViewsState createState() => _TabBarAndTabViewsState();
 }
 
-class _TabBarAndTabViewsState extends State<TabBarAndTabViews>
-    with SingleTickerProviderStateMixin {
+class _TabBarAndTabViewsState extends State<TabBarAndTabViews> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -108,7 +96,7 @@ class _TabBarAndTabViewsState extends State<TabBarAndTabViews>
         children: [
           // give the tab bar a height [can change height to preferred height]
           Container(
-            height: 45,
+            height: 45.h,
             decoration: BoxDecoration(
               //color: Colors.white,
               borderRadius: BorderRadius.circular(

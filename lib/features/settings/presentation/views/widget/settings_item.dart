@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SettingsItem extends StatelessWidget {
   final String? title;
@@ -20,29 +21,29 @@ class SettingsItem extends StatelessWidget {
       onTap: onTap,
       child: SizedBox(
         width: double.infinity,
-        height: 55,
+        height: 55.h,
         child: Row(
           children: [
             Icon(
               icon ?? Icons.settings,
-              size: 25,
+              size: 25.sp,
             ),
-            const SizedBox(
-              width: 10,
+            SizedBox(
+              width: 10.w,
             ),
             Expanded(
               child: Text(
                 title ?? 'settings',
-                style: const TextStyle(
-                  fontSize: 16,
+                style:  TextStyle(
+                  fontSize: 16.sp,
                   fontWeight: FontWeight.w400,
                 ),
               ),
             ),
             suffix ??
-                const Icon(
+                 Icon(
                   Icons.keyboard_arrow_right_rounded,
-                  size: 25,
+                  size: 25.sp,
                 ),
           ],
         ),

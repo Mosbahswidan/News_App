@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/core/utils/assets_data.dart';
 import 'package:news_app/features/home/presentation/views/widgets/small_text.dart';
@@ -18,8 +19,8 @@ class AuthorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 15),
-      height: 60,
+      margin:  EdgeInsets.only(top: 15.h),
+      height: 60.h,
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +33,7 @@ class AuthorItem extends StatelessWidget {
               );
             },
             child: CircleAvatar(
-              radius: 50,
+              radius: 50.r,
               child: Image.asset(AssetsData.news),
             ),
           ),
@@ -47,7 +48,7 @@ class AuthorItem extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium
-                      ?.copyWith(fontSize: 16, fontWeight: FontWeight.w400),
+                      ?.copyWith(fontSize: 16.sp, fontWeight: FontWeight.w400),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -62,7 +63,7 @@ class AuthorItem extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xff1877F2),
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10))),
+                          borderRadius: BorderRadius.circular(10.r))),
                   child: const Text('Following'),
                 )
               : ElevatedButton(
@@ -71,7 +72,7 @@ class AuthorItem extends StatelessWidget {
                       backgroundColor:
                           Theme.of(context).scaffoldBackgroundColor,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(10.r),
                           side: const BorderSide(color: Color(0xff1877F2)))),
                   child: const Text(
                     "+ Follow",
