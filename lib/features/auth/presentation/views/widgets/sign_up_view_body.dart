@@ -1,7 +1,12 @@
 import 'package:flutter/gestures.dart';
-import 'package:news_app/core/utils/app_size.dart';
-import 'package:news_app/core/utils/export.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import 'package:news_app/constants.dart';
+import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/widgets/custom_snack_bar.dart';
+import 'package:news_app/features/auth/presentation/view_models/signup_cubit/signup_cubit.dart';
 import 'package:news_app/features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:news_app/features/auth/presentation/views/widgets/sign_up_text_field.dart';
 
@@ -23,15 +28,15 @@ class SignUpViewBody extends StatelessWidget {
             key: cubit.formKey,
             child: Padding(
               padding: EdgeInsets.only(
-                left: AppSize.size20,
-                right: AppSize.size20,
-                top: AppSize.size40,
+                left: 16.w,
+                right: 16.w,
+                top: 20.h,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: AppSize.size10,
+                    height: 10.h,
                   ),
                   Text(
                     "Hello!",
@@ -41,14 +46,14 @@ class SignUpViewBody extends StatelessWidget {
                         ?.copyWith(color: Color(0xff1877F2)),
                   ),
                   SizedBox(
-                    height: AppSize.size15,
+                    height: 16.h,
                   ),
                   Text(
                     "Signup to get started",
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   SizedBox(
-                    height: AppSize.size40,
+                    height: 10.h,
                   ),
                   SignUpTextField(
                     fieldTitle: 'User Name',
@@ -80,8 +85,8 @@ class SignUpViewBody extends StatelessWidget {
                     textInputType: TextInputType.phone,
                     hintText: 'Enter phone',
                   ),
-                  const SizedBox(
-                    height: 16,
+                  SizedBox(
+                    height: 16.h,
                   ),
                   state is SignupLoading
                       ? const Center(child: CircularProgressIndicator())
@@ -106,8 +111,8 @@ class SignUpViewBody extends StatelessWidget {
                             },
                           ),
                         ),
-                  const SizedBox(
-                    height: 16,
+                  SizedBox(
+                    height: 16.h,
                   ),
                   Center(
                     child: RichText(
@@ -116,7 +121,7 @@ class SignUpViewBody extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .bodyMedium
-                            ?.copyWith(fontSize: 14),
+                            ?.copyWith(fontSize: 14.sp),
                         children: [
                           TextSpan(
                             recognizer: TapGestureRecognizer()
@@ -130,15 +135,15 @@ class SignUpViewBody extends StatelessWidget {
                                 .bodyMedium
                                 ?.copyWith(
                                     color: Colors.blue,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600),
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600,),
                           ),
                         ],
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 16,
+                    height: 16.h,
                   ),
                 ],
               ),

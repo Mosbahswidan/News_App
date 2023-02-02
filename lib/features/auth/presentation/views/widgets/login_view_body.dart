@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/app_size.dart';
@@ -25,7 +26,10 @@ class LoginViewBody extends StatelessWidget {
         key: formKey,
         child: Padding(
           padding: EdgeInsets.only(
-              left: AppSize.size20, right: AppSize.size20, top: AppSize.size40),
+            left: 16.w,
+            right: 16.w,
+            top: 30.h,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -34,7 +38,7 @@ class LoginViewBody extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               SizedBox(
-                height: AppSize.size10,
+                height: 18.h,
               ),
               Text(
                 "Again!",
@@ -44,24 +48,26 @@ class LoginViewBody extends StatelessWidget {
                     ?.copyWith(color: const Color(0xff1877F2)),
               ),
               SizedBox(
-                height: AppSize.size15,
+                height: 14.h,
               ),
               Text(
                 "Welcome back you’ve\nbeen missed",
+
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               SizedBox(
-                height: AppSize.size50,
+                height: 30.h,
               ),
               Text(
                 "Email",
+
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium
-                    ?.copyWith(fontSize: 16),
+                    ?.copyWith(fontSize: 16.sp),
               ),
               SizedBox(
-                height: AppSize.size10,
+                height: 10.h,
               ),
               MyTextField(
                 hintText: "Email",
@@ -72,17 +78,17 @@ class LoginViewBody extends StatelessWidget {
                 },
               ),
               SizedBox(
-                height: AppSize.size20,
+                height: 16.h,
               ),
               Text(
                 "Password",
                 style: Theme.of(context)
                     .textTheme
                     .bodyMedium
-                    ?.copyWith(fontSize: 16),
+                    ?.copyWith(fontSize: 16.sp),
               ),
               SizedBox(
-                height: AppSize.size10,
+                height: 12.h,
               ),
               MyTextField(
                 hintText: "Password",
@@ -93,7 +99,7 @@ class LoginViewBody extends StatelessWidget {
                 },
               ),
               SizedBox(
-                height: AppSize.size10,
+                height: 14.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -120,7 +126,7 @@ class LoginViewBody extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: AppSize.size20,
+                height: 22.h,
               ),
               BlocConsumer<LoginCubit, LoginState>(
                 listener: (context, state) {
@@ -153,7 +159,7 @@ class LoginViewBody extends StatelessWidget {
                 },
               ),
               SizedBox(
-                height: AppSize.size15,
+                height: 16.h,
               ),
               Center(
                 child: RichText(
@@ -162,7 +168,7 @@ class LoginViewBody extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium
-                          ?.copyWith(fontSize: 14),
+                          ?.copyWith(fontSize: 14.sp),
                       children: [
                         TextSpan(
                             recognizer: TapGestureRecognizer()
@@ -174,7 +180,7 @@ class LoginViewBody extends StatelessWidget {
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium
-                                ?.copyWith(fontSize: 16, color: Colors.blue))
+                                ?.copyWith(fontSize: 16.sp, color: Colors.blue))
                       ]),
                 ),
               ),

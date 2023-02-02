@@ -38,5 +38,4 @@ export 'api_services.dart';
 export 'package:flutter/material.dart';
 export 'package:news_app/core/utils/app_router.dart';
 export 'package:firebase_core/firebase_core.dart';
-export 'package:sizer/sizer.dart';
 export 'package:news_app/constants.dart';

@@ -1,5 +1,6 @@
-import 'package:news_app/core/utils/export.dart';
-import 'package:news_app/core/utils/functions.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news_app/constants.dart';
 import 'package:news_app/features/auth/presentation/views/widgets/my_text_field.dart';
 
 class SignUpTextField extends StatelessWidget {
@@ -21,17 +22,17 @@ class SignUpTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      padding: EdgeInsets.symmetric(vertical: 10.0.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             fieldTitle ?? "Text",
             style:
-                Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14),
+                Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14.sp),
           ),
-          const SizedBox(
-            height: 10,
+          SizedBox(
+            height: 10.h,
           ),
           MyTextField(
             hintText: hintText ?? 'hint',
