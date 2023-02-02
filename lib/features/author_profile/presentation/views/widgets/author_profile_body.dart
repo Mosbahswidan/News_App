@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news_app/core/utils/function/launch_url.dart';
 import 'package:news_app/features/author_profile/presentation/view_model/cubit/author_profile_cubit.dart';
 import 'package:news_app/features/author_profile/presentation/view_model/cubit/author_profile_state.dart';
 import 'package:news_app/features/home/presentation/views/widgets/latest_news_item.dart';
 import 'package:news_app/features/home/presentation/views/widgets/small_text.dart';
+import 'package:news_app/features/search/data/models/author_model.dart';
 import 'package:news_app/features/user_profile/presentation/views/widgets/button_widget.dart';
 
 class AuthorProfileBody extends StatelessWidget {
-  const AuthorProfileBody({super.key});
+  final AuthorModel model;
+  const AuthorProfileBody({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -71,15 +74,13 @@ class AuthorProfileBody extends StatelessWidget {
             height: 15.h,
           ),
           Text(
-            "BBC News",
+            model.name!,
             style: Theme.of(context).textTheme.bodySmall,
           ),
           SizedBox(
             height: 10.h,
           ),
-          const SmallText(
-              smallText:
-                  "is an operational business division of the British Broadcasting Corporation responsible for the gathering and broadcasting of news and current affairs."),
+          SmallText(smallText: model.description!),
           SizedBox(
             height: 20.h,
           ),
@@ -99,7 +100,12 @@ class AuthorProfileBody extends StatelessWidget {
               Expanded(
                 child: SizedBox(
                   height: 50.h,
-                  child: const ProfileButton(text: "Website"),
+                  child: ProfileButton(
+                    text: "Website",
+                    onPressed: () {
+                      launchCustomUrl(context, model.url);
+                    },
+                  ),
                 ),
               ),
             ],

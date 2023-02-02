@@ -19,7 +19,7 @@ class AuthorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:  EdgeInsets.only(top: 15.h),
+      margin: EdgeInsets.only(top: 15.h),
       height: 60.h,
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -27,10 +27,9 @@ class AuthorItem extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              GoRouter.of(context).push(
-                AppRouter.kAuthorProfile2,
-                extra: model.id,
-              );
+              GoRouter.of(context).push("/profile/${model.id}", extra: model
+                  // extra: model.id,
+                  );
             },
             child: CircleAvatar(
               radius: 50.r,

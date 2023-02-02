@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/features/author_profile/presentation/views/widgets/author_profile_body.dart';
+import 'package:news_app/features/search/data/models/author_model.dart';
 
 class AuthorProfileView extends StatelessWidget {
-  const AuthorProfileView({super.key});
+  final AuthorModel model;
+  const AuthorProfileView({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class AuthorProfileView extends StatelessWidget {
           ),
         ],
       ),
-      body: const AuthorProfileBody(),
+      body: AuthorProfileBody(model: model),
     );
   }
 }
