@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/constants.dart';
-import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/features/news_details/presentation/views/widgets/comments_bottom.dart';
 import 'package:news_app/features/news_details/presentation/views/widgets/comments_item.dart';
 
@@ -35,9 +33,9 @@ class CommentsView extends StatelessWidget {
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: AppSize.size15,
-            vertical: AppSize.size15,
+          padding: const EdgeInsets.symmetric(
+            horizontal: 15,
+            vertical: 15,
           ),
           child: Column(
             children: [

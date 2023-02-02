@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/utils/app_size.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchWidget extends StatelessWidget {
   final TextEditingController textController;
   final String hintText;
   final GestureTapCallback? tap;
-  
+
   const SearchWidget({
     required this.textController,
     required this.hintText,
@@ -26,9 +26,7 @@ class SearchWidget extends StatelessWidget {
       ]),
       child: TextField(
         controller: textController,
-        onChanged: (value) {
-          //Do something wi
-        },
+        onChanged: (value) {},
         decoration: InputDecoration(
           prefixIcon: InkWell(
             onTap: tap,
@@ -37,22 +35,19 @@ class SearchWidget extends StatelessWidget {
               color: Colors.grey[500]!,
             ),
           ),
-          //filled: true,
-          // fillColor: Colors.white,
           hintText: hintText,
           hintStyle: const TextStyle(fontWeight: FontWeight.w300),
-          contentPadding:
-              EdgeInsets.symmetric(vertical: AppSize.size20, horizontal: AppSize.size20),
-          border: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+          contentPadding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10.0.r)),
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Color(0xff4E4B66), width: 1.0),
-            borderRadius: BorderRadius.all(Radius.circular(AppSize.size10)),
+            borderSide: BorderSide(color: const Color(0xff4E4B66), width: 1.0.w),
+            borderRadius: BorderRadius.all(Radius.circular(10.r)),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Color(0xff4E4B66), width: 1.5),
-            borderRadius: BorderRadius.all(Radius.circular(AppSize.size10)),
+            borderSide: BorderSide(color: const Color(0xff4E4B66), width: 1.5.w),
+            borderRadius: BorderRadius.all(Radius.circular(10.r)),
           ),
         ),
       ),

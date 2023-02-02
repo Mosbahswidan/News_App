@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/constants.dart';
 
 class GlobalTextField extends StatelessWidget {
@@ -80,7 +81,7 @@ class GlobalTextField extends StatelessWidget {
 
         keyboardType: keyboardType,
         cursorColor: cursorColor ?? kPrimaryColor,
-        cursorHeight: cursorHeight ?? 10,
+        cursorHeight: cursorHeight ?? 10.h,
         maxLines: maxLine ?? 1,
         obscureText: obscureText ?? false,
         focusNode: focusNode,
@@ -115,14 +116,14 @@ class GlobalTextField extends StatelessWidget {
           suffixIcon: suffixIcon,
           border: border ??
               OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.r),
               ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.r),
           ),
           focusedBorder: focusedBorder ??
               OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(10.r),
                 borderSide: const BorderSide(
                   color: kPrimaryColor,
                 ),

@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:news_app/core/utils/app_router.dart';
-import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/core/utils/export.dart';
-import 'package:news_app/features/edit_profile/presentation/view_model/edit_profile_cubit.dart';
 import 'package:news_app/features/edit_profile/presentation/view_model/edit_profile_state.dart';
 import 'package:news_app/features/user_profile/presentation/views/widgets/user_profile_body.dart';
 
@@ -38,7 +33,7 @@ class UserprofileView extends StatelessWidget {
             ),
             actions: [
               Padding(
-                padding: EdgeInsets.only(right: AppSize.size20),
+                padding: const EdgeInsets.only(right: 20),
                 child: IconButton(
                   onPressed: () {
                     GoRouter.of(

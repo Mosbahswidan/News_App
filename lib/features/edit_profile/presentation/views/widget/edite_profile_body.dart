@@ -1,4 +1,4 @@
-import 'package:news_app/core/utils/app_size.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/core/utils/export.dart';
 import 'package:news_app/features/auth/data/models/user_models.dart';
 import 'package:news_app/features/auth/presentation/views/widgets/sign_up_text_field.dart';
@@ -27,40 +27,40 @@ class EditProfileBody extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           child: Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: AppSize.size20,
-              vertical: AppSize.size20,
+              horizontal: 20.w,
+              vertical: 20.h,
             ),
             child: model == null
                 ? const CircularProgressIndicator()
                 : Column(
                     children: [
                       SizedBox(
-                        height: 5,
+                        height: 5.h,
                       ),
-                      if (state is EditProfileLoading) LinearProgressIndicator(),
+                      if (state is EditProfileLoading) const LinearProgressIndicator(),
                       Center(
                         child: SizedBox(
-                          height: 125,
-                          width: 120,
+                          height: 125.h,
+                          width: 120.w,
                           child: Stack(
                             children: [
                               CircleAvatar(
-                                radius: 60,
+                                radius: 60.r,
                                 backgroundColor: Colors.transparent,
                                 backgroundImage: NetworkImage(model!.image!),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(
-                                  right: 4.0,
-                                  bottom: 2.0,
+                                padding:  EdgeInsets.only(
+                                  right: 4.0.w,
+                                  bottom: 2.0.h,
                                 ),
                                 child: GestureDetector(
                                   onTap: () {},
-                                  child: const Align(
+                                  child:  Align(
                                     alignment: Alignment.bottomRight,
                                     child: CircleAvatar(
-                                      radius: 18,
-                                      child: Center(
+                                      radius: 18.r,
+                                      child: const Center(
                                         child: Icon(
                                           Icons.camera_alt_outlined,
                                         ),
@@ -73,8 +73,8 @@ class EditProfileBody extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 45,
+                       SizedBox(
+                        height: 45.h,
                       ),
                       SignUpTextField(
                         fieldTitle: 'Full Name',

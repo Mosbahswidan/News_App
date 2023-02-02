@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/constants.dart';
 import 'package:news_app/core/utils/app_router.dart';
@@ -25,17 +26,17 @@ class SearchItem extends StatelessWidget {
         GoRouter.of(context).push(AppRouter.kNewsDetails, extra: model);
       },
       child: SizedBox(
-        height: 130,
+        height: 130.h,
         width: double.infinity,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: EdgeInsets.symmetric(horizontal: 8.0.w),
           child: Row(
             children: [
               ClipRRect(
-                borderRadius: BorderRadiusDirectional.circular(10),
+                borderRadius: BorderRadiusDirectional.circular(10.r),
                 child: Image(
-                  height: 120,
-                  width: 100,
+                  height: 120.h,
+                  width: 100.w,
                   fit: BoxFit.cover,
                   image: NetworkImage(
                     model!.urlToImage ??
@@ -43,11 +44,11 @@ class SearchItem extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                width: 12,
+              SizedBox(
+                width: 12.w,
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 15.0),
+                padding: EdgeInsets.only(top: 15.0.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -56,37 +57,36 @@ class SearchItem extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium
-                          ?.copyWith(fontSize: 12, fontWeight: FontWeight.w400),
-                    ),
-                    const SizedBox(
-                      height: 6,
+                          ?.copyWith(fontSize: 12.sp, fontWeight: FontWeight.w400),
                     ),
                     SizedBox(
-                      width: 205,
+                      height: 6.h,
+                    ),
+                    SizedBox(
+                      width: 205.w,
                       child: Text(
                         model!.title ??
                             'Ukraine\'s President Zelensky to BBC: Blood money being paid...',
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontSize: 16,
+                        style: TextStyle(
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
                     ),
                     const Spacer(),
                     SizedBox(
-                      width: 220,
+                      width: 220.w,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           const CircleAvatar(
                             radius: 11,
-                            backgroundImage:
-                                AssetImage('assets/images/news.png'),
+                            backgroundImage: AssetImage('assets/images/news.png'),
                           ),
-                          const SizedBox(
-                            width: 8,
+                          SizedBox(
+                            width: 8.w,
                           ),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,31 +96,27 @@ class SearchItem extends StatelessWidget {
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium
-                                    ?.copyWith(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w600),
+                                    ?.copyWith(fontSize: 12.sp, fontWeight: FontWeight.w600),
                               ),
-                              const SizedBox(
-                                width: 10,
+                              SizedBox(
+                                width: 10.w,
                               ),
                               Row(
                                 children: [
-                                  const Icon(
+                                  Icon(
                                     Icons.access_time_rounded,
                                     color: kSecondaryColor,
-                                    size: 18,
+                                    size: 18.sp,
                                   ),
-                                  const SizedBox(
-                                    width: 6,
+                                  SizedBox(
+                                    width: 6.w,
                                   ),
                                   Text(
                                     '${timeAgo(model!.publishedAt!)}h ago',
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodyMedium
-                                        ?.copyWith(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w600),
+                                        ?.copyWith(fontSize: 12.sp, fontWeight: FontWeight.w600),
                                   ),
                                 ],
                               ),
@@ -129,8 +125,8 @@ class SearchItem extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      height: 5,
+                    SizedBox(
+                      height: 5.h,
                     ),
                   ],
                 ),

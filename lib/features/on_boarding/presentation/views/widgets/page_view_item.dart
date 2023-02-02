@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/utils/app_size.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/features/on_boarding/data/models/slider_model.dart';
-
 
 class PageViewItem extends StatelessWidget {
   final SliderModel model;
@@ -19,27 +18,24 @@ class PageViewItem extends StatelessWidget {
           fit: BoxFit.fill,
         ),
         SizedBox(
-          height: AppSize.size20,
+          height: 20.h,
         ),
         Padding(
-          padding: EdgeInsets.only(left: AppSize.size15),
+          padding: EdgeInsets.only(left: 15.w),
           child: Text(
             model.title,
-            style: const TextStyle(
-                color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),
+            style: const TextStyle(color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold),
           ),
         ),
-        SizedBox(
-          height: AppSize.size10,
+        const SizedBox(
+          height: 10,
         ),
         Padding(
-          padding: EdgeInsets.only(left: AppSize.size15),
+          padding: EdgeInsets.only(left: 15.w),
           child: Text(
             model.subTitle,
-            style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: Color(0xff4E4B66)),
+            style:
+                TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600, color: const Color(0xff4E4B66)),
           ),
         ),
       ],

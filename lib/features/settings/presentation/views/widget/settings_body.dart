@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/utils/app_size.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/features/settings/presentation/views/widget/settings_item.dart';
 
 class SettingsViewBody extends StatelessWidget {
@@ -11,8 +11,8 @@ class SettingsViewBody extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       child: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: AppSize.size15,
-          vertical: AppSize.size15,
+          horizontal: 15.w,
+          vertical: 15.h,
         ),
         child: Column(
           children: [
@@ -21,32 +21,32 @@ class SettingsViewBody extends StatelessWidget {
               title: 'Notification',
               onTap: () {},
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.h,
             ),
             SettingsItem(
               icon: Icons.lock,
               title: 'Security',
               onTap: () {},
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.h,
             ),
             SettingsItem(
               icon: Icons.help_outline,
               title: 'Help',
               onTap: () {},
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.h,
             ),
             SettingsItem(
               icon: Icons.dark_mode_outlined,
               title: 'Dark  Mode',
               onTap: () {},
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.h,
             ),
             SettingsItem(
               icon: Icons.logout,
@@ -54,8 +54,8 @@ class SettingsViewBody extends StatelessWidget {
               onTap: () {},
               suffix: const SizedBox(),
             ),
-            const SizedBox(
-              height: 10,
+            SizedBox(
+              height: 10.h,
             ),
           ],
         ),

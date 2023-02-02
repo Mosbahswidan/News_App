@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/constants.dart';
 import 'package:news_app/features/news_details/presentation/views/widgets/news_details_body.dart';
 import 'package:news_app/features/news_details/presentation/views/widgets/news_details_bottom.dart';
 import 'package:news_app/features/search/data/models/search_model.dart';

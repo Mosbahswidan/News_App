@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:news_app/constants.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/widgets/custom_snack_bar.dart';
 import 'package:news_app/features/auth/presentation/view_models/signup_cubit/signup_cubit.dart';
@@ -43,7 +42,7 @@ class SignUpViewBody extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .bodyLarge
-                        ?.copyWith(color: Color(0xff1877F2)),
+                        ?.copyWith(color: const Color(0xff1877F2)),
                   ),
                   SizedBox(
                     height: 16.h,
