@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:news_app/core/utils/export.dart';
 import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/assets_data.dart';
 
@@ -30,8 +32,8 @@ class _SplashViewbodyState extends State<SplashViewbody> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Image.asset(AssetsData.logo),
-        const SizedBox(
-          height: 4,
+        SizedBox(
+          height: 4.h,
         ),
       ],
     );

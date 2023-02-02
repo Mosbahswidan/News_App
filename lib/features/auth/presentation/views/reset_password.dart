@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/core/utils/app_size.dart';
 import 'package:news_app/features/auth/presentation/view_models/reset_pass_cubit/reset_password_cubit.dart';
 import 'package:news_app/features/auth/presentation/views/widgets/custom_button.dart';
@@ -14,10 +15,11 @@ class ResetPasswordView extends StatelessWidget {
     var formKey = GlobalKey<FormState>();
     return Scaffold(
       body: SingleChildScrollView(
-          child: ResetPasswordBody(
-        controller: emailController,
-        keyd: formKey,
-      )),
+        child: ResetPasswordBody(
+          controller: emailController,
+          keyd: formKey,
+        ),
+      ),
       bottomSheet: SizedBox(
         height: AppSize.size100,
         child: Center(
@@ -27,7 +29,9 @@ class ResetPasswordView extends StatelessWidget {
             return state is ResetPasswordLoading
                 ? const CircularProgressIndicator()
                 : Padding(
-                    padding: EdgeInsets.symmetric(horizontal: AppSize.size20),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                    ),
                     child: SizedBox(
                       width: double.infinity,
                       child: CustomButton(
@@ -35,8 +39,9 @@ class ResetPasswordView extends StatelessWidget {
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
                             ResetPasswordCubit.get(context).resetPassword(
-                                email: emailController.text.trim(),
-                                context: context);
+                              email: emailController.text.trim(),
+                              context: context,
+                            );
                           }
                         },
                       ),

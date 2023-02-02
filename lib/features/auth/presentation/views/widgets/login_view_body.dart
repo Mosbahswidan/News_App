@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/core/utils/app_router.dart';
 import 'package:news_app/core/utils/app_size.dart';
@@ -24,40 +25,52 @@ class LoginViewBody extends StatelessWidget {
       child: Form(
         key: formKey,
         child: Padding(
-          padding:
-              EdgeInsets.only(left: AppSize.size20, right: AppSize.size20, top: AppSize.size40),
+          padding: EdgeInsets.only(
+            left: 16.w,
+            right: 16.w,
+            top: 30.h,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 "Hello",
-                style:
-                    TextStyle(color: Color(0xff050505), fontWeight: FontWeight.bold, fontSize: 46),
+                style: TextStyle(
+                  color: Color(0xff050505),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 46.sp,
+                ),
               ),
               SizedBox(
-                height: AppSize.size10,
+                height: 18.h,
               ),
-              const Text(
+              Text(
                 "Again!",
-                style:
-                    TextStyle(color: Color(0xff1877F2), fontWeight: FontWeight.bold, fontSize: 46),
+                style: TextStyle(
+                  color: Color(0xff1877F2),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 46.sp,
+                ),
               ),
               SizedBox(
-                height: AppSize.size15,
+                height: 14.h,
               ),
-              const Text(
+              Text(
                 "Welcome back you’ve\nbeen missed",
-                style: TextStyle(fontSize: 20, color: Color(0xff4E4B66)),
+                style: TextStyle(
+                  fontSize: 20.sp,
+                  color: Color(0xff4E4B66),
+                ),
               ),
               SizedBox(
-                height: AppSize.size50,
+                height: 30.h,
               ),
-              const Text(
+              Text(
                 "Email",
-                style: TextStyle(color: Color(0xff4E4B66), fontSize: 17),
+                style: TextStyle(color: Color(0xff4E4B66), fontSize: 17.sp),
               ),
               SizedBox(
-                height: AppSize.size10,
+                height: 10.h,
               ),
               MyTextField(
                 hintText: "Email",
@@ -68,14 +81,14 @@ class LoginViewBody extends StatelessWidget {
                 },
               ),
               SizedBox(
-                height: AppSize.size20,
+                height: 16.h,
               ),
-              const Text(
+              Text(
                 "Password",
-                style: TextStyle(color: Color(0xff4E4B66), fontSize: 17),
+                style: TextStyle(color: Color(0xff4E4B66), fontSize: 17.sp),
               ),
               SizedBox(
-                height: AppSize.size10,
+                height: 12.h,
               ),
               MyTextField(
                 hintText: "Password",
@@ -86,7 +99,7 @@ class LoginViewBody extends StatelessWidget {
                 },
               ),
               SizedBox(
-                height: AppSize.size10,
+                height: 14.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -107,7 +120,7 @@ class LoginViewBody extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: AppSize.size20,
+                height: 22.h,
               ),
               BlocConsumer<LoginCubit, LoginState>(
                 listener: (context, state) {
@@ -140,25 +153,25 @@ class LoginViewBody extends StatelessWidget {
                 },
               ),
               SizedBox(
-                height: AppSize.size15,
+                height: 16.h,
               ),
               Center(
                 child: RichText(
                   text: TextSpan(
-                      text: "Dont have an account? ",
-                      style: const TextStyle(color: Color(0xff667080), fontSize: 14),
-                      children: [
-                        TextSpan(
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                GoRouter.of(context).pushReplacement(AppRouter.kSignUpView);
-                              },
-                            text: "Sign up",
-                            style: const TextStyle(
-                                color: Color(0xff1877F2),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600))
-                      ]),
+                    text: "Dont have an account? ",
+                    style: TextStyle(color: Color(0xff667080), fontSize: 14.sp),
+                    children: [
+                      TextSpan(
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            GoRouter.of(context).pushReplacement(AppRouter.kSignUpView);
+                          },
+                        text: "Sign up",
+                        style: TextStyle(
+                            color: Color(0xff1877F2), fontSize: 14.sp, fontWeight: FontWeight.w600),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],

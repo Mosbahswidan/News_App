@@ -1,5 +1,6 @@
 import 'dart:math' as Math;
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomIndecator extends StatefulWidget {
   const CustomIndecator({
@@ -49,8 +50,8 @@ class _DottedCircularProgressIndicatorFbState extends State<CustomIndecator>
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: widget.size,
-      height: widget.size,
+      width: widget.size.w,
+      height: widget.size.h,
       // decoration: BoxDecoration(color: Colors.red), //for debugging purposes
       child: CustomPaint(
         painter: DottedCircularProgressIndicatorPainterFb(

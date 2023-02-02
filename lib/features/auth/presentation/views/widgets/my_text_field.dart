@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyTextField extends StatelessWidget {
   final String hintText;
@@ -6,7 +7,7 @@ class MyTextField extends StatelessWidget {
   final bool obsecure;
   final TextInputType? textInputType;
   final String? Function(String?)? validator;
-  
+
   const MyTextField({
     super.key,
     required this.hintText,
@@ -23,17 +24,17 @@ class MyTextField extends StatelessWidget {
       obscureText: obsecure,
       controller: controller,
       keyboardType: textInputType,
-      cursorHeight: 25,
+      cursorHeight: 25.h,
       decoration: InputDecoration(
         hintText: hintText,
         focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(width: 1.0, color: Color(0xff4E4B66))),
+            borderRadius: BorderRadius.circular(8.r),
+            borderSide: BorderSide(width: 1.0.w, color: Color(0xff4E4B66))),
         enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(width: 1.0, color: Color(0xff4E4B66))),
+            borderRadius: BorderRadius.circular(8.r),
+            borderSide: BorderSide(width: 1.0.w, color: Color(0xff4E4B66))),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.r),
         ),
       ),
     );
