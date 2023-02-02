@@ -15,8 +15,7 @@ class HomeViwe extends StatelessWidget {
       appBar: AppBar(
         leadingWidth: 120,
         toolbarHeight: 100,
-        elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         leading: Image.asset(
           AssetsData.logo,
           height: 100,
@@ -24,7 +23,7 @@ class HomeViwe extends StatelessWidget {
         bottom: PreferredSize(
             preferredSize: const Size.fromHeight(30),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               child: SearchWidget(
                 textController: searchController,
                 hintText: "Search",

@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:news_app/features/home/presentation/views/widgets/app_bar.dart';
 import 'package:news_app/features/home/presentation/views/widgets/trending_view_body.dart';
 
-
 class TrendingView extends StatelessWidget {
   const TrendingView({super.key});
 
@@ -14,10 +13,9 @@ class TrendingView extends StatelessWidget {
       appBar: CustomAppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: "Trending",
-        titleColor: Colors.black,
         leftIcon: const Icon(
           Icons.arrow_back_outlined,
-          color: Colors.black,
+          // color: Colors.black,
         ),
         pressedLeftIcon: () {
           GoRouter.of(context).pop();
@@ -25,7 +23,6 @@ class TrendingView extends StatelessWidget {
         isShowActionIcon1: true,
         actionIcon1: const Icon(
           Icons.more_vert,
-          color: Colors.black,
         ),
         isShowLeftIcon: true,
       ),

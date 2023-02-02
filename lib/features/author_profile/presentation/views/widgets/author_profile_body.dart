@@ -36,36 +36,33 @@ class AuthorProfileBody extends StatelessWidget {
                 Column(
                   //mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
+                  children: [
                     Text(
                       "1.2M",
                       //textAlign: TextAlign.end,
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
-                    SmallText(smallText: "Followers"),
+                    const SmallText(smallText: "Followers"),
                   ],
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
+                  children: [
                     Text(
                       "12.4K",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
-                    SmallText(smallText: "Following"),
+                    const SmallText(smallText: "Following"),
                   ],
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: const [
+                  children: [
                     Text(
                       "326",
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
+                      style: Theme.of(context).textTheme.bodySmall,
                     ),
-                    SmallText(smallText: "News"),
+                    const SmallText(smallText: "News"),
                   ],
                 ),
               ],
@@ -74,9 +71,9 @@ class AuthorProfileBody extends StatelessWidget {
           SizedBox(
             height: AppSize.size15,
           ),
-          const Text(
+          Text(
             "BBC News",
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.bodySmall,
           ),
           SizedBox(
             height: AppSize.size10,
@@ -108,10 +105,9 @@ class AuthorProfileBody extends StatelessWidget {
           SizedBox(
             height: AppSize.size20,
           ),
-          const Text(
+          Text(
             "News",
-            style: TextStyle(
-                color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
+            style: Theme.of(context).textTheme.bodySmall,
           ),
           BlocBuilder<AuthorProfileCubit, AuthorProfileState>(
             builder: (context, state) {

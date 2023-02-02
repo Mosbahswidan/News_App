@@ -74,16 +74,7 @@ class HomeViewBody extends StatelessWidget {
                 ],
               ),
             ),
-            SliverFillRemaining(
-              // child: ListView.builder(
-              //     itemCount: 20,
-              //     itemBuilder: (context, index) {
-              //       return Container(
-              //         height: 20,
-              //         padding: EdgeInsets.all(10),
-              //         color: Colors.amber,
-              //       );
-              //     }),
+            const SliverFillRemaining(
               child: TabBarAndTabViewsLatest(),
             ),
           ],

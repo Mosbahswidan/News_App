@@ -30,26 +30,26 @@ class ResetPasswordBody extends StatelessWidget {
             SizedBox(
               height: AppSize.size20,
             ),
-            const Text(
+            Text(
               "Forgot\nPassword ?",
-              style: TextStyle(
-                  color: Color(0xff4E4B66),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 46),
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             SizedBox(
               height: AppSize.size15,
             ),
-            const Text(
+            Text(
               "Don’t worry! it happens.Please enter the\naddress associated with your account.",
-              style: TextStyle(fontSize: 20, color: Color(0xff4E4B66)),
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
             SizedBox(
               height: AppSize.size20 + 5,
             ),
-            const Text(
+            Text(
               "Email ID",
-              style: TextStyle(color: Color(0xff4E4B66), fontSize: 17),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium
+                  ?.copyWith(fontSize: 17),
             ),
             SizedBox(
               height: AppSize.size10,

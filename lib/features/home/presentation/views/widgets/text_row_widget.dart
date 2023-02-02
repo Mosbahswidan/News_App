@@ -14,17 +14,14 @@ class TextRow extends StatelessWidget {
       children: [
         Text(
           bigText,
-          style: const TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
+          style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 16),
         ),
         InkWell(
           onTap: onTap,
           child: Text(
             smallText,
-            style: const TextStyle(color: Color(0xff667080), fontSize: 15),
+            style:
+                Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14),
           ),
         )
       ],
