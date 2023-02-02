@@ -62,23 +62,27 @@ class LatestNewsItem extends StatelessWidget {
                     const SmallText(smallText: "Europe"),
                     Text(
                       newsModel.title!,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        color: Colors.black,
-                      ),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(fontSize: 16),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                     Row(
+                      // crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         SmallText(
                           smallText: newsModel.source!.name!,
                           fontWeight: FontWeight.bold,
                         ),
                         const SizedBox(
-                          width: 20,
+                          width: 10,
                         ),
-                        const SmallText(smallText: "4h ago"),
+                        const SmallText(
+                          smallText: "4h ago",
+                        ),
                       ],
                     )
                   ],

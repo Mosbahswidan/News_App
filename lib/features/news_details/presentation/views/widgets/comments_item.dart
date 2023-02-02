@@ -35,24 +35,24 @@ class CommentItem extends StatelessWidget {
             children: [
               Text(
                 authorName ?? 'Wilson Franci',
-                style: const TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(fontWeight: FontWeight.w600, fontSize: 16),
               ),
               const SizedBox(
                 height: 8,
               ),
-              const SizedBox(
+              SizedBox(
                 width: 250,
                 child: Text(
                   'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(fontWeight: FontWeight.w400, fontSize: 16),
                 ),
               ),
               const SizedBox(
@@ -60,13 +60,12 @@ class CommentItem extends StatelessWidget {
               ),
               Row(
                 children: [
-                  const Text(
+                  Text(
                     '4w',
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w400,
-                      color: kSecondaryColor,
-                    ),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium
+                        ?.copyWith(fontWeight: FontWeight.w400, fontSize: 13),
                   ),
                   const SizedBox(
                     width: 8,
@@ -74,19 +73,19 @@ class CommentItem extends StatelessWidget {
                   InkWell(
                     onTap: () {},
                     child: Row(
-                      children: const [
-                        Icon(
+                      children: [
+                        const Icon(
                           Icons.favorite_border,
                           size: 14,
                           color: kSecondaryColor,
                         ),
                         Text(
                           ' 125 likess',
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                            color: kSecondaryColor,
-                          ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(
+                                  fontWeight: FontWeight.w400, fontSize: 13),
                         ),
                       ],
                     ),
@@ -97,19 +96,19 @@ class CommentItem extends StatelessWidget {
                   InkWell(
                     onTap: () {},
                     child: Row(
-                      children: const [
-                        Icon(
+                      children: [
+                        const Icon(
                           Icons.reply,
                           size: 14,
                           color: kSecondaryColor,
                         ),
                         Text(
                           ' reply',
-                          style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                            color: kSecondaryColor,
-                          ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium
+                              ?.copyWith(
+                                  fontWeight: FontWeight.w400, fontSize: 13),
                         ),
                       ],
                     ),

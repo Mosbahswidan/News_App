@@ -55,10 +55,8 @@ class TrendingNewsItem extends StatelessWidget {
           ),
           Text(
             newsModel.title ?? 'title',
-            style: const TextStyle(
-              fontSize: 16,
-              color: Colors.black,
-            ),
+            style:
+                Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16),
           ),
           const SizedBox(
             height: 5,
@@ -66,7 +64,9 @@ class TrendingNewsItem extends StatelessWidget {
           Row(
             children: [
               SmallText(
-                smallText: newsModel.source == null ? 'names' : newsModel.source!.name!,
+                smallText: newsModel.source == null
+                    ? 'names'
+                    : newsModel.source!.name!,
                 fontWeight: FontWeight.bold,
               ),
               const SizedBox(

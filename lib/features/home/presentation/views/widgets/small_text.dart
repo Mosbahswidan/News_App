@@ -13,11 +13,10 @@ class SmallText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       smallText,
-      style: TextStyle(
-        color: const Color(0xff667080),
-        fontSize: 15,
-        fontWeight: fontWeight,
-      ),
+      style: Theme.of(context)
+          .textTheme
+          .bodyMedium
+          ?.copyWith(fontWeight: fontWeight, fontSize: 15),
       // maxLines: 1,
     );
   }

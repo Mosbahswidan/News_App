@@ -12,7 +12,7 @@ class CommentsView extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0.0,
         leading: IconButton(
           onPressed: () {
@@ -20,15 +20,15 @@ class CommentsView extends StatelessWidget {
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: kSecondaryColor,
+            // color: kSecondaryColor,
             size: 25,
           ),
         ),
         title: const Text(
           'Comments',
           style: TextStyle(
-            color: Colors.black,
-          ),
+              //  color: Colors.black,
+              ),
         ),
         centerTitle: true,
       ),

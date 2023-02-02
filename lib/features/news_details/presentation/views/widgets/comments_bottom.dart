@@ -12,9 +12,9 @@ class CommentsBottom extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 65,
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        boxShadow: [
+      decoration: BoxDecoration(
+        color: Theme.of(context).scaffoldBackgroundColor,
+        boxShadow: const [
           BoxShadow(
             color: Colors.black54,
             blurRadius: 3.5,

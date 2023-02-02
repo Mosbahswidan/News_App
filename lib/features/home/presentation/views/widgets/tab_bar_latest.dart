@@ -100,8 +100,8 @@ class _TabBarAndTabViewsState extends State<TabBarAndTabViewsLatest>
                 controller: _tabController,
                 // give the indicator a decoration (color and border radius)
                 indicatorSize: TabBarIndicatorSize.label,
-                labelColor: Colors.black,
-                unselectedLabelColor: Colors.black,
+                //  labelColor: Colors.black,
+                //   unselectedLabelColor: Colors.black,
                 tabs: tabPairs.map((tabPair) => tabPair.tab).toList(),
               ),
             ),
@@ -109,9 +109,11 @@ class _TabBarAndTabViewsState extends State<TabBarAndTabViewsLatest>
           Expanded(
             child: TabBarView(
                 controller: _tabController,
-                children: tabPairs.map(
-                  (tabPair) => tabPair.view,
-                ).toList()),
+                children: tabPairs
+                    .map(
+                      (tabPair) => tabPair.view,
+                    )
+                    .toList()),
           ),
         ],
       ),

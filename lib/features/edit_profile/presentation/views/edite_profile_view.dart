@@ -20,7 +20,7 @@ class EditProfileView extends StatelessWidget {
         EditProfileCubit cubit = EditProfileCubit.get(context);
         return Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.white,
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             elevation: 0,
             leading: IconButton(
               onPressed: () {
@@ -28,13 +28,13 @@ class EditProfileView extends StatelessWidget {
               },
               icon: const Icon(
                 Icons.close,
-                color: Colors.black,
+                //color: Colors.black,
               ),
             ),
             centerTitle: true,
             title: const Text(
               'Edit Profile',
-              style: TextStyle(color: Colors.black),
+              //style: TextStyle(color: Colors.black),
             ),
             actions: [
               IconButton(
@@ -55,7 +55,7 @@ class EditProfileView extends StatelessWidget {
                 },
                 icon: const Icon(
                   Icons.check,
-                  color: Colors.black,
+                  //color: Colors.black,
                 ),
               ),
             ],

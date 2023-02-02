@@ -64,10 +64,7 @@ class UserNewsItem extends StatelessWidget {
                     const SmallText(smallText: "Europe"),
                     Text(
                       newsModel.title!,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        color: Colors.black,
-                      ),
+                      style: Theme.of(context).textTheme.bodyMedium,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),

@@ -20,7 +20,8 @@ class BottomNavView extends StatelessWidget {
             screens: cubit.screens,
             items: cubit.items,
             confineInSafeArea: true,
-            backgroundColor: Colors.white, // Default is Colors.white.
+            backgroundColor: Theme.of(context)
+                .scaffoldBackgroundColor, // Default is Colors.white.
             //handleAndroidBackButtonPress: true, // Default is true.
             resizeToAvoidBottomInset:
                 true, // This needs to be true if you want to move up the screen when keyboard appears. Default is true.
@@ -38,7 +39,8 @@ class BottomNavView extends StatelessWidget {
               curve: Curves.ease,
               duration: Duration(milliseconds: 150),
             ),
-            navBarStyle: NavBarStyle.style8, // Choose the nav bar style with this property.
+            navBarStyle: NavBarStyle
+                .style8, // Choose the nav bar style with this property.
           ),
         );
       },

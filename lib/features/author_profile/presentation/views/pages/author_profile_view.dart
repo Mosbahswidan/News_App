@@ -10,8 +10,9 @@ class AuthorProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
+        //     backgroundColor: Colors.white,
+        //  elevation: 0,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         leading: Padding(
           padding: EdgeInsets.only(left: AppSize.size20),
           child: InkWell(
@@ -20,14 +21,14 @@ class AuthorProfileView extends StatelessWidget {
             },
             child: const Icon(
               Icons.arrow_back_outlined,
-              color: Colors.black,
+              // color: Colors.black,
             ),
           ),
         ),
         centerTitle: true,
         title: const Text(
           'Profile',
-          style: TextStyle(color: Colors.black),
+          //style: TextStyle(color: Colors.black),
         ),
         actions: [
           Padding(
@@ -36,7 +37,7 @@ class AuthorProfileView extends StatelessWidget {
               onPressed: () {},
               icon: const Icon(
                 Icons.more_vert,
-                color: Colors.black,
+                //  color: Colors.black,
                 size: 25,
               ),
             ),

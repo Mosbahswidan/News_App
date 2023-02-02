@@ -51,13 +51,12 @@ class SearchItem extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                    Text(
                       'Gaza',
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w400,
-                        color: kSecondaryColor,
-                      ),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(fontSize: 12, fontWeight: FontWeight.w400),
                     ),
                     const SizedBox(
                       height: 6,
@@ -83,7 +82,8 @@ class SearchItem extends StatelessWidget {
                         children: [
                           const CircleAvatar(
                             radius: 11,
-                            backgroundImage: AssetImage('assets/images/news.png'),
+                            backgroundImage:
+                                AssetImage('assets/images/news.png'),
                           ),
                           const SizedBox(
                             width: 8,
@@ -93,11 +93,12 @@ class SearchItem extends StatelessWidget {
                             children: [
                               Text(
                                 model!.source!.name ?? 'BBC News',
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w600,
-                                  color: kSecondaryColor,
-                                ),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium
+                                    ?.copyWith(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600),
                               ),
                               const SizedBox(
                                 width: 10,
@@ -114,11 +115,12 @@ class SearchItem extends StatelessWidget {
                                   ),
                                   Text(
                                     '${timeAgo(model!.publishedAt!)}h ago',
-                                    style: const TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      color: kSecondaryColor,
-                                    ),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium
+                                        ?.copyWith(
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w600),
                                   ),
                                 ],
                               ),
