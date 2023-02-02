@@ -2,6 +2,7 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/core/utils/app_size.dart';
+import 'package:news_app/core/utils/export.dart';
 import 'package:news_app/features/add_news/presentation/view_models/add_nwes_cubit/add_news_cubit.dart';
 import 'package:news_app/features/add_news/presentation/view_models/add_nwes_cubit/add_news_state.dart';
 
@@ -21,7 +22,7 @@ class AddNewsBody extends StatelessWidget {
           return Column(
             children: [
               DottedBorder(
-                color: Colors.black,
+                color: Colors.grey,
                 padding: const EdgeInsets.all(2),
                 strokeWidth: 1,
                 borderType: BorderType.RRect,
@@ -31,7 +32,7 @@ class AddNewsBody extends StatelessWidget {
                   child: Container(
                     height: 250,
                     width: double.infinity,
-                    color: const Color(0xffEEF1F4),
+                    color: kSecondaryColor,
                     child: AddNewsCubit.get(context).image == null
                         ? const Center(
                             child: Text(
@@ -77,7 +78,7 @@ class AddNewsBody extends StatelessWidget {
               ),
               Container(
                 height: 70,
-                color: Colors.white,
+                color: Theme.of(context).scaffoldBackgroundColor,
                 child: Row(
                   children: [
                     const Spacer(),
@@ -96,7 +97,6 @@ class AddNewsBody extends StatelessWidget {
                                       content: newsController.text,
                                       userName: snapshot.data!.fullName!,
                                       userImage: snapshot.data!.image!,
-
                                     );
                                   },
                                   child: const Text("Publish")),

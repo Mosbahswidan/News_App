@@ -46,25 +46,25 @@ class TopicItem extends StatelessWidget {
               child: SizedBox(
                 width: 140,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       topicName ?? 'Topic name',
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall
+                          ?.copyWith(fontWeight: FontWeight.w400, fontSize: 18),
                     ),
-                    const Spacer(),
+                    // const Spacer(),
                     Text(
                       topicDescription ?? 'Topic Description',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        color: Color(0xFF4E4B66),
-                        fontSize: 13,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(fontWeight: FontWeight.w400, fontSize: 13),
                     ),
                   ],
                 ),

@@ -11,7 +11,7 @@ class AddNewsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,
         leading: Padding(
           padding: EdgeInsets.only(left: AppSize.size20),
@@ -21,14 +21,14 @@ class AddNewsView extends StatelessWidget {
             },
             child: const Icon(
               Icons.arrow_back_outlined,
-              color: Colors.black,
+              //  color: Colors.black,
             ),
           ),
         ),
         centerTitle: true,
         title: const Text(
           'Add News',
-          style: TextStyle(color: Colors.black),
+          // style: TextStyle(color: Colors.black),
         ),
         actions: [
           Padding(

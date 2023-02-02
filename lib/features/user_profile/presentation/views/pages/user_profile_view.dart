@@ -17,7 +17,7 @@ class UserprofileView extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.white,
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             elevation: 0,
             // leading: Padding(
             //   padding: EdgeInsets.only(left: AppSize.size20),
@@ -34,7 +34,7 @@ class UserprofileView extends StatelessWidget {
             centerTitle: true,
             title: const Text(
               'Profile',
-              style: TextStyle(color: Colors.black),
+              //  style: TextStyle(color: Colors.black),
             ),
             actions: [
               Padding(
@@ -47,7 +47,7 @@ class UserprofileView extends StatelessWidget {
                   },
                   icon: const Icon(
                     Icons.settings,
-                    color: Colors.black,
+                    // color: Colors.black,
                     size: 25,
                   ),
                 ),

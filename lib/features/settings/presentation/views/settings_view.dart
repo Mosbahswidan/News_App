@@ -8,21 +8,20 @@ class SettingsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: Colors.black,
+            //color: Colors.black,
           ),
         ),
         centerTitle: true,
         title: const Text(
           'Settings',
-          style: TextStyle(color: Colors.black),
+          //   style: TextStyle(color: Colors.black),
         ),
       ),
       body: const SettingsViewBody(),

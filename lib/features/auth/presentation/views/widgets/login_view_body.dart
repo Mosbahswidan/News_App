@@ -35,39 +35,36 @@ class LoginViewBody extends StatelessWidget {
             children: [
               Text(
                 "Hello",
-                style: TextStyle(
-                  color: Color(0xff050505),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 46.sp,
-                ),
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
               SizedBox(
                 height: 18.h,
               ),
               Text(
                 "Again!",
-                style: TextStyle(
-                  color: Color(0xff1877F2),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 46.sp,
-                ),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge
+                    ?.copyWith(color: const Color(0xff1877F2)),
               ),
               SizedBox(
                 height: 14.h,
               ),
               Text(
                 "Welcome back you’ve\nbeen missed",
-                style: TextStyle(
-                  fontSize: 20.sp,
-                  color: Color(0xff4E4B66),
-                ),
+
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
               SizedBox(
                 height: 30.h,
               ),
               Text(
                 "Email",
-                style: TextStyle(color: Color(0xff4E4B66), fontSize: 17.sp),
+
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(fontSize: 16.sp),
               ),
               SizedBox(
                 height: 10.h,
@@ -85,7 +82,10 @@ class LoginViewBody extends StatelessWidget {
               ),
               Text(
                 "Password",
-                style: TextStyle(color: Color(0xff4E4B66), fontSize: 17.sp),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(fontSize: 16.sp),
               ),
               SizedBox(
                 height: 12.h,
@@ -104,17 +104,23 @@ class LoginViewBody extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
+                  Text(
                     "Remember me",
-                    style: TextStyle(color: Color(0xff4E4B66)),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium
+                        ?.copyWith(fontSize: 16),
                   ),
                   InkWell(
                     onTap: () {
                       GoRouter.of(context).push(AppRouter.kResetPassword);
                     },
-                    child: const Text(
+                    child: Text(
                       "Reset password",
-                      style: TextStyle(color: Color(0xff1877F2)),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(fontSize: 16, color: Colors.blue),
                     ),
                   ),
                 ],
@@ -158,20 +164,24 @@ class LoginViewBody extends StatelessWidget {
               Center(
                 child: RichText(
                   text: TextSpan(
-                    text: "Dont have an account? ",
-                    style: TextStyle(color: Color(0xff667080), fontSize: 14.sp),
-                    children: [
-                      TextSpan(
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            GoRouter.of(context).pushReplacement(AppRouter.kSignUpView);
-                          },
-                        text: "Sign up",
-                        style: TextStyle(
-                            color: Color(0xff1877F2), fontSize: 14.sp, fontWeight: FontWeight.w600),
-                      )
-                    ],
-                  ),
+                      text: "Dont have an account? ",
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(fontSize: 14.sp),
+                      children: [
+                        TextSpan(
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                GoRouter.of(context)
+                                    .pushReplacement(AppRouter.kSignUpView);
+                              },
+                            text: "Sign up",
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(fontSize: 16.sp, color: Colors.blue))
+                      ]),
                 ),
               ),
             ],

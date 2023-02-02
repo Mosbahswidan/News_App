@@ -28,10 +28,8 @@ class SignUpTextField extends StatelessWidget {
         children: [
           Text(
             fieldTitle ?? "Text",
-            style: TextStyle(
-              color: kSecondaryColor,
-              fontSize: 14.sp,
-            ),
+            style:
+                Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14.sp),
           ),
           SizedBox(
             height: 10.h,

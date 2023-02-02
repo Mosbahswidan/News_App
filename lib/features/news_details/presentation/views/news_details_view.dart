@@ -15,15 +15,15 @@ class NewsDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0.0,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        //elevation: 0.0,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
           icon: const Icon(
             Icons.arrow_back,
-            color: kSecondaryColor,
+            //  color: kSecondaryColor,
             size: 25,
           ),
         ),
@@ -32,7 +32,7 @@ class NewsDetailsView extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(
               Icons.share,
-              color: kSecondaryColor,
+              //color: kSecondaryColor,
               size: 25,
             ),
           ),
@@ -43,7 +43,7 @@ class NewsDetailsView extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(
               Icons.more_vert,
-              color: kSecondaryColor,
+              //    color: kSecondaryColor,
               size: 25,
             ),
           ),

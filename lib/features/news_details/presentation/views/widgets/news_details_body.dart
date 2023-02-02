@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/constants.dart';
 import 'package:news_app/core/utils/app_size.dart';
+import 'package:news_app/features/home/presentation/views/widgets/small_text.dart';
 import 'package:news_app/features/news_details/presentation/views/widgets/follow_button.dart';
 import 'package:news_app/features/search/data/models/search_model.dart';
 
@@ -40,21 +41,20 @@ class NewsDetailsViewBody extends StatelessWidget {
                   children: [
                     Text(
                       model!.source!.name ?? 'BBC News',
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(fontWeight: FontWeight.w600, fontSize: 14),
                     ),
                     const SizedBox(
                       height: 8,
                     ),
                     Text(
                       '${timeAgo(model!.publishedAt!)}h ago',
-                      style: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                        color: kSecondaryColor,
-                      ),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(fontWeight: FontWeight.w400, fontSize: 12),
                     ),
                   ],
                 ),
@@ -75,15 +75,14 @@ class NewsDetailsViewBody extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 12.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12.0),
             child: Text(
               'Global',
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                color: kSecondaryColor,
-              ),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium
+                  ?.copyWith(fontWeight: FontWeight.w400, fontSize: 14),
             ),
           ),
           Text(
@@ -91,24 +90,25 @@ class NewsDetailsViewBody extends StatelessWidget {
                 'Ukraine\'s President Zelensky to BBC: Blood money being paid for Russian oil',
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.w400,
-            ),
+            style: Theme.of(context)
+                .textTheme
+                .bodySmall
+                ?.copyWith(fontWeight: FontWeight.w400, fontSize: 24),
           ),
           const SizedBox(
             height: 12,
           ),
-          Text(
-            model!.description ??
-                "Ukrainian President Volodymyr Zelensky has accused European countries that continue to buy Russian oil of 'earning their money in other people's blood. \n\nIn an interview with the BBC, President Zelensky singled out Germany and Hungary, accusing them of blocking efforts to embargo energy sales, from which Russia stands to make up to £250bn (\$326bn) this year.There has been a growing frustration among Ukraine's leadership with Berlin, which has backed some sanctions against Russia but so far resisted calls to back tougher action on oil sales.",
-            maxLines: 10,
-            overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
+          // Text(
+          //   model!.description ??
+          //       "Ukrainian President Volodymyr Zelensky has accused European countries that continue to buy Russian oil of 'earning their money in other people's blood. \n\nIn an interview with the BBC, President Zelensky singled out Germany and Hungary, accusing them of blocking efforts to embargo energy sales, from which Russia stands to make up to £250bn (\$326bn) this year.There has been a growing frustration among Ukraine's leadership with Berlin, which has backed some sanctions against Russia but so far resisted calls to back tougher action on oil sales.",
+          //   maxLines: 10,
+          //   overflow: TextOverflow.ellipsis,
+          //   style: const TextStyle(
+          //     fontSize: 16,
+          //     fontWeight: FontWeight.w400,
+          //   ),
+          // ),
+          SmallText(smallText: model!.description!),
           const SizedBox(
             height: 10,
           )

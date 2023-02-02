@@ -32,7 +32,8 @@ class UserProfileBody extends StatelessWidget {
                       BlocBuilder<AddNewsCubit, AddNewsState>(
                         builder: (context, state) {
                           //AddNewsCubit.get(context).getPosts();
-                          if (AddNewsCubit.get(context).socialUserModel != null) {
+                          if (AddNewsCubit.get(context).socialUserModel !=
+                              null) {
                             //  AddNewsCubit.get(context).getPosts();
                             print(true);
                             return Column(
@@ -41,47 +42,58 @@ class UserProfileBody extends StatelessWidget {
                                 SizedBox(
                                   height: 80,
                                   child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       CircleAvatar(
                                         backgroundColor: Colors.transparent,
-                                        backgroundImage: NetworkImage(snapshot.data!.image!),
+                                        backgroundImage:
+                                            NetworkImage(snapshot.data!.image!),
                                         radius: 40,
                                       ),
                                       Column(
                                         //mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                        children: const [
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
                                           Text(
                                             "1.2M",
                                             //textAlign: TextAlign.end,
-                                            style: TextStyle(
-                                                color: Colors.black, fontWeight: FontWeight.bold),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall,
                                           ),
-                                          SmallText(smallText: "Followers"),
+                                          const SmallText(
+                                              smallText: "Followers"),
                                         ],
                                       ),
                                       Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                        children: const [
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
                                           Text(
                                             "12.4K",
-                                            style: TextStyle(
-                                                color: Colors.black, fontWeight: FontWeight.bold),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall,
                                           ),
-                                          SmallText(smallText: "Following"),
+                                          const SmallText(
+                                              smallText: "Following"),
                                         ],
                                       ),
                                       Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                        children: const [
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
                                           Text(
                                             "326",
-                                            style: TextStyle(
-                                                color: Colors.black, fontWeight: FontWeight.bold),
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall,
                                           ),
-                                          SmallText(smallText: "News"),
+                                          const SmallText(smallText: "News"),
                                         ],
                                       ),
                                     ],
@@ -92,20 +104,25 @@ class UserProfileBody extends StatelessWidget {
                                 ),
                                 Text(
                                   snapshot.data!.fullName ?? 'Full Name',
-                                  style:
-                                      TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall
+                                      ?.copyWith(
+                                          color: Colors.white, fontSize: 16),
                                 ),
                                 SizedBox(
                                   height: AppSize.size10,
                                 ),
-                                SmallText(smallText: snapshot.data!.bio ?? 'bio'),
+                                SmallText(
+                                    smallText: snapshot.data!.bio ?? 'bio'),
                                 SizedBox(
                                   height: AppSize.size20,
                                 ),
                               ],
                             );
                           } else {
-                            return const Center(child: CircularProgressIndicator());
+                            return const Center(
+                                child: CircularProgressIndicator());
                           }
                         },
                       ),
@@ -117,8 +134,9 @@ class UserProfileBody extends StatelessWidget {
                             height: 50,
                             child: ProfileButton(
                               onPressed: () {
-                                GoRouter.of(context)
-                                    .push(AppRouter.kEditProfile, extra: cubit.socialUserModel);
+                                GoRouter.of(context).push(
+                                    AppRouter.kEditProfile,
+                                    extra: cubit.socialUserModel);
                               },
                               text: "Edit Profile",
                             ),
@@ -127,16 +145,20 @@ class UserProfileBody extends StatelessWidget {
                             width: 4.w,
                           ),
                           const Expanded(
-                              child: SizedBox(height: 50, child: ProfileButton(text: "Website"))),
+                              child: SizedBox(
+                                  height: 50,
+                                  child: ProfileButton(text: "Website"))),
                         ],
                       ),
                       SizedBox(
                         height: AppSize.size20,
                       ),
-                      const Text(
+                      Text(
                         "News",
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodySmall
+                            ?.copyWith(fontSize: 16),
                       ),
                       const GetUserPostList(),
                       // if (state is SocialGetPostsSuccsess)

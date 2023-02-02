@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:news_app/constants.dart';
 import 'package:news_app/features/home/presentation/views/widgets/latest_view_body.dart';
 
 class LatestView extends StatelessWidget {
@@ -32,7 +33,6 @@ class LatestView extends StatelessWidget {
         appBar: AppBar(
           title: const Text(
             "Latest",
-            style: TextStyle(color: Colors.black),
           ),
           centerTitle: true,
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -43,15 +43,17 @@ class LatestView extends StatelessWidget {
               },
               icon: const Icon(
                 Icons.arrow_back_outlined,
-                color: Colors.black,
+                //  color: Colors.black,
               )),
           actions: const [
             Icon(
               Icons.more_vert,
-              color: Colors.black,
+              //    color: Colors.black,
             )
           ],
           bottom: const TabBar(
+            //   labelStyle:
+            //    Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14),
             indicatorWeight: 5,
             tabs: [
               Tab(
@@ -73,7 +75,7 @@ class LatestView extends StatelessWidget {
               ),
             ],
             labelPadding: EdgeInsets.zero,
-            labelColor: Colors.black,
+            // labelColor: ,
             indicatorSize: TabBarIndicatorSize.label,
             indicatorPadding: EdgeInsets.zero,
           ),

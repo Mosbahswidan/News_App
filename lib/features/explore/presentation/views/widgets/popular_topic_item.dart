@@ -42,13 +42,12 @@ class PopularTopicItem extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const Text(
+              Text(
                 'Global',
-                style: TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w400,
-                  color: kSecondaryColor,
-                ),
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.copyWith(fontWeight: FontWeight.w400, fontSize: 14),
               ),
               const SizedBox(
                 height: 10,
@@ -79,18 +78,17 @@ class PopularTopicItem extends StatelessWidget {
                   ),
                   Text(
                     model!.source!.name ?? 'BBC News',
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: kSecondaryColor,
-                    ),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium
+                        ?.copyWith(fontWeight: FontWeight.w600, fontSize: 16),
                   ),
                   const SizedBox(
                     width: 20,
                   ),
                   const Icon(
                     Icons.access_time_rounded,
-                    color: kSecondaryColor,
+                    // color: kSecondaryColor,
                     size: 18,
                   ),
                   const SizedBox(
@@ -99,11 +97,10 @@ class PopularTopicItem extends StatelessWidget {
                   Expanded(
                     child: Text(
                       '${timeAgo(model!.publishedAt!)}h ago',
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: kSecondaryColor,
-                      ),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(fontWeight: FontWeight.w400, fontSize: 14),
                     ),
                   ),
                   IconButton(

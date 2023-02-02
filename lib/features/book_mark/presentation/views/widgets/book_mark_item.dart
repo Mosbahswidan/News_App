@@ -45,11 +45,10 @@ class BookMarkItem extends StatelessWidget {
                   children: [
                     Text(
                       'Global',
-                      style: const TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w400,
-                        color: kSecondaryColor,
-                      ),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium
+                          ?.copyWith(fontWeight: FontWeight.w400, fontSize: 13),
                     ),
                     const SizedBox(
                       height: 6,
@@ -74,7 +73,9 @@ class BookMarkItem extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           CircleAvatar(
-                              radius: 12, backgroundImage: AssetImage('assets/images/news.png')),
+                              radius: 12,
+                              backgroundImage:
+                                  AssetImage('assets/images/news.png')),
                           const SizedBox(
                             width: 8,
                           ),
@@ -84,11 +85,12 @@ class BookMarkItem extends StatelessWidget {
                               children: [
                                 Text(
                                   model!.source!.name ?? 'BBC News',
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    color: kSecondaryColor,
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium
+                                      ?.copyWith(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 12),
                                 ),
                                 const SizedBox(
                                   width: 10,
@@ -97,7 +99,7 @@ class BookMarkItem extends StatelessWidget {
                                   children: [
                                     const Icon(
                                       Icons.access_time_rounded,
-                                      color: kSecondaryColor,
+                                      // color: kSecondaryColor,
                                       size: 18,
                                     ),
                                     const SizedBox(
@@ -105,11 +107,12 @@ class BookMarkItem extends StatelessWidget {
                                     ),
                                     Text(
                                       '${timeAgo(model!.publishedAt!)}h ago',
-                                      style: const TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400,
-                                        color: kSecondaryColor,
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodyMedium
+                                          ?.copyWith(
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 12),
                                     ),
                                   ],
                                 ),

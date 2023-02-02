@@ -40,21 +40,17 @@ class SignUpViewBody extends StatelessWidget {
                   ),
                   Text(
                     "Hello!",
-                    style: TextStyle(
-                      color: kPrimaryColor,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 46.sp,
-                    ),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge
+                        ?.copyWith(color: Color(0xff1877F2)),
                   ),
                   SizedBox(
                     height: 16.h,
                   ),
                   Text(
                     "Signup to get started",
-                    style: TextStyle(
-                      fontSize: 20.sp,
-                      color: Color(0xff4E4B66),
-                    ),
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   SizedBox(
                     height: 10.h,
@@ -102,9 +98,12 @@ class SignUpViewBody extends StatelessWidget {
                               if (cubit.formKey.currentState!.validate()) {
                                 cubit.signUp(
                                   email: cubit.emailController.text.trim(),
-                                  password: cubit.passwordController.text.trim(),
-                                  username: cubit.usernameController.text.trim(),
-                                  fullName: cubit.fullNameController.text.trim(),
+                                  password:
+                                      cubit.passwordController.text.trim(),
+                                  username:
+                                      cubit.usernameController.text.trim(),
+                                  fullName:
+                                      cubit.fullNameController.text.trim(),
                                   phone: cubit.phoneController.text.trim(),
                                   context: context,
                                 );
@@ -119,22 +118,25 @@ class SignUpViewBody extends StatelessWidget {
                     child: RichText(
                       text: TextSpan(
                         text: "have an account already? ",
-                        style: TextStyle(
-                          color: Color(0xff667080),
-                          fontSize: 14.sp,
-                        ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(fontSize: 14.sp),
                         children: [
                           TextSpan(
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
+                                GoRouter.of(context)
+                                    .pushReplacement(AppRouter.kLoginView);
                               },
                             text: " Login",
-                            style: TextStyle(
-                              color: kPrimaryColor,
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                    color: Colors.blue,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600,),
                           ),
                         ],
                       ),
