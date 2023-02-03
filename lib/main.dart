@@ -16,10 +16,10 @@ void main() async {
   await CachHelper.init();
 
   //CachHelper.saveData(key: 'isDark', value: true);
-  bool isDark = CachHelper.getData(key: 'isDark');
+ // bool isDark = CachHelper.getData(key: 'isDark');
   Bloc.observer = Observer();
 
-  runApp(MyApp(isDark: isDark));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -52,7 +52,9 @@ class MyApp extends StatelessWidget {
                 title: 'NewsApp',
                 theme: lightThemeData,
                 darkTheme: darkThemeData,
-                themeMode: SettingsCubit.get(context).isDark ? ThemeMode.dark : ThemeMode.light,
+                themeMode: SettingsCubit.get(context).isDark
+                    ? ThemeMode.dark
+                    : ThemeMode.light,
               );
             },
           ),
