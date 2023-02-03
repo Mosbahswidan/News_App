@@ -41,9 +41,13 @@ class _SplashViewbodyState extends State<SplashViewbody> {
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        CachHelper.getData(key: 'uId') == null
-            ? GoRouter.of(context).pushReplacement(AppRouter.kLoginView)
-            : GoRouter.of(context).pushReplacement(AppRouter.kBottomNavBar);
+        if (CachHelper.getData(key: "onBoarding") == true) {
+          CachHelper.getData(key: 'uId') == null
+              ? GoRouter.of(context).pushReplacement(AppRouter.kLoginView)
+              : GoRouter.of(context).pushReplacement(AppRouter.kBottomNavBar);
+        } else {
+          GoRouter.of(context).pushReplacement(AppRouter.kOnBoarding);
+        }
       },
     );
   }
