@@ -1,3 +1,4 @@
+import 'package:news_app/core/utils/chach_helper.dart';
 import 'package:news_app/core/utils/export.dart';
 import 'package:news_app/core/utils/firestore_services.dart';
 import 'package:news_app/features/book_mark/presentation/view_model/book_mark_state.dart';
@@ -24,8 +25,7 @@ class BookMarkCubit extends Cubit<BookMarkState> {
   News? bookMarkModel;
   Stream<List<News>> getBookMark() {
     return services.collectionsStream(
-        path: 'users/$uID/bookMarks/',
+        path: 'users/${CachHelper.getData(key: 'uId')}/bookMarks/',
         builder: (data, documentId) => bookMarkModel = News.fromJson(data!));
   }
-  
 }

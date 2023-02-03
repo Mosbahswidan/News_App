@@ -1,4 +1,5 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:news_app/core/utils/chach_helper.dart';
 import 'package:news_app/core/utils/export.dart';
 import '../../../../../core/utils/assets_data.dart';
 
@@ -40,7 +41,9 @@ class _SplashViewbodyState extends State<SplashViewbody> {
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        GoRouter.of(context).pushReplacement(AppRouter.kLoginView);
+        CachHelper.getData(key: 'uId') == null
+            ? GoRouter.of(context).pushReplacement(AppRouter.kLoginView)
+            : GoRouter.of(context).pushReplacement(AppRouter.kBottomNavBar);
       },
     );
   }
