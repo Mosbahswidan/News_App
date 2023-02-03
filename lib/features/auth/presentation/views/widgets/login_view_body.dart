@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/core/utils/app_router.dart';
+import 'package:news_app/core/utils/chach_helper.dart';
 import 'package:news_app/core/utils/functions.dart';
 import 'package:news_app/core/widgets/custom_snack_bar.dart';
 import 'package:news_app/features/auth/presentation/view_models/login_cubit/login_cubit.dart';
@@ -41,17 +42,14 @@ class LoginViewBody extends StatelessWidget {
               ),
               Text(
                 "Again!",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyLarge
-                    ?.copyWith(color: const Color(0xff1877F2)),
+                style:
+                    Theme.of(context).textTheme.bodyLarge?.copyWith(color: const Color(0xff1877F2)),
               ),
               SizedBox(
                 height: 14.h,
               ),
               Text(
                 "Welcome back you’ve\nbeen missed",
-
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               SizedBox(
@@ -59,11 +57,7 @@ class LoginViewBody extends StatelessWidget {
               ),
               Text(
                 "Email",
-
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
-                    ?.copyWith(fontSize: 16.sp),
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp),
               ),
               SizedBox(
                 height: 10.h,
@@ -81,10 +75,7 @@ class LoginViewBody extends StatelessWidget {
               ),
               Text(
                 "Password",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
-                    ?.copyWith(fontSize: 16.sp),
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16.sp),
               ),
               SizedBox(
                 height: 12.h,
@@ -105,10 +96,7 @@ class LoginViewBody extends StatelessWidget {
                 children: [
                   Text(
                     "Remember me",
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium
-                        ?.copyWith(fontSize: 16),
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 16),
                   ),
                   InkWell(
                     onTap: () {
@@ -129,6 +117,9 @@ class LoginViewBody extends StatelessWidget {
               ),
               BlocConsumer<LoginCubit, LoginState>(
                 listener: (context, state) {
+                  if (state is LoginSuccsess) {
+                    CachHelper.saveData(key: 'uId', value: state.uId);
+                  }
                   if (state is LoginError) {
                     customSnackBar(context, "email or password invalid");
                   }
@@ -164,16 +155,12 @@ class LoginViewBody extends StatelessWidget {
                 child: RichText(
                   text: TextSpan(
                       text: "Dont have an account? ",
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium
-                          ?.copyWith(fontSize: 14.sp),
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontSize: 14.sp),
                       children: [
                         TextSpan(
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                GoRouter.of(context)
-                                    .pushReplacement(AppRouter.kSignUpView);
+                                GoRouter.of(context).pushReplacement(AppRouter.kSignUpView);
                               },
                             text: "Sign up",
                             style: Theme.of(context)

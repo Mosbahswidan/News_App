@@ -1,7 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news_app/core/utils/export.dart';
 
-ThemeData darkThemeData() => ThemeData(
+ThemeData darkThemeData = ThemeData(
       primaryColor: Colors.white,
       brightness: Brightness.dark,
       textTheme: TextTheme(
@@ -33,7 +33,7 @@ ThemeData darkThemeData() => ThemeData(
       iconTheme: const IconThemeData(color: Colors.white),
     );
 
-ThemeData lightThemeData() => ThemeData(
+ThemeData lightThemeData = ThemeData(
     primaryColor: Colors.black,
     brightness: Brightness.light,
     textTheme: TextTheme(

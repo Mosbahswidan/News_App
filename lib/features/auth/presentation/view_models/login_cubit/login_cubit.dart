@@ -8,17 +8,20 @@ part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
+
   static LoginCubit get(context) => BlocProvider.of(context);
-  Future<void> signIn(
-      {required String email,
-      required String password,
-      required BuildContext context}) async {
+
+  Future<void> signIn({
+    required String email,
+    required String password,
+    required BuildContext context,
+  }) async {
     emit(LoginLoading());
     FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
       uID = value.user!.uid;
-      emit(LoginSuccsess());
+      emit(LoginSuccsess(uID));
       GoRouter.of(context).pushReplacement(AppRouter.kBottomNavBar);
     }).catchError((e) {
       emit(LoginError());
